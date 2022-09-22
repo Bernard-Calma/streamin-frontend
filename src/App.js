@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-
+// Import bootstrap css
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// Import the Header Components 
+import Header from './components/Header'
+//Import the Footer Components
+import Footer from './components/Footer'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Added the footer and header component that will display on the homepage & User page */}
+      {/* <Header/>
+      <Footer/> */}
     </div>
   );
 }
