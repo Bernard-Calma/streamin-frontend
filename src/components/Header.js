@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
-
 // Import the bootstrap styling
-import Container from 'react-bootstrap/Container';
+// import Container from 'react-bootstrap/Container';
 // import Nav from 'react-bootstrap/Nav';
 // import Navbar from 'react-bootstrap/Navbar';
 
