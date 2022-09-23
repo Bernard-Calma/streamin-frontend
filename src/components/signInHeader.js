@@ -7,7 +7,7 @@ import React, {Component} from 'react'
 // Import Searchbar Component
 import SeachBar from './SearchBar';
 
-class signInHeader extends Component  {
+class SignInHeader extends Component  {
     // constructor(props) {
     //     super(props)
     // }
@@ -40,4 +40,4 @@ class signInHeader extends Component  {
     }
 }
 
-export default signInHeader
+export default SignInHeader
