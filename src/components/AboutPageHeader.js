@@ -1,13 +1,6 @@
 import React, {Component} from 'react'
-// Import the bootstrap styling
-// import Container from 'react-bootstrap/Container';
-// import Nav from 'react-bootstrap/Nav';
-// import Navbar from 'react-bootstrap/Navbar';
 
-// Import Searchbar Component
-import SeachBar from './SearchBar';
-
-class SignInHeader extends Component  {
+class AboutPageHeader extends Component  {
     // constructor(props) {
     //     super(props)
     // }
@@ -22,15 +15,14 @@ class SignInHeader extends Component  {
                 
                 <ul className="nav-menu">
                 <li className="nav-item">
-                <a className="homepageLink" href="/">
+                <a className="homepageLink" href="#">
                     {/* Add image or App title  */}
                     Streamin
                 </a>
                 </li>
-                <SeachBar/>
                     <li className="nav-item">
                         <a className="nav-link" href="#"> 
-                        Sign Out
+                        About
                         </a>
                     </li>
                 </ul>
@@ -40,4 +32,4 @@ class SignInHeader extends Component  {
     }
 }
 
-export default SignInHeader
+export default AboutPageHeader

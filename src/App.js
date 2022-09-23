@@ -1,28 +1,76 @@
+import React , {Component} from "react"
 import './App.css';
-// Import bootstrap css
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
-// Import the Header/Navbar Component
+// Import the Header Components 
 import Header from './components/Header'
-//Import the Footer Component
-import Footer from './components/Footer'
-// Import the signInHeader Component
 import SignInHeader from './components/signInHeader'
-//Import the aboutPageHeader Component
-import AboutPageHeader from './components/AboutPageHeader'
 
-function App() {
-  return (
-    <div className="App">
-      {/* Added the footer and header component that will display on the homepage & User page */}
-      {/* <Header/>
-      <Footer/> */}
-      {/* SignIn Header Component that has Searchbar Component*/}
-      {/* <SignInHeader/> */}
-      {/* Aboutpage Header Component */}
-      <aboutPageHeader/>
-    </div>
-  );
+//Signin Component
+// >>Import Signin component here<<
+
+// Import the Footer Components
+import Footer from './components/Footer'
+
+// Import bootstrap css
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      username: "",
+      password: "",
+      user: "",
+      loggedIn: false,
+    }
+  }
+
+  handleChange = (e) => {
+    e.preventDefault();
+    this.setState({
+        [e.target.name]: e.target.value,
+        [e.target.name]: e.target.value,
+    })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(this.state)
+    fetch(`http://localhost:3003/users/login/${this.state.username}/${this.state.password}`)
+    .then(res => {
+        if(res.status === 200) {
+            return res.json();
+        } else {
+            return []
+        }
+    })
+    .then(data => {
+        this.setState({
+            user: data
+        })  
+    })
+  }
+
+  render() {
+    // if logged in is false
+    return( !this.state.loggedIn
+      ? <>
+          <Header />
+          {/* Sample component that pass functions into component */}
+          {/* To call use onChange={this.props.handleChange} / onSubmit = {this.props.handleSubmit}  */}
+          {/* <SignIn handleChange = {this.handleChange} handleChange = {this.handleSubmit}/> */}
+          <Footer />
+        </>
+      : <>
+        {/* If login successful change state.loggedIn to true */}
+        {/* // Pass in User Component  */}
+        <SignInHeader />
+        <div>User Component</div>
+        <Footer />
+      </>
+                                
+    )
+  }
 }
 
 export default App;

@@ -1,7 +1,7 @@
 import React from 'react';
 // Import FontAwesome icon for the search bar
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 
 const SeachBar =() => {
     return(
@@ -16,8 +16,8 @@ const SeachBar =() => {
             name="s" 
         />
         <button type="submit">
-            Submit
-            {/* <FontAwesomeIcon icon={solid( "magnifying-glass")} /> */}
+            Search
+            <FontAwesomeIcon icon={solid( "magnifying-glass")} />
         </button>
     </form>
     )
