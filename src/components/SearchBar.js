@@ -5,7 +5,7 @@ import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/
 
 const SeachBar =() => {
     return(
-        <form action="/" method="get">
+        <form >
         <label htmlFor="header-search">
             <span className="visually-hidden"></span>
         </label>
@@ -17,7 +17,7 @@ const SeachBar =() => {
         />
         <button type="submit">
             Search
-            <FontAwesomeIcon icon={solid( "magnifying-glass")} />
+             <FontAwesomeIcon icon={solid( "magnifying-glass")} />
         </button>
     </form>
     )
