@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 // REGISTER COMPONENT
-// ---->> import register component here <<----
+import Register from './Register'
 
 class SignIn extends Component {
     constructor(props){
@@ -51,8 +51,10 @@ class SignIn extends Component {
             </div>
             // if register is true show register component
             : <>
-                {/* Add Register Component Here */}
-                <div>Register Component</div>
+                <Register
+                    handleRegister={this.props.handleRegister}
+                    handleChange={this.props.handleChange}
+                />
             </>
         );
     }

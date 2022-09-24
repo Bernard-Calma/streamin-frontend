@@ -22,8 +22,10 @@ class App extends Component {
     this.state = {
       username: "",
       password: "",
+      name: "",
       user: "",
       loggedIn: false,
+      loginMessage: "",
     }
   }
 
@@ -42,15 +44,23 @@ class App extends Component {
     .then(res => {
         if(res.status === 200) {
             return res.json();
-        } else {
-            return []
+        } else { 
+          return []
         }
     })
     .then(data => {
+      if(data.length === 0) {
         this.setState({
-            user: data,
-            loggedIn: true,
-        })  
+          loggedIn: false,
+          loginMessage: "User not found."
+        }) 
+      } else {
+        this.setState({
+          user: data,
+          loggedIn: true,
+      })  
+      }
+        
     })
   }
 
@@ -61,12 +71,49 @@ class App extends Component {
     })
 }
 
+handleRegister = (e) => {
+  e.preventDefault();
+  fetch(`http://localhost:3003/users/`, {
+      method: "POST",
+      body: JSON.stringify(this.state),
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  }).then(res => res.json())
+  .then(resJson => {
+      if(!resJson._id) {
+        console.log(resJson.error)
+        this.setState({
+          loginMessage: "Username is already taken.",
+        })
+      } else {
+        // console.log("JSon", resJson)
+        this.setState({
+          username: "",
+          password: "",
+          name: "",
+          user: resJson,
+          loggedIn: true,
+          register: false,
+          loginMessage: "Account Created."
+        })
+      } 
+      
+  })
+}
+
   render() {
     // if logged in is false
     return( !this.state.loggedIn
       ? <>
           <Header />
-          <SignIn handleChange = {this.handleChange} handleLogin = {this.handleLogin}/>
+          <SignIn
+            handleChange = {this.handleChange}
+            handleLogin = {this.handleLogin}
+            handleRegister = {this.handleRegister}
+            />
+            {/* For Testing Login/Register Message  */}
+            <p>{this.state.loginMessage}</p>
           <Footer />
         </>
       : <>
