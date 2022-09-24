@@ -66,7 +66,11 @@ class App extends Component {
     return( !this.state.loggedIn
       ? <>
           <Header />
-          <SignIn handleChange = {this.handleChange} handleLogin = {this.handleLogin}/>
+          <SignIn
+            handleChange = {this.handleChange}
+            handleLogin = {this.handleLogin}
+            handleRegister = {this.handleRegister}
+            />
           <Footer />
         </>
       : <>
