@@ -15,6 +15,7 @@ import Footer from './components/Footer'
 // Import bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 class App extends Component {
   constructor(props){
     super(props)
@@ -73,7 +74,6 @@ class App extends Component {
         {/* // Pass in User Component  */}
         <SignInHeader signOut={this.handleSignOut}/>
         <div>User Component</div>
-        
         <Footer />
       </>
                                 

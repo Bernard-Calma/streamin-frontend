@@ -8,7 +8,7 @@ import React, {Component} from 'react'
 import SeachBar from './SearchBar';
 
 //Import SignOut Component
-import SignOut from './SignOut'
+import SignOut from './signout'
 
 class SignInHeader extends Component  {
     // constructor(props) {

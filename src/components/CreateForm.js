@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
-
+//Import Bootstrap styling for form
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 class CreateForm extends Component {
  constructor(props){
     super(props)
@@ -49,50 +51,66 @@ class CreateForm extends Component {
 
 render(){
     return(
-        <form onSubmit = {this.handleSubmit}>
-             <label htmlFor="videoLink">Video </label>
-             {/* videoLink input*/}
-                <input 
-                    type="text" 
-                    id="videoLink" 
-                    name="videoLink" 
-                    onChange={this.handleChange}
-                    value={this.state.videoLink}
-                    placeholder="Add a Video"
-                />
-                {/* Title Input */}
-                <label htmlFor="title">Title: </label>
-                <input 
-                    type="text" 
-                    id="title" 
-                    name="title" 
-                    onChange={this.handleChange}
-                    value={this.state.title}
-                    placeholder="Title"
-                />
-                {/* Description Textarea */}
-                <label htmlFor="description">Description: </label>
-                <textarea
-                id="description"
-                name = "description"
-                // onChange={this.handleChange}
-                value={this.state.description}
-                onChange={this.handleChange}>
-                </textarea>
-                {/* Tag Dropdown/ Option */}
-                {/* Testing how to do tags */}
-                <label htmlFor="tags">Tags: </label>
-                <select id="tags"
-                 onChange={this.handleChange}
-                 value={this.state.tags} name="tags">
-                <option value="Test1">Test 1</option>
-                <option value="Test2">Test 2</option>
-                <option value="Test3">Test 3</option>
-                </select>
+        <div className="container formContainer">
 
-                {/* Submit  */}
-                <input type="submit" value="Submit your viedo" />
-        </form>
+            <h2 className="createFormHeader">Create Video Form</h2>
+            <Form id="createForm">
+                {/* videoLink input*/}
+            <Form.Group className="mb-3" controlId="videoLink">
+                <Form.Label htmlFor="videoLink">Video Link</Form.Label>
+                <Form.Control type="text" placeholder="Add your Video link" 
+                name="videoLink" 
+                onChange={this.handleChange}
+                value={this.state.videoLink}
+                />
+        {/* <Form.Text className="text-muted">
+          We'll never share your email with anyone else.
+        </Form.Text> */}
+      </Form.Group>
+        {/* Title Input */}
+      <Form.Group className="mb-3" controlId="title">
+        <Form.Label htmlFor="title">Title</Form.Label>
+        <Form.Control 
+            type="text"
+            id="title" 
+            name="title" 
+            onChange={this.handleChange}
+            value={this.state.title}
+            placeholder="Title" />
+      </Form.Group>
+    {/* Description Textarea */}
+      <Form.Group className="mb-3" controlId="description">
+      <Form.Label htmlFor="description">Description</Form.Label>
+        <Form.Control 
+            as="textarea" rows={3}
+            name="description" 
+            value={this.state.description}
+            onChange={this.handleChange}
+            placeholder="Description" />
+      </Form.Group>
+      {/* Tag Dropdown/ Option */}
+      {/* Testing how to do tags */}
+      <Form.Group className="mb-3">
+      <Form.Select aria-label="Tags"
+      id="tags"
+      onChange={this.handleChange}
+      value={this.state.tags} name="tags">
+        <option>Select your Tag </option>
+        <option value="Test-1">Test 1</option>
+        <option value="Test-2">Test 2</option>
+        <option value="Test-3">Test 3</option>
+        </Form.Select>
+      </Form.Group>
+    <Form.Group className="mb-3">
+         <Button variant="primary" className="createVideoBtn" type="submit">
+        Submit Your Video
+      </Button>
+    </Form.Group>
+     
+    </Form>
+        
+        </div>
+        
     )
     }
 }
