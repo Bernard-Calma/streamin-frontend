@@ -54,6 +54,13 @@ class App extends Component {
     })
   }
 
+  handleSignOut = (e) => {
+    e.preventDefault()
+    this.setState({
+        loggedIn : false
+    })
+}
+
   render() {
     // if logged in is false
     return( !this.state.loggedIn
@@ -65,7 +72,7 @@ class App extends Component {
       : <>
         {/* If login successfull change state.loggedIn to true */}
         {/* // Pass in User Component  */}
-        <SignInHeader />
+        <SignInHeader signOut={this.handleSignOut}/>
         <div>User Component</div>
         <Footer />
       </>
