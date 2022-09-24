@@ -7,6 +7,9 @@ import React, {Component} from 'react'
 // Import Searchbar Component
 import SeachBar from './SearchBar';
 
+//Import SignOut Component
+import SignOut from './SignOut'
+
 class SignInHeader extends Component  {
     // constructor(props) {
     //     super(props)
@@ -28,11 +31,9 @@ class SignInHeader extends Component  {
                 </a>
                 </li>
                 <SeachBar/>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#"> 
-                        Sign Out
-                        </a>
-                    </li>
+                <li className="nav-item">
+                    <SignOut signOut={this.props.signOut}/>
+                </li>
                 </ul>
             </nav>
        </div>

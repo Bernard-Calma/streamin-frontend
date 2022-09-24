@@ -7,7 +7,7 @@ import SignInHeader from './components/signInHeader'
 
 //Signin Component
 // >>Import Signin component here<<
-import SignIn from "./components/signin-register";
+import SignIn from "./components/SignIn";
 
 // Import the Footer Components
 import Footer from './components/Footer'
@@ -53,6 +53,13 @@ class App extends Component {
     })
   }
 
+  handleSignOut = (e) => {
+    e.preventDefault()
+    this.setState({
+        loggedIn : false
+    })
+}
+
   render() {
     // if logged in is false
     return( !this.state.loggedIn
@@ -64,7 +71,7 @@ class App extends Component {
       : <>
         {/* If login successful change state.loggedIn to true */}
         {/* // Pass in User Component  */}
-        <SignInHeader />
+        <SignInHeader signOut={this.handleSignOut}/>
         <div>User Component</div>
         
         <Footer />
