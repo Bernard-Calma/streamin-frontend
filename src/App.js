@@ -1,7 +1,6 @@
 import React , {Component} from "react"
 import './App.css';
 
-
 // Import the Header Components 
 import Header from './components/Header'
 import SignInHeader from './components/signInHeader'
@@ -70,7 +69,7 @@ class App extends Component {
           <Footer />
         </>
       : <>
-        {/* If login successfull change state.loggedIn to true */}
+        {/* If login successful change state.loggedIn to true */}
         {/* // Pass in User Component  */}
         <SignInHeader signOut={this.handleSignOut}/>
         <div>User Component</div>
