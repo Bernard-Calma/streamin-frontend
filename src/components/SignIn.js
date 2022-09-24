@@ -1,44 +1,31 @@
 import React, { Component } from 'react'
 
+// REGISTER COMPONENT
+// ---->> import register component here <<----
+
 class SignIn extends Component {
     constructor(props){
         super(props)
         this.state = {
-            username: '',
-            password: ''
+            register: false,
         }
     }
-
-    handleChange = (event) => {
+    onClickRegister = (e) => {
         this.setState({
-            [event.target.name]: event.target.value
+            register: true,
         })
     }
-
-    handleSubmit = (event) => {
-        event.preventDefault()
-        this.props.users.forEach((user) => {
-            if(user.name === this.state.username && user.password === this.state.password) {
-                console.log('YESSSS')
-                return
-            } else {
-                console.log('NOOOO')
-                return
-            }
-        })
-    }
-
     render() {
-        return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+                // if register state is false show login component
+        return ( !this.state.register 
+            ?<div>
+                <form onSubmit={this.props.handleLogin}>
                     <div>
                         <label>Username: </label>
                         <input
                             type="text"
                             name="username"
-                            value={this.state.username}
-                            onChange={this.handleChange}
+                            onChange={this.props.handleChange}
                             required
                         />
                     </div>
@@ -47,8 +34,7 @@ class SignIn extends Component {
                         <input
                             type="password"
                             name="password"
-                            value={this.state.password}
-                            onChange={this.handleChange}
+                            onChange={this.props.handleChange}
                         />
                     </div>
                     <div>
@@ -60,9 +46,14 @@ class SignIn extends Component {
                 </form>
                 <div>
                     Want to join?
-                    Register <a>here</a>.
+                    Register <a onClick={this.onClickRegister}>here</a>.
                 </div>
             </div>
+            // if register is true show register component
+            : <>
+                {/* Add Register Component Here */}
+                <div>Register Component</div>
+            </>
         );
     }
 }
