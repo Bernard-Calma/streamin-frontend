@@ -7,7 +7,7 @@ import Header from './components/Header'
 import SignInHeader from './components/signInHeader'
 
 //Signin Component
-// >>Import Signin component here<<
+import SignIn from "./components/SignIn";
 
 // Import the Footer Components
 import Footer from './components/Footer'
@@ -59,7 +59,7 @@ class App extends Component {
           <Header />
           {/* Sample component that pass functions into component */}
           {/* To call use onChange={this.props.handleChange} / onSubmit = {this.props.handleSubmit}  */}
-          {/* <SignIn handleChange = {this.handleChange} handleChange = {this.handleSubmit}/> */}
+          {<SignIn handleChange = {this.handleChange} handleSubmit = {this.handleSubmit}/>}
           <Footer />
         </>
       : <>
