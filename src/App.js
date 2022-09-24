@@ -8,6 +8,7 @@ import SignInHeader from './components/signInHeader'
 
 //Signin Component
 // >>Import Signin component here<<
+import SignIn from "./components/signin-register";
 
 // Import the Footer Components
 import Footer from './components/Footer'
@@ -34,7 +35,7 @@ class App extends Component {
     })
   }
 
-  handleSubmit = (e) => {
+  handleLogin = (e) => {
     e.preventDefault();
     // console.log(this.state)
     fetch(`http://localhost:3003/users/login/${this.state.username}/${this.state.password}`)
@@ -47,7 +48,8 @@ class App extends Component {
     })
     .then(data => {
         this.setState({
-            user: data
+            user: data,
+            loggedIn: true,
         })  
     })
   }
@@ -57,9 +59,7 @@ class App extends Component {
     return( !this.state.loggedIn
       ? <>
           <Header />
-          {/* Sample component that pass functions into component */}
-          {/* To call use onChange={this.props.handleChange} / onSubmit = {this.props.handleSubmit}  */}
-          {/* <SignIn handleChange = {this.handleChange} handleChange = {this.handleSubmit}/> */}
+          <SignIn handleChange = {this.handleChange} handleLogin = {this.handleLogin}/>
           <Footer />
         </>
       : <>
