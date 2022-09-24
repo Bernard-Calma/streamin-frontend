@@ -66,6 +66,7 @@ class App extends Component {
         {/* // Pass in User Component  */}
         <SignInHeader />
         <div>User Component</div>
+        
         <Footer />
       </>
                                 
