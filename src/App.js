@@ -8,7 +8,7 @@ import SignInHeader from './components/signInHeader'
 
 //Signin Component
 // >>Import Signin component here<<
-import SignIn from "./components/signin-register";
+import SignIn from "./components/SignIn";
 
 // Import the Footer Components
 import Footer from './components/Footer'
