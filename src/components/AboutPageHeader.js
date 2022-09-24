@@ -22,7 +22,7 @@ class AboutPageHeader extends Component  {
                 </li>
                     <li className="nav-item">
                         <a className="nav-link" href="#"> 
-                        About
+                        Sign Up/Login
                         </a>
                     </li>
                 </ul>

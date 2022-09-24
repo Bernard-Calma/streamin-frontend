@@ -107,8 +107,7 @@ render(){
       </Button>
     </Form.Group>
      
-    </Form>
-        
+    </Form> 
         </div>
         
     )
