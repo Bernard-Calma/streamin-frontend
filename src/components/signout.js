@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const SignOut = () => {
+class SignOut extends Component {
+    render() {
         return(
             <a
                 className="nav-item"
@@ -8,7 +9,8 @@ const SignOut = () => {
             >
                 Sign Out
             </a>
-        )           
+        )    
+    }       
 }
 
 export default SignOut
