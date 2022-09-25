@@ -6,7 +6,7 @@ class AboutPageHeader extends Component  {
     // }
     render(){
         return(  
-       <div className="header container">
+       <div className="header container-fluid">
             <nav className="navbar">
                 {/* Menu Icon that will show at a specific media query */}
                 <div className="menu-icon">
@@ -14,14 +14,14 @@ class AboutPageHeader extends Component  {
                 </div>
                 
                 <ul className="nav-menu">
-                <li className="nav-item">
+                <div id="navLogo">
                 <a className="homepageLink" href="#">
                     {/* Add image or App title  */}
                     Streamin
                 </a>
-                </li>
+                </div>
                     <li className="nav-item">
-                        <a className="nav-link" href="#"> 
+                        <a id="nav-link" className="nav-link" href="#"> 
                         Sign Up/Login
                         </a>
                     </li>

@@ -1,33 +1,66 @@
 .body{
-  margin: 0 auto;
-  width:100%
+  margin: 0;
+  width:100%;
+  overflow:hidden;
+  padding:0;
+  box-sizing: border-box;
 }
-/* HEADER CSS */
+/* HEADER/ NAVBAR CSS */
 .header{
   height: 40px;
   display:flex;
   flex-direction: row;
+  position:sticky;
+  color:black;
 }
 .navbar{
-  display:flex;
   width: 100%;
-  justify-content: space-evenly;
+  margin-top: 5px;
 }
 
 .nav-menu{
   height: 40px;
   display: flex;
-  flex-direction: row;
   align-content: center;
   width: 100%;
-  justify-content: space-around
+  justify-content: space-between;
+  list-style-type: none;
+  flex-flow: row nowrap;
 }
 .nav-item{
   list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
+  padding-right: 30px;
+  
 }
+a:visited{
+  text-decoration: none;
+  color:black;
+}
+a:link {
+  text-decoration: none;
+  color:black;
+}
+a:hover {
+  text-decoration: none;
+  color:black;
+}
+/* NAV LOGO CSS */
+.homepageLink{
+  border: black solid 2px;
+  font-size: 2rem;
+  padding:5px;
+  border-radius:10px;
+}
+.homepageLink:hover{
+  color:black;
+}
+ #nav-link{
+  border-radius: 60px;
+  background-color: #E3E1E1;
+  font-size: 30px;
+  padding: 5px 40px 8px;
+}
+ 
 /* CREATE FORM STYLE */
 .formContainer{
   background-color: antiquewhite;
@@ -54,5 +87,5 @@
 .footer{
   display: flex;
   justify-content: center;
-  /* position:fixed; */
+  position:sticky;
 }
