@@ -16,7 +16,7 @@ const SeachBar =() => {
             name="s" 
         />
         <button type="submit">
-            Search
+            {/* Search */}
              <FontAwesomeIcon icon={solid( "magnifying-glass")} />
         </button>
     </form>

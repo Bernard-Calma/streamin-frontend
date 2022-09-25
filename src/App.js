@@ -15,6 +15,7 @@ import Footer from './components/Footer'
 // Import bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 class App extends Component {
   constructor(props){
     super(props)
