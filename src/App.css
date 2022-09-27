@@ -48,7 +48,7 @@ a:hover {
 /* NAV LOGO CSS */
 .homepageLink{
   border: black solid 2px;
-  font-size: 2rem;
+  font-size: 25px;
   padding:5px;
   border-radius:10px;
 }
@@ -58,7 +58,7 @@ a:hover {
  #nav-link{
   border-radius: 60px;
   background-color: #E3E1E1;
-  font-size: 30px;
+  font-size: 20px;
   padding: 5px 40px 8px;
 }
  
@@ -106,11 +106,13 @@ a:hover {
   background-color: white; */
   display:flex;
   justify-content: center;
+  
 }
 .signIn{
   border-radius: 60px;
   background-color: white;
   padding: 18px 46px;
+  font-size:30px;
 }
 #signInForm{
   /* display:inline-block; */
@@ -119,7 +121,7 @@ a:hover {
 }
 .labelStyle{
   padding-bottom:10px;
-  font-size:23px;
+  font-size: 18px;
 }
 .input-field{
   padding-top:24px;
@@ -132,7 +134,7 @@ a:hover {
   border-radius: 16px;
   background-color:white;
   padding: 12px 25px;
-  font-size: 20px; 
+  font-size: 15px; 
 }
 /* [type="submit"]{
   width:100%;
@@ -146,7 +148,7 @@ a:hover {
 }
 .formSubmit{
   width:100%;
-  font-size:25px;
+  font-size:22px;
   border-radius: 16px;
   
 }
