@@ -12,6 +12,9 @@ import SignIn from "./components/SignIn";
 // Import the Footer Components
 import Footer from './components/Footer'
 
+// Import User Page Components
+import User from "./components/User/user";
+
 // Import bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -121,7 +124,7 @@ handleRegister = (e) => {
         {/* If login successful change state.loggedIn to true */}
         {/* // Pass in User Component  */}
         <SignInHeader signOut={this.handleSignOut}/>
-        <div>User Component</div>
+        <User key = {this.state.user._id} user = {this.state.user}/>
         <Footer />
       </>
                                 
