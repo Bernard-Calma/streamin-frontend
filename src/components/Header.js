@@ -7,7 +7,7 @@ class Header extends Component  {
     // }
     render(){
         return(  
-       <div className="header .container-fluid ">
+       <div className="header container-fluid ">
             <nav className="navbar">
                 {/* Menu Icon that will show at a specific media query */}
                 <div className="menu-icon">
