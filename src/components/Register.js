@@ -3,44 +3,58 @@ import React, { Component } from 'react'
 class Register extends Component {
     render() {
         return(
-            <>
-                <h1>Register</h1>
-                <form onSubmit={this.props.handleRegister}>
-                    <div>
-                        <label>Username: </label>
+            <div className="container-fluid formContainer">
+                <div className="formOuter">
+                <div className="registerTitle">
+                    <h1>Register</h1>
+                </div>
+                <form  id="signIForm"
+                onSubmit={this.props.handleRegister}>
+                    <div className=" input-field">
+                        <label className="labelStyle"for="username">Username: </label>
                         <input
+                        id="username"
                             type="text"
                             name="username"
                             onChange={this.props.handleChange}
                             required
                         />
                     </div>
-                    <div>
-                        <label>Display Name: </label>
+                    <div className=" input-field" >
+                        <label className="labelStyle">Display Name: </label>
                         <input
+                            id="displayName"
                             type="text"
                             name="name"
                             onChange={this.props.handleChange}
                             required
                         />
                     </div>
-                    <div>
-                        <label>Password: </label>
+                    <div className=" input-field">
+                        <label className="labelStyle"
+                        for="password">Password: </label>
                         <input
+                            id="password"
                             type="password"
                             name="password"
                             onChange={this.props.handleChange}
                             required
                         />
                     </div>
-                    <div>
-                        <input
+                    <div className=" input-field formSub registerBtn">
+                        <input className=" registerValue formSubmit"
                             type="submit"
                             value='Register'
                         />
                     </div>
+                    <div className="message">
+                        <span>
+                             {/* <p>{this.state.loginMessage}</p> */}
+                        </span>
+                    </div>
                 </form>
-            </>
+                </div>
+            </div>
 
         )
     }

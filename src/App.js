@@ -113,6 +113,7 @@ handleRegister = (e) => {
             handleRegister = {this.handleRegister}
             />
             {/* For Testing Login/Register Message  */}
+            
             <p>{this.state.loginMessage}</p>
           <Footer />
         </>
