@@ -19,14 +19,13 @@ import User from "./components/User/user";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //URL
-let baseURL = ""
+let baseURL = "";
 
-if(process.env.NODE_ENV === "development"){
-  baseURL = "http://localhost:3003";
+if(process.env.NODE_ENV === "development") {
+  baseURL = "http://localhost:3003"
 } else {
-  baseURL = "https://stream-in-backend.herokuapp.com"
+  baseURL = process.env.REACT_APP_SERVER_URL
 }
-
 
 class App extends Component {
   constructor(props){
@@ -51,7 +50,7 @@ class App extends Component {
 
   handleLogin = (e) => {
     e.preventDefault();
-    // console.log(this.state)
+    console.log(baseURL)
     fetch(`${baseURL}/users/login/${this.state.username}/${this.state.password}`)
     .then(res => {
         if(res.status === 200) {
