@@ -42,14 +42,19 @@ class VideoInfo extends Component {
     }
     render() {
         return (
-            <div>
+            <div className = "videoInfo">
+                
+                <iframe className = "videoIframe" src={this.state.video.videoLink}/>
                 <h1>{this.state.video.title}</h1>
-                <iframe src={this.state.video.videoLink}/>
+                <label>Uploaded: {this.state.video.publishedDate}</label>
+                <label>Uploaded by: {this.state.video.user}</label>
                 <lablel>
                     Description: 
                 </lablel>
-                <label>Uploaded by: {this.state.video.user}</label>
-                <label>Uploaded: {this.state.video.publishedDate}</label>
+                <div className="comments">
+                  <h1>Comments: </h1>
+                </div>
+                
             </div>
         )
     }
