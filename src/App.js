@@ -18,6 +18,15 @@ import User from "./components/User/user";
 // Import bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+//URL
+let baseURL = ""
+
+if(process.env.NODE_ENV === "development"){
+  baseURL = "http://localhost:3003";
+} else {
+  baseURL = "https://stream-in-backend.herokuapp.com"
+}
+
 
 class App extends Component {
   constructor(props){
@@ -43,7 +52,7 @@ class App extends Component {
   handleLogin = (e) => {
     e.preventDefault();
     // console.log(this.state)
-    fetch(`http://localhost:3003/users/login/${this.state.username}/${this.state.password}`)
+    fetch(`${baseURL}/users/login/${this.state.username}/${this.state.password}`)
     .then(res => {
         if(res.status === 200) {
             return res.json();
@@ -85,7 +94,6 @@ handleRegister = (e) => {
   }).then(res => res.json())
   .then(resJson => {
       if(!resJson._id) {
-        console.log(resJson.error)
         this.setState({
           loginMessage: "Username is already taken.",
         })
