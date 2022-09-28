@@ -47,7 +47,7 @@ class VideoList extends Component {
                 <div className = "videos">
                     {this.state.videos.map(video => {
                     return  (
-                        <Video key={video._id} video={video} className="video"/>
+                        <Video key={video._id} video={video} className="video" onClickVideo = {this.props.onClickVideo}/>
                     )
                     })}
                 </div>

@@ -17,6 +17,14 @@ import User from "./components/User/user";
 // Import bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+//URL
+let baseURL = "";
+
+if(process.env.NODE_ENV === "development") {
+  baseURL = "http://localhost:3003"
+} else {
+  baseURL = process.env.REACT_APP_SERVER_URL
+}
 
 class App extends Component {
   constructor(props){
@@ -41,8 +49,8 @@ class App extends Component {
 
   handleLogin = (e) => {
     e.preventDefault();
-    // console.log(this.state)
-    fetch(`http://localhost:3003/users/login/${this.state.username}/${this.state.password}`)
+    // console.log(baseURL)
+    fetch(`${baseURL}/users/login/${this.state.username}/${this.state.password}`)
     .then(res => {
         if(res.status === 200) {
             return res.json();
@@ -73,36 +81,35 @@ class App extends Component {
     })
   }
 
-  handleRegister = (e) => {
-    e.preventDefault();
-    fetch(`http://localhost:3003/users/`, {
-        method: "POST",
-        body: JSON.stringify(this.state),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(res => res.json())
-    .then(resJson => {
-        if(!resJson._id) {
-          console.log(resJson.error)
-          this.setState({
-            loginMessage: "Username is already taken.",
-          })
-        } else {
-          // console.log("JSon", resJson)
-          this.setState({
-            username: "",
-            password: "",
-            name: "",
-            user: resJson,
-            loggedIn: true,
-            register: false,
-            loginMessage: "Account Created."
-          })
-        } 
-        
-    })
-  }
+handleRegister = (e) => {
+  e.preventDefault();
+  fetch(`${baseURL}/users/`, {
+      method: "POST",
+      body: JSON.stringify(this.state),
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  }).then(res => res.json())
+  .then(resJson => {
+      if(!resJson._id) {
+        this.setState({
+          loginMessage: "Username is already taken.",
+        })
+      } else {
+        // console.log("JSon", resJson)
+        this.setState({
+          username: "",
+          password: "",
+          name: "",
+          user: resJson,
+          loggedIn: true,
+          register: false,
+          loginMessage: "Account Created."
+        })
+      } 
+      
+  })
+}
 
   render() {
     // if logged in is false
