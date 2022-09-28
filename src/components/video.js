@@ -1,25 +1,20 @@
 import React, {Component} from "react";
 
 class Video extends Component {
-    onClickVideo = (e) => {
-        e.preventDefault();
-        console.log("Clicked");
-    }
 
     render(){
-
-        return(
+        return( 
             <div className="video">
-               
                 {/* Modify Button */}
-                <iframe src={this.props.video.videoLink} style={{pointerEvents: "none"}} onClick={this.onClickVideo}></iframe>
+                <div onClick={this.props.onClickVideo} id={this.props.video._id}>
+                    <iframe name= {this.props.title} src={this.props.video.videoLink} style={{pointerEvents: "none"}}></iframe>
+                </div>
                 <h3>{this.props.video.title}</h3>
                 <div className="videoButtons">
                     <button type="button" className ="btnModify">Modify</button>
                     {/* Delete Button */}
                     <button type="button"  className ="btnDelete">Delete</button>
                 </div>
-
             </div>
         )
     }

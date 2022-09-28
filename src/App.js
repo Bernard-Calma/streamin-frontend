@@ -50,7 +50,7 @@ class App extends Component {
 
   handleLogin = (e) => {
     e.preventDefault();
-    console.log(baseURL)
+    // console.log(baseURL)
     fetch(`${baseURL}/users/login/${this.state.username}/${this.state.password}`)
     .then(res => {
         if(res.status === 200) {
@@ -84,7 +84,7 @@ class App extends Component {
 
 handleRegister = (e) => {
   e.preventDefault();
-  fetch(`http://localhost:3003/users/`, {
+  fetch(`${baseURL}/users/`, {
       method: "POST",
       body: JSON.stringify(this.state),
       headers: {
