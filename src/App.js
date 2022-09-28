@@ -6,7 +6,6 @@ import Header from './components/Header'
 import SignInHeader from './components/signInHeader'
 
 //Signin Component
-// >>Import Signin component here<<
 import SignIn from "./components/SignIn";
 
 // Import the Footer Components
@@ -72,38 +71,38 @@ class App extends Component {
     this.setState({
         loggedIn : false
     })
-}
+  }
 
-handleRegister = (e) => {
-  e.preventDefault();
-  fetch(`http://localhost:3003/users/`, {
-      method: "POST",
-      body: JSON.stringify(this.state),
-      headers: {
-          'Content-Type': 'application/json'
-      }
-  }).then(res => res.json())
-  .then(resJson => {
-      if(!resJson._id) {
-        console.log(resJson.error)
-        this.setState({
-          loginMessage: "Username is already taken.",
-        })
-      } else {
-        // console.log("JSon", resJson)
-        this.setState({
-          username: "",
-          password: "",
-          name: "",
-          user: resJson,
-          loggedIn: true,
-          register: false,
-          loginMessage: "Account Created."
-        })
-      } 
-      
-  })
-}
+  handleRegister = (e) => {
+    e.preventDefault();
+    fetch(`http://localhost:3003/users/`, {
+        method: "POST",
+        body: JSON.stringify(this.state),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => res.json())
+    .then(resJson => {
+        if(!resJson._id) {
+          console.log(resJson.error)
+          this.setState({
+            loginMessage: "Username is already taken.",
+          })
+        } else {
+          // console.log("JSon", resJson)
+          this.setState({
+            username: "",
+            password: "",
+            name: "",
+            user: resJson,
+            loggedIn: true,
+            register: false,
+            loginMessage: "Account Created."
+          })
+        } 
+        
+    })
+  }
 
   render() {
     // if logged in is false
