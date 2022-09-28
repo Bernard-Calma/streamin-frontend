@@ -10,16 +10,7 @@ class Register extends Component {
                 </div>
                 <form  id="signIForm"
                 onSubmit={this.props.handleRegister}>
-                    <div className=" input-field">
-                        <label className="labelStyle"for="username">Username: </label>
-                        <input
-                        id="username"
-                            type="text"
-                            name="username"
-                            onChange={this.props.handleChange}
-                            required
-                        />
-                    </div>
+                    <div className="nameUsernameHolder">
                     <div className=" input-field" >
                         <label className="labelStyle">Display Name: </label>
                         <input
@@ -30,6 +21,17 @@ class Register extends Component {
                             required
                         />
                     </div>
+                    <div className=" input-field">
+                        <label className="labelStyle"for="username">Username: </label>
+                        <input
+                        id="username"
+                            type="text"
+                            name="username"
+                            onChange={this.props.handleChange}
+                            required
+                        />
+                    </div>
+                   </div>
                     <div className=" input-field">
                         <label className="labelStyle"
                         for="password">Password: </label>

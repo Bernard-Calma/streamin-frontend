@@ -63,10 +63,10 @@ a:hover {
 }
  
 /* CREATE FORM STYLE */
-.formContainer{
+/* .formContainer{
   background-color: rgb(211, 184, 150);
   /* width: 100%; */
-}
+/* } */
 .createFormHeader{
   text-align:center;
   /* margin: 5px; */
