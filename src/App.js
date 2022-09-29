@@ -20,7 +20,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //URL
 let baseURL = process.env.REACT_APP_SERVER_URL
 
-
 class App extends Component {
   constructor(props){
     super(props)
@@ -85,7 +84,7 @@ handleRegister = (e) => {
     })
     return;
   }
-  console.log(baseURL)
+  // console.log(baseURL)
   fetch(`${baseURL}/users/`, {
       method: "POST",
       body: JSON.stringify(this.state),

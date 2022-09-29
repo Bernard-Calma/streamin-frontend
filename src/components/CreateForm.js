@@ -5,14 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 //URL
-let baseURL = "";
-
-if(process.env.NODE_ENV === "development") {
-  baseURL = "http://localhost:3003"
-} else {
-  baseURL = process.env.REACT_APP_SERVER_URL
-}
-
+let baseURL = process.env.REACT_APP_SERVER_URL;
 
 class CreateForm extends Component {
  constructor(props){

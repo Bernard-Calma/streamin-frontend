@@ -1,6 +1,10 @@
 import React , {Component} from "react"
 import Video from "../video"
 
+
+//URL
+let baseURL = process.env.REACT_APP_SERVER_URL
+
 class VideoList extends Component {
     constructor(props){
         super(props)
@@ -9,7 +13,7 @@ class VideoList extends Component {
         }
     }
     getVideos = (e) => {
-        fetch("http://localhost:3003/videos/uservideos/" + this.props.user._id)
+        fetch(`${baseURL}/videos/uservideos/` + this.props.user._id)
         .then(res => {
             if (res.status === 200) {
                 return res.json();
