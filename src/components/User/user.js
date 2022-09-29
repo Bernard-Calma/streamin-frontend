@@ -29,7 +29,7 @@ class User extends Component {
                 <VideoList user={this.props.user} onClickVideo = {this.onClickVideo}/>
             </div>
             :
-                <VideoInfo video = {this.state.videoId}/>
+                <VideoInfo video = {this.state.videoId} user = {this.props.user}/>
         )
     }
 }
