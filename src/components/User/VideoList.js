@@ -1,15 +1,20 @@
 import React , {Component} from "react"
 import Video from "../video"
 
+
+//URL
+let baseURL = process.env.REACT_APP_SERVER_URL
+
 class VideoList extends Component {
     constructor(props){
         super(props)
         this.state = {
             videos: [],
+            modifyVideo: false,
         }
     }
     getVideos = (e) => {
-        fetch("http://localhost:3003/videos/uservideos/" + this.props.user._id)
+        fetch(`${baseURL}/videos/uservideos/` + this.props.user._id)
         .then(res => {
             if (res.status === 200) {
                 return res.json();
@@ -34,6 +39,16 @@ class VideoList extends Component {
         this.getVideos();
     }
 
+    deleteVideo = (e) => {
+        e.preventDefault()
+        // console.log("Delete Video", e.target.parentNode.parentNode.firstChild.id)
+        let videoID = e.target.parentNode.parentNode.firstChild.id;
+        fetch(`${baseURL}/videos/${videoID}`, {
+            method: 'DELETE',
+        })
+        this.componentDidMount()
+    }
+
     render(){
         return (
             <div className = "videoList" >
@@ -46,10 +61,11 @@ class VideoList extends Component {
                 </div>
                 <div className ="videos">
                     {this.state.videos.map(video => {
-                    return  (
-                        <Video key={video._id} video={video} className="video" onClickVideo = {this.props.onClickVideo}/>
-                    )
-                    })}
+                        return  (
+                        <Video key={video._id} video={video} className="video" onClickVideo = {this.props.onClickVideo} deleteVideo = {this.deleteVideo} modifyVideo = {this.props.modifyVideo}/>
+                        )
+                        })
+                    }
                 </div>
             </div>
         )

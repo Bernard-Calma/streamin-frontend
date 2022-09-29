@@ -65,6 +65,39 @@ a:hover {
   font-size: 20px;
   padding: 5px 40px 8px;
 }
+
+/* ABOUT */
+#aboutContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#aboutStreamin{
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#projectMemberInfoDiv{
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.aboutDiv{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.teamMemberPic{
+  width: 300px;
+  border-radius: 60px;
+}
  
 /* CREATE FORM STYLE */
 /* .formContainer{

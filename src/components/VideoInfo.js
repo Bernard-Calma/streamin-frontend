@@ -1,12 +1,7 @@
 import React, {Component} from "react";
 
-let baseURL = "";
-
-if(process.env.NODE_ENV === "development") {
-  baseURL = "http://localhost:3003"
-} else {
-  baseURL = process.env.REACT_APP_SERVER_URL
-}
+//URL
+let baseURL = process.env.REACT_APP_SERVER_URL;
 
 class VideoInfo extends Component {
     constructor(props){
@@ -79,9 +74,9 @@ class VideoInfo extends Component {
 
 
     checkLiked = (e) => {
-      console.log("target", e)
-      console.log("likes: ",this.state.userlikes)
-      console.log(this.props.user._id)
+      // console.log("target", e)
+      // console.log("likes: ",this.state.userlikes)
+      // console.log(this.props.user._id)
       // console.log("Is liked? ", this.state.likes.includes(this.props.user._id))
     }
 
@@ -97,7 +92,7 @@ class VideoInfo extends Component {
                 <label>Uploaded: {this.changeDateFormat(this.state.video.publishedDate)}</label>
                 <label>Uploaded by: {this.state.username}</label>
                 <label>
-                    Description: 
+                    Description: {this.state.video.description}
                 </label>
                 <label>
                   Likes : {likes}          <button onLoad={() => this.checkLiked()} onClick={this.handleLike}>👍</button>

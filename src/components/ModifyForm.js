@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 //URL
 let baseURL = process.env.REACT_APP_SERVER_URL;
 
-class CreateForm extends Component {
+class ModifyForm extends Component {
  constructor(props){
     super(props)
     this.state= {
@@ -26,17 +26,57 @@ class CreateForm extends Component {
         [name]: target.value,
     })
  }
-
+ // Call to submit the form must place it in the App.js 
  handleSubmit = (event) => {
+    // will not restart the page when you click submit
     event.preventDefault()
     // added the route
     fetch(`${baseURL}/videos`, {
             method: 'POST',
+            body: JSON.stringify({
+                videoLink: this.state.videoLink,
+                title: this.state.title,
+                description: this.state.description,
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+      this.props.handleCreateReturn();
+    }
+
+getVideo = () => {
+    fetch(`${baseURL}/videos/${this.props.videoToModify}`)
+    .then(res => {
+        if(res.status === 200) return res.json()
+        return ""
+    })
+    .then(data => {
+        // console.log(data);
+        if(data) this.setState({
+            videoLink: data.videoLink,
+            title: data.title,
+            description: data.description,
+            tags: data.tags,
+        })
+    })
+}
+
+componentDidMount(){
+    this.getVideo();
+}
+
+handleSubmit = (event) => {
+    event.preventDefault()
+    // added the route
+    fetch(`${baseURL}/videos/${this.props.videoToModify}`, {
+            method: 'PUT',
             body: JSON.stringify(this.state),
             headers: {
                 'Content-Type': 'application/json'
             }
         })
+        //using same function as createForm, work the same no need to change :)
       this.props.handleCreateReturn();
     }
 
@@ -46,7 +86,7 @@ render(){
     <div className="returnBtn">
       <input type="button" value="Return" onClick={this.props.handleCreateReturn}/>
     </div>
-    <h2 className="createFormHeader">Create Video Form</h2>
+    <h2 className="createFormHeader">Modify Video</h2>
     <Form id="createForm" onSubmit={this.handleSubmit}>
       {/* videoLink input*/}
       <Form.Group className="mb-3">
@@ -109,4 +149,4 @@ render(){
   </div>
      )}}
 
-export default CreateForm
+export default ModifyForm

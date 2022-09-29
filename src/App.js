@@ -6,7 +6,6 @@ import Header from './components/Header'
 import SignInHeader from './components/signInHeader'
 
 //Signin Component
-// >>Import Signin component here<<
 import SignIn from "./components/SignIn";
 
 // Import the Footer Components
@@ -19,13 +18,7 @@ import User from "./components/User/user";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //URL
-let baseURL = "";
-
-if(process.env.NODE_ENV === "development") {
-  baseURL = "http://localhost:3003"
-} else {
-  baseURL = process.env.REACT_APP_SERVER_URL
-}
+let baseURL = process.env.REACT_APP_SERVER_URL
 
 class App extends Component {
   constructor(props){
@@ -81,7 +74,7 @@ class App extends Component {
     this.setState({
         loggedIn : false
     })
-}
+  }
 
 handleRegister = (e) => {
   e.preventDefault();
@@ -91,7 +84,7 @@ handleRegister = (e) => {
     })
     return;
   }
-  console.log(baseURL)
+  // console.log(baseURL)
   fetch(`${baseURL}/users/`, {
       method: "POST",
       body: JSON.stringify(this.state),

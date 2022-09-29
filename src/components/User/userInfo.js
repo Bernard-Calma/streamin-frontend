@@ -1,28 +1,12 @@
 import React , {Component} from "react"
-import CreateForm from "../CreateForm";
 
 class UserInfo extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            createVideo: false,
-        }
-    }
-
-    handleCreateSubmit = (e) =>{
-        e.preventDefault();
-        this.setState({
-            createVideo: true,
-        })
-    }
-
     render(){
-        return( !this.state.createVideo
-            ?
+        return( 
             <div className = "userInfo" >
                 {/* Pass in user name below */}
                 <div className = "createVideo" >
-                    <input type = "button" value = "Create" id="createVideoButton" onClick={this.handleCreateSubmit}/>
+                    <input type = "button" value = "create" id="createVideoButton" onClick={this.props.handleCreateSubmit}/>
                 </div>
                 <div className = "usernameInfo">
                     <p> Sign in as 
@@ -31,10 +15,6 @@ class UserInfo extends Component {
                     </span></p>
                 </div>
             </div>
-            : 
-            <>
-                <CreateForm />
-            </>
         )
     }
 }

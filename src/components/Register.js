@@ -32,7 +32,7 @@ class Register extends Component {
                         />
                     </div>
                     <div className=" input-field">
-                        <label className="labelStyle"htmlFor="username">Username: </label>
+                    <label className="labelStyle" htmlFor="username">Username: </label>
                         <input
                         id="username"
                             type="text"
