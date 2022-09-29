@@ -44,7 +44,7 @@ class VideoList extends Component {
                         <option value = "category3">Category 3</option>
                     </select>
                 </div>
-                <div className = "videos">
+                <div className ="videos">
                     {this.state.videos.map(video => {
                     return  (
                         <Video key={video._id} video={video} className="video" onClickVideo = {this.props.onClickVideo}/>

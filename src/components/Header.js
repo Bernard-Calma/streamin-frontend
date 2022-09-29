@@ -16,7 +16,7 @@ class Header extends Component  {
                 
                 <ul className="nav-menu">
                 <div id="navLogo">
-                <a className="homepageLink" href="#">
+                <a className="homepageLink" href="/">
                     {/* Add image or App title  */}
                     Streamin
                 </a>
