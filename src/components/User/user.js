@@ -16,14 +16,6 @@ class User extends Component {
             modifyVideo: false,
         }
     }
-    onClickVideo = (e) => {
-        e.preventDefault();
-        // console.log(e.target.id)
-        this.setState({
-            showVideoList: false,
-            videoId: e.target.id,
-        })
-    }
 
     handleCreateSubmit = (e) =>{
         e.preventDefault();
@@ -56,17 +48,17 @@ class User extends Component {
     }
 
     render(){
-        return ( this.state.showVideoList 
+        return ( this.props.showVideoList 
             ?
             <div className = "userPage" >
                 {/* Pass in user name below */}
                 
                 {
-                    !this.state.modifyVideo
+                    !this.state.modifyVideo || this.props.showMain
                     ?
                     <>
                         <UserInfo user={this.props.user} handleCreateSubmit = {this.handleCreateSubmit} />
-                        <VideoList user={this.props.user} onClickVideo = {this.onClickVideo} modifyVideo = {this.modifyVideo}/>
+                        <VideoList user={this.props.user} onClickVideo = {this.props.onClickVideo} modifyVideo = {this.modifyVideo}/>
                     </>
                     :
                     <>
@@ -80,7 +72,7 @@ class User extends Component {
                 ?
                     <CreateForm handleCreateReturn = {this.handleCreateReturn} user = {this.props.user._id}/>
                 :
-                    <VideoInfo video = {this.state.videoId} user = {this.props.user}/>
+                    <VideoInfo video = {this.props.videoId} user = {this.props.user} handleLogo = {this.props.handleLogo}/>
                 }
             </>
                 

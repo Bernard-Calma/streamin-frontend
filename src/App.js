@@ -31,6 +31,9 @@ class App extends Component {
       user: "",
       loggedIn: false,
       loginMessage: "",
+      showMain: false,
+      showVideoList: true,
+      videoId: "",
     }
   }
 
@@ -76,42 +79,60 @@ class App extends Component {
     })
   }
 
-handleRegister = (e) => {
-  e.preventDefault();
-  if(this.state.password !== this.state.passwordCheck){
-    this.setState({
-      loginMessage: "Password does not match."
+  handleRegister = (e) => {
+    e.preventDefault();
+    if(this.state.password !== this.state.passwordCheck){
+      this.setState({
+        loginMessage: "Password does not match."
+      })
+      return;
+    }
+    // console.log(baseURL)
+    fetch(`${baseURL}/users/`, {
+        method: "POST",
+        body: JSON.stringify(this.state),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => {
+      return res.json()})
+    .then(resJson => {
+        if(!resJson._id) {
+          this.setState({
+            loginMessage: "Username is already taken.",
+          })
+        } else {
+          // console.log("JSon", resJson)
+          this.setState({
+            username: "",
+            password: "",
+            name: "",
+            user: resJson,
+            loggedIn: true,
+            register: false,
+            loginMessage: "Account Created."
+          })
+        } 
+        
     })
-    return;
   }
-  // console.log(baseURL)
-  fetch(`${baseURL}/users/`, {
-      method: "POST",
-      body: JSON.stringify(this.state),
-      headers: {
-          'Content-Type': 'application/json'
-      }
-  }).then(res => {
-    return res.json()})
-  .then(resJson => {
-      if(!resJson._id) {
-        this.setState({
-          loginMessage: "Username is already taken.",
-        })
-      } else {
-        // console.log("JSon", resJson)
-        this.setState({
-          username: "",
-          password: "",
-          name: "",
-          user: resJson,
-          loggedIn: true,
-          register: false,
-          loginMessage: "Account Created."
-        })
-      } 
-      
-  })
+
+  handleLogo = (e) => {
+    e.preventDefault();
+    this.setState({
+      showMain: true,
+      showVideoList: true,
+    })
+    
+  }
+
+  onClickVideo = (e) => {
+    e.preventDefault();
+    // console.log(e.target.id)
+    this.setState({
+        showVideoList: false,
+        videoId: e.target.id,
+    })
 }
 
   render() {
@@ -133,8 +154,16 @@ handleRegister = (e) => {
       : <>
         {/* If login successful change state.loggedIn to true */}
         {/* // Pass in User Component  */}
-        <SignInHeader signOut={this.handleSignOut}/>
-        <User key = {this.state.user._id} user = {this.state.user}/>
+        <SignInHeader signOut={this.handleSignOut} handleLogo = {this.handleLogo}/>
+        <User 
+          key = {this.state.user._id} 
+          user = {this.state.user} 
+          showMain = {this.state.showMain} 
+          handleLogo = {this.handleLogo} 
+          onClickVideo = {this.onClickVideo}
+          showVideoList = {this.state.showVideoList}
+          videoId = {this.state.videoId}
+        />     
         <Footer />
       </>
                                 
