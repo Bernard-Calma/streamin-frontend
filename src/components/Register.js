@@ -14,7 +14,7 @@ class Register extends Component {
     render() {
         return(
             <div className="container-fluid formContainer">
-                <div className="formOuter">
+                <div className="formOuterSignOut">
                 <div className="registerTitle">
                     <h1>Register</h1>
                 </div>
@@ -22,7 +22,7 @@ class Register extends Component {
                 onSubmit={this.props.handleRegister}>
                     <div className="nameUsernameHolder">
                     <div className=" input-field" >
-                        <label className="labelStyle">Display Name: </label>
+                        <label  htmlFor="displayName" className="labelStyle">Display Name: </label>
                         <input
                             id="displayName"
                             type="text"
@@ -32,7 +32,7 @@ class Register extends Component {
                         />
                     </div>
                     <div className=" input-field">
-                        <label className="labelStyle" htmlFor="username">Username: </label>
+                    <label className="labelStyle" htmlFor="username">Username: </label>
                         <input
                         id="username"
                             type="text"
@@ -49,17 +49,6 @@ class Register extends Component {
                             id="password"
                             type="password"
                             name="password"
-                            onChange={this.props.handleChange}
-                            required
-                        />
-                    </div>
-                    <div className=" input-field">
-                        <label className="labelStyle"
-                        htmlFor="password">Password: </label>
-                        <input
-                            id="passwordCheck"
-                            type="password"
-                            name="passwordCheck"
                             onChange={this.props.handleChange}
                             required
                         />

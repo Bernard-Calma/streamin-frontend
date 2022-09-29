@@ -5,6 +5,7 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- im
 
 const SeachBar =() => {
     return(
+        <div className="searchBar">
         <form >
         <label htmlFor="header-search">
             <span className="visually-hidden"></span>
@@ -13,13 +14,15 @@ const SeachBar =() => {
             type="text"
             id="header-search"
             placeholder="search your video"
-            name="s" 
+            name="s"
+            
         />
-        <button type="submit">
+         <button type="submit"className="fontIcon">
             {/* Search */}
-             <FontAwesomeIcon icon={solid( "magnifying-glass")} />
+             <FontAwesomeIcon   icon={solid( "magnifying-glass")} />
         </button>
     </form>
+    </div>
     )
 }
 export default SeachBar
