@@ -18,13 +18,8 @@ import User from "./components/User/user";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //URL
-let baseURL = "";
-console.log(process.env.NODE_ENV)
-if(process.env.NODE_ENV === "development") {
-  baseURL = "http://localhost:3003"
-} else {
-  baseURL = process.env.REACT_APP_SERVER_URL
-}
+let baseURL = process.env.REACT_APP_SERVER_URL
+
 
 class App extends Component {
   constructor(props){
