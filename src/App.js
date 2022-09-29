@@ -32,6 +32,7 @@ class App extends Component {
     this.state = {
       username: "",
       password: "",
+      passwordCheck: "",
       name: "",
       user: "",
       loggedIn: false,
@@ -83,13 +84,21 @@ class App extends Component {
 
 handleRegister = (e) => {
   e.preventDefault();
+  if(this.state.password !== this.state.passwordCheck){
+    this.setState({
+      loginMessage: "Password does not match."
+    })
+    return;
+  }
+  console.log(baseURL)
   fetch(`${baseURL}/users/`, {
       method: "POST",
       body: JSON.stringify(this.state),
       headers: {
           'Content-Type': 'application/json'
       }
-  }).then(res => res.json())
+  }).then(res => {
+    return res.json()})
   .then(resJson => {
       if(!resJson._id) {
         this.setState({
@@ -116,14 +125,15 @@ handleRegister = (e) => {
     return( !this.state.loggedIn
       ? <>
           <Header />
+         
           <SignIn
             handleChange = {this.handleChange}
             handleLogin = {this.handleLogin}
             handleRegister = {this.handleRegister}
+            message = {this.state.loginMessage}
             />
-            {/* For Testing Login/Register Message  */}
             
-            <p>{this.state.loginMessage}</p>
+            
           <Footer />
         </>
       : <>

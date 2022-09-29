@@ -72,6 +72,7 @@ class SignIn extends Component {
                 <Register
                     handleRegister={this.props.handleRegister}
                     handleChange={this.props.handleChange}
+                    message = {this.props.message}
                 />
             </>
         );
