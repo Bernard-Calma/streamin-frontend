@@ -22,10 +22,13 @@ class UserInfo extends Component {
             <div className = "userInfo" >
                 {/* Pass in user name below */}
                 <div className = "createVideo" >
-                    <input type = "button" value = "create" id="createVideoButton" onClick={this.handleCreateSubmit}/>
+                    <input type = "button" value = "Create" id="createVideoButton" onClick={this.handleCreateSubmit}/>
                 </div>
                 <div className = "usernameInfo">
-                    <p>Sign in as <span id="usernameInfo">{this.props.user.username}</span></p>
+                    <p> Sign in as 
+                        <br/>
+                    <span id="usernameInfoName"> {this.props.user.username} 
+                    </span></p>
                 </div>
             </div>
             : 
