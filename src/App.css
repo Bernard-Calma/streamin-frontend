@@ -124,7 +124,7 @@ a:hover {
   padding-bottom: 24px;
   width:100%;
 }
-#username, #password, #displayName{
+#username, #password, #displayName, #passwordCheck{
   width:100%;
   min-height: 60px;
   border-radius: 16px;
