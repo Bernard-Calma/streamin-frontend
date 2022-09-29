@@ -36,19 +36,19 @@ class Header extends Component  {
                             
                             <ul className="nav-menu">
                             <div id="navLogo">
-                            <a className="homepageLink" href="#">
+                            <p className="homepageLink">
                                 {/* Add image or App title  */}
                                 Streamin
-                            </a>
+                            </p>
                             </div>
                                 <li className="nav-item">
-                                    <a
+                                    <p
                                         id="nav-link"
                                         className="nav-link"
                                         onClick={this.showAbout}
                                     > 
                                     About
-                                    </a>
+                                    </p>
                                 </li>
                             </ul>
                         </nav>
