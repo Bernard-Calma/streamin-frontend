@@ -1,11 +1,19 @@
 import React, {Component} from 'react'
-// 
-// Import the UserPage Component 
-import User from './User/user'
-import userInfo from './User/userInfo'
+
 //Import Bootstrap styling for form
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+
+//URL
+let baseURL = "";
+
+if(process.env.NODE_ENV === "development") {
+  baseURL = "http://localhost:3003"
+} else {
+  baseURL = process.env.REACT_APP_SERVER_URL
+}
+
+
 class CreateForm extends Component {
  constructor(props){
     super(props)
@@ -14,6 +22,7 @@ class CreateForm extends Component {
         title: '',
         description: '',
         tags: '',
+        user: props.user,
     }
  }
  // Handle the change of each value
@@ -29,27 +38,14 @@ class CreateForm extends Component {
     // will not restart the page when you click submit
     event.preventDefault()
     // added the route
-    fetch('http://localhost:3003/videos', {
+    fetch(`${baseURL}/videos`, {
             method: 'POST',
-            body: JSON.stringify({
-                videoLink: this.state.videoLink,
-                title: this.state.title,
-                description: this.state.description,
-                tags:this.state.tags
-            }),
+            body: JSON.stringify(this.state),
             headers: {
                 'Content-Type': 'application/json'
             }
-        }).then(res => res.json())
-        .then(resJson => {
-            console.log('CreateForm - resJson', resJson)
-            // need to add HandleAddVideo Function to pass into this form
-            this.props.handleAddVideos(resJson)
-            this.setState({ videoLink: '',
-            title: '',
-            description: '',
-            tags: '',})
         })
+      this.props.handleCreateReturn();
     }
 
 render(){
@@ -59,11 +55,13 @@ render(){
       <input type="button" value="Return" onClick={this.props.handleCreateReturn}/>
     </div>
     <h2 className="createFormHeader">Create Video Form</h2>
-    <Form id="createForm">
+    <Form id="createForm" onSubmit={this.handleSubmit}>
       {/* videoLink input*/}
-      <Form.Group className="mb-3" controlId="videoLink">
+      <Form.Group className="mb-3">
         <Form.Label htmlFor="videoLink">Video Link</Form.Label>
-          <Form.Control type="url" placeholder="Add your Video link" 
+          <Form.Control 
+            type="url" 
+            placeholder="Add your Video link" 
             name="videoLink" 
             onChange={this.handleChange}
             value={this.state.videoLink}
@@ -74,7 +72,7 @@ render(){
       </Form.Group>
 
       {/* Title Input */}
-      <Form.Group className="mb-3" controlId="title">
+      <Form.Group className="mb-3">
         <Form.Label htmlFor="title">Title</Form.Label>
         <Form.Control 
           type="text"
@@ -86,7 +84,7 @@ render(){
       </Form.Group>
 
       {/* Description Textarea */}
-      <Form.Group className="mb-3" controlId="description">
+      <Form.Group className="mb-3" >
         <Form.Label htmlFor="description">Description</Form.Label>
           <Form.Control 
               as="textarea" rows={3}
@@ -111,7 +109,7 @@ render(){
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Button variant="primary" className="createVideoBtn" type="submit">
+        <Button variant="primary" className="createVideoBtn" type="submit" >
           Submit Your Video
         </Button>
       </Form.Group>
