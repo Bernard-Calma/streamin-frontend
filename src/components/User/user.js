@@ -32,8 +32,7 @@ class User extends Component {
         })
     }
 
-    handleCreateReturn = (e) => {
-        e.preventDefault();
+    handleCreateReturn = () => {
         this.setState({
             createVideo: false,
             showVideoList: true,
@@ -51,7 +50,7 @@ class User extends Component {
             : <>
                 {this.state.createVideo
                 ?
-                    <CreateForm handleCreateReturn = {this.handleCreateReturn}/>
+                    <CreateForm handleCreateReturn = {this.handleCreateReturn} user = {this.props.user._id}/>
                 :
                     <VideoInfo video = {this.state.videoId} user = {this.props.user}/>
                 }

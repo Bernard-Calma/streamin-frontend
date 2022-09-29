@@ -1,5 +1,4 @@
 import React , {Component} from "react"
-import CreateForm from "../CreateForm";
 
 class UserInfo extends Component {
     render(){
