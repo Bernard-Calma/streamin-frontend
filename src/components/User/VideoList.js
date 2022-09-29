@@ -38,6 +38,16 @@ class VideoList extends Component {
         this.getVideos();
     }
 
+    deleteVideo = (e) => {
+        e.preventDefault()
+        // console.log("Delete Video", e.target.parentNode.parentNode.firstChild.id)
+        let videoID = e.target.parentNode.parentNode.firstChild.id;
+        fetch(`${baseURL}/videos/${videoID}`, {
+            method: 'DELETE',
+        })
+        this.componentDidMount()
+    }
+
     render(){
         return (
             <div className = "videoList" >
@@ -51,7 +61,7 @@ class VideoList extends Component {
                 <div className ="videos">
                     {this.state.videos.map(video => {
                     return  (
-                        <Video key={video._id} video={video} className="video" onClickVideo = {this.props.onClickVideo}/>
+                        <Video key={video._id} video={video} className="video" onClickVideo = {this.props.onClickVideo} deleteVideo = {this.deleteVideo}/>
                     )
                     })}
                 </div>
