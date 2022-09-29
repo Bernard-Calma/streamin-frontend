@@ -32,7 +32,7 @@ class Register extends Component {
                         />
                     </div>
                     <div className=" input-field">
-                        <label className="labelStyle"for="username">Username: </label>
+                        <label className="labelStyle" htmlFor="username">Username: </label>
                         <input
                         id="username"
                             type="text"
@@ -44,7 +44,7 @@ class Register extends Component {
                    </div>
                     <div className=" input-field">
                         <label className="labelStyle"
-                        for="password">Password: </label>
+                        htmlFor="password">Password: </label>
                         <input
                             id="password"
                             type="password"
@@ -55,7 +55,7 @@ class Register extends Component {
                     </div>
                     <div className=" input-field">
                         <label className="labelStyle"
-                        for="password">Password: </label>
+                        htmlFor="password">Password: </label>
                         <input
                             id="passwordCheck"
                             type="password"

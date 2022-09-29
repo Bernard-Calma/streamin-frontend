@@ -10,6 +10,7 @@ class VideoList extends Component {
         super(props)
         this.state = {
             videos: [],
+            modifyVideo: false,
         }
     }
     getVideos = (e) => {
@@ -60,10 +61,11 @@ class VideoList extends Component {
                 </div>
                 <div className ="videos">
                     {this.state.videos.map(video => {
-                    return  (
-                        <Video key={video._id} video={video} className="video" onClickVideo = {this.props.onClickVideo} deleteVideo = {this.deleteVideo}/>
-                    )
-                    })}
+                        return  (
+                        <Video key={video._id} video={video} className="video" onClickVideo = {this.props.onClickVideo} deleteVideo = {this.deleteVideo} modifyVideo = {this.props.modifyVideo}/>
+                        )
+                        })
+                    }
                 </div>
             </div>
         )

@@ -3,6 +3,7 @@ import UserInfo from "./userInfo";
 import VideoList from "./VideoList";
 import VideoInfo from "../VideoInfo";
 import CreateForm from "../CreateForm";
+import ModifyForm from "../ModifyForm";
 
 
 class User extends Component {
@@ -12,6 +13,7 @@ class User extends Component {
             showVideoList: true,
             createVideo: false, 
             videoId: "",
+            modifyVideo: false,
         }
     }
     onClickVideo = (e) => {
@@ -36,7 +38,21 @@ class User extends Component {
         this.setState({
             createVideo: false,
             showVideoList: true,
+            modifyVideo: false,
+            videoToModify: "",
         })
+    }
+
+    modifyVideo = (e) => {
+        e.preventDefault()
+        // console.log("Modify Video", e.target.parentNode.parentNode.firstChild.id)
+        let videoID = e.target.parentNode.parentNode.firstChild.id;
+        this.setState({
+                modifyVideo: true,
+                videoToModify: videoID,
+            }
+            
+        )
     }
 
     render(){
@@ -44,8 +60,20 @@ class User extends Component {
             ?
             <div className = "userPage" >
                 {/* Pass in user name below */}
-                <UserInfo user={this.props.user} handleCreateSubmit = {this.handleCreateSubmit} />
-                <VideoList user={this.props.user} onClickVideo = {this.onClickVideo}/>
+                
+                {
+                    !this.state.modifyVideo
+                    ?
+                    <>
+                        <UserInfo user={this.props.user} handleCreateSubmit = {this.handleCreateSubmit} />
+                        <VideoList user={this.props.user} onClickVideo = {this.onClickVideo} modifyVideo = {this.modifyVideo}/>
+                    </>
+                    :
+                    <>
+                        <ModifyForm handleCreateReturn = {this.handleCreateReturn} videoToModify = {this.state.videoToModify}/>
+                    </>
+                }
+                
             </div>
             : <>
                 {this.state.createVideo

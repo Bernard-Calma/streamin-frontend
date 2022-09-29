@@ -92,7 +92,7 @@ class VideoInfo extends Component {
                 <label>Uploaded: {this.changeDateFormat(this.state.video.publishedDate)}</label>
                 <label>Uploaded by: {this.state.username}</label>
                 <label>
-                    Description: 
+                    Description: {this.state.video.description}
                 </label>
                 <label>
                   Likes : {likes}          <button onLoad={() => this.checkLiked()} onClick={this.handleLike}>👍</button>

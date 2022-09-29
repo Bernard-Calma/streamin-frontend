@@ -29,7 +29,7 @@ class SignIn extends Component {
                 <form id="signInForm"
                 onSubmit={this.props.handleLogin}>
                     <div className="input-field">
-                        <label for="username"
+                        <label htmlFor="username"
                         className="labelStyle">Username: 
                         </label>
                         <input
@@ -42,7 +42,7 @@ class SignIn extends Component {
                     </div>
                     <div className="input-field">
                         <label 
-                        for="password"
+                        htmlFor="password"
                         className="labelStyle">Password: </label>
                         <input
                             id="password"
@@ -60,7 +60,7 @@ class SignIn extends Component {
                     <div>
                 <span className="registerLink">
                     Want to join?
-                    Register <a onClick={this.onClickRegister}>here</a>.
+                    Register <span onClick={this.onClickRegister}>here</span>.
                 </span>
                 </div>
                 </form>
