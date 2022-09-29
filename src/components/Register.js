@@ -1,6 +1,16 @@
 import React, { Component } from 'react'
 
 class Register extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            username: "",
+            displayname: "",
+            password: "",
+            passwordCheck: "",
+            message: "",
+        }
+    }
     render() {
         return(
             <div className="container-fluid formContainer">
@@ -41,16 +51,27 @@ class Register extends Component {
                             required
                         />
                     </div>
+                    <div className=" input-field">
+                        <label className="labelStyle"
+                        for="password">Password: </label>
+                        <input
+                            id="passwordCheck"
+                            type="password"
+                            name="passwordCheck"
+                            onChange={this.props.handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="message">
+                        <span>
+                             {this.props.message}
+                        </span>
+                    </div>
                     <div className=" input-field formSub registerBtn">
                         <input className=" registerValue formSubmit"
                             type="submit"
                             value='Register'
                         />
-                    </div>
-                    <div className="message">
-                        <span>
-                             {/* <p>{this.state.loginMessage}</p> */}
-                        </span>
                     </div>
                 </form>
                 </div>
