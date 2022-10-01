@@ -51,21 +51,6 @@ render(){
     
     <h2 className="createFormHeader">Create Video</h2>
     <Form id="createForm" onSubmit={this.handleSubmit}>
-      {/* videoLink input*/}
-      <Form.Group className="mb-3">
-        <Form.Label htmlFor="videoLink">Video Link</Form.Label>
-          <Form.Control 
-          id="url"
-            type="url" 
-            placeholder="Add your Video link" 
-            name="videoLink" 
-            onChange={this.handleChange}
-            value={this.state.videoLink}
-          />
-        {/* <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text> */}
-      </Form.Group>
 
       {/* Title Input */}
       <Form.Group className="mb-3">
@@ -79,6 +64,22 @@ render(){
           placeholder="Title" />
       </Form.Group>
 
+       {/* videoLink input*/}
+       <Form.Group className="mb-3">
+        <Form.Label htmlFor="videoLink">Video Link</Form.Label>
+          <Form.Control 
+          id="url"
+            type="url" 
+            placeholder="Add your Video link" 
+            name="videoLink" 
+            onChange={this.handleChange}
+            value={this.state.videoLink}
+          />
+        {/* <Form.Text className="text-muted">
+          We'll never share your email with anyone else.
+        </Form.Text> */}
+      </Form.Group>
+      
       {/* Description Textarea */}
       <Form.Group className="mb-3" >
         <Form.Label htmlFor="description">Description</Form.Label>
