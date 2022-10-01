@@ -7,80 +7,50 @@ import ModifyForm from "../ModifyForm";
 
 
 class User extends Component {
-    constructor(props){
-        super(props)
-        this.state ={
-            showVideoList: true,
-            createVideo: false, 
-            videoId: "",
-            modifyVideo: false,
-        }
-    }
-    onClickVideo = (e) => {
-        e.preventDefault();
-        // console.log(e.target.id)
-        this.setState({
-            showVideoList: false,
-            videoId: e.target.id,
-        })
-    }
-
-    handleCreateSubmit = (e) =>{
-        e.preventDefault();
-        // console.log("create video")
-        this.setState({
-            createVideo: true,
-            showVideoList: false,
-        })
-    }
-
-    handleCreateReturn = () => {
-        this.setState({
-            createVideo: false,
-            showVideoList: true,
-            modifyVideo: false,
-            videoToModify: "",
-        })
-    }
-
-    modifyVideo = (e) => {
-        e.preventDefault()
-        // console.log("Modify Video", e.target.parentNode.parentNode.firstChild.id)
-        let videoID = e.target.parentNode.parentNode.firstChild.id;
-        this.setState({
-                modifyVideo: true,
-                videoToModify: videoID,
-            }
-            
-        )
-    }
 
     render(){
-        return ( this.state.showVideoList 
+        return ( this.props.showVideoList 
             ?
             <div className = "userPage" >
                 {/* Pass in user name below */}
                 
                 {
-                    !this.state.modifyVideo
+                    !this.props.modifyVideo || this.props.showMain
                     ?
                     <>
-                        <UserInfo user={this.props.user} handleCreateSubmit = {this.handleCreateSubmit} />
-                        <VideoList user={this.props.user} onClickVideo = {this.onClickVideo} modifyVideo = {this.modifyVideo}/>
+                        <UserInfo 
+                            user={this.props.user} 
+                            handleCreateSubmit = {this.props.handleCreateSubmit}
+                            />
+                        <VideoList 
+                            user={this.props.user} 
+                            onClickVideo = {this.props.onClickVideo} 
+                            handleModifyVideo = {this.props.handleModifyVideo}
+                            />
                     </>
                     :
                     <>
-                        <ModifyForm handleCreateReturn = {this.handleCreateReturn} videoToModify = {this.state.videoToModify}/>
+                        <ModifyForm 
+                            handleCreateReturn = {this.props.handleCreateReturn} 
+                            videoToModify = {this.props.videoToModify}
+                            />
                     </>
                 }
                 
             </div>
             : <>
-                {this.state.createVideo
+                {this.props.createVideo
                 ?
-                    <CreateForm handleCreateReturn = {this.handleCreateReturn} user = {this.props.user._id}/>
+                    <CreateForm 
+                        handleCreateReturn = {this.props.handleCreateReturn} 
+                        user = {this.props.user._id}
+                        />
                 :
-                    <VideoInfo video = {this.state.videoId} user = {this.props.user}/>
+                    <VideoInfo 
+                        video = {this.props.videoId} 
+                        user = {this.props.user} 
+                        handleLogo = {this.props.handleLogo}
+                        />
                 }
             </>
                 

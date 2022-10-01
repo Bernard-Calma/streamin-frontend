@@ -25,7 +25,7 @@ class SignInHeader extends Component  {
                 
                 <ul className="nav-menu">
                 <div id="navLogo">
-                <p className="homepageLink" href="#">
+                <p className="homepageLink" onClick={this.props.handleLogo}>
                     {/* Add image or App title  */}
                     Streamin
                 </p>

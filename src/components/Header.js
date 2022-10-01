@@ -38,7 +38,9 @@ class Header extends Component  {
                             
                             <ul className="nav-menu">
                             <div id="navLogo">
-                            <p className="homepageLink">
+                            <p className="homepageLink"
+                                onClick={this.props.handleLogo}    
+                            >
                                 {/* Add image or App title  */}
                                 Streamin
                             </p>

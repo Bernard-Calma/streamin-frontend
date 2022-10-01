@@ -4,21 +4,11 @@ import React, { Component } from 'react'
 import Register from './Register'
 
 class SignIn extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            register: false,
-        }
-    }
-    onClickRegister = (e) => {
-        this.setState({
-            register: true,
-        })
-    }
     render() {
 
                 // if register state is false show login component
-        return ( !this.state.register 
+
+        return ( !this.props.register 
             ?<div className="holder">
                 <div className=" container-fluid formContainer">
                 <div className="formOuterSignIn">
@@ -61,7 +51,7 @@ class SignIn extends Component {
                     <div>
                 <span className="registerLink">
                     Want to join?
-                    Register <span onClick={this.onClickRegister}>here</span>.
+                    Register <span onClick={this.props.onClickRegister}>here</span>.
                 </span>
                 </div>
                 </form>
