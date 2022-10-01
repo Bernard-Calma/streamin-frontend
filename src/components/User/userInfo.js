@@ -5,9 +5,21 @@ class UserInfo extends Component {
         return( 
             <div className = "userInfo" >
                 {/* Pass in user name below */}
-                <div className = "createVideo" >
-                    <input type = "button" value = "create" id="createVideoButton" onClick={this.props.handleCreateSubmit}/>
-                </div>
+                {
+                    !this.props.searchVideos
+                    ?
+                    <>
+                        <div className = "createVideo" >
+                            <input type = "button" value = "create" id="createVideoButton" onClick={this.props.handleCreateSubmit}/>
+                        </div>
+                    </>
+                    :
+                    <>
+                        <div className = "createVideo" >
+                            
+                        </div>
+                    </>
+                }
                 <div className = "usernameInfo">
                     <p> Sign in as 
                         <br/>

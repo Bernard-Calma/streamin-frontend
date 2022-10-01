@@ -30,7 +30,11 @@ class SignInHeader extends Component  {
                     Streamin
                 </p>
                 </div>
-                <SeachBar/>
+                <SeachBar
+                    handleChange = {this.props.handleChange}
+                    search = {this.props.search}
+                    handleSearch = {this.props.handleSearch}
+                />
                 <li className="nav-item">
                     <SignOut signOut={this.props.signOut}/>
                 </li>

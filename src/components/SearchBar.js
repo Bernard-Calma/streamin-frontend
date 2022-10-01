@@ -3,17 +3,21 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 
+//URL
+let baseURL = process.env.REACT_APP_SERVER_URL;
+
 class SeachBar extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-
+            search: "",
         }
     }
+
     render(){
         return(
             <div className="searchBar">
-            <form >
+            <form onSubmit={this.props.handleSearch}>
             <label htmlFor="header-search">
                 <span className="visually-hidden"></span>
             </label>
@@ -21,7 +25,8 @@ class SeachBar extends React.Component {
                 type="text"
                 id="header-search"
                 placeholder="search your video"
-                name="s"
+                name="search"
+                onChange={this.props.handleChange}
                 
             />
              <button type="submit"className="fontIcon">
