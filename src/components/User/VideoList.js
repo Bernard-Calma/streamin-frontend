@@ -51,8 +51,9 @@ class VideoList extends Component {
 
     render(){
         return (
+            <div className="videoListContainer">
             <div className = "videoList" >
-                <div>
+                <div className="videoCategoriesHolder">
                     <select name = "Categories" id="Categories">
                         <option value = "category1">Category 1</option>
                         <option value = "category2">Category 2</option>
@@ -74,6 +75,7 @@ class VideoList extends Component {
                         })
                     }
                 </div>
+            </div>
             </div>
         )
     }
