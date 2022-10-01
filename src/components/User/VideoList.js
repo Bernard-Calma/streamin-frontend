@@ -64,6 +64,7 @@ class VideoList extends Component {
                         !this.props.searchVideos
                         ?
                         <>
+                        {/* User Videos */}
                             {this.state.videos.map(video => {
                                 return  (
                                     <Video 
@@ -80,7 +81,30 @@ class VideoList extends Component {
                         </>
                         :
                         <>
-                            Searched Video
+                        {/* Searched Videos */}
+                            {
+                                this.props.searchVideos.length !== 0
+                                ?
+                                <>
+                                    {this.props.searchedVideos.map(video => {
+                                        return  (
+                                            <Video 
+                                                key={video._id} 
+                                                video={video} 
+                                                className="video"
+                                                onClickVideo = {this.props.onClickVideo} 
+                                                deleteVideo = {this.deleteVideo} 
+                                                handleModifyVideo = {this.props.handleModifyVideo}
+                                                />
+                                            )
+                                        })
+                                    }
+                                </>
+                                :
+                                <>
+                                </>
+                            }
+                            
                         </>
                     }
                     

@@ -46,6 +46,7 @@ class App extends Component {
       searchVideos: false,
       // modify video
       videoToModify: "",
+      searchedVideos: [],
     }
   }
 
@@ -152,6 +153,7 @@ class App extends Component {
       videoToModify: "",
       register: false,
       searchVideos: false,
+      searchedVideos: [],
     })
     
   }
@@ -213,10 +215,10 @@ class App extends Component {
         return ""
     })
     .then(data => {
-        console.log(data);
-    })
-    this.setState({
-      searchVideos: true,
+        this.setState({
+          searchedVideos: data,
+          searchVideos: true,
+        })
     })
 }
 
@@ -272,6 +274,7 @@ class App extends Component {
           handleModifyVideo = {this.handleModifyVideo}
           modifyVideo = {this.state.modifyVideo}
           searchVideos = {this.state.searchVideos}
+          searchedVideos = {this.state.searchedVideos}
         />     
         <Footer />
       </>                               
