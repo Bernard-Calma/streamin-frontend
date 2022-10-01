@@ -21,11 +21,14 @@ class User extends Component {
                         <UserInfo 
                             user={this.props.user} 
                             handleCreateSubmit = {this.props.handleCreateSubmit}
+                            searchVideos = {this.props.searchVideos}
                             />
                         <VideoList 
                             user={this.props.user} 
                             onClickVideo = {this.props.onClickVideo} 
                             handleModifyVideo = {this.props.handleModifyVideo}
+                            searchVideos = {this.props.searchVideos}
+                            searchedVideos = {this.props.searchedVideos}
                             />
                     </>
                     :

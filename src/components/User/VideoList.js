@@ -61,19 +61,54 @@ class VideoList extends Component {
                     </select>
                 </div>
                 <div className ="videos">
-                    {this.state.videos.map(video => {
-                        return  (
-                        <Video 
-                            key={video._id} 
-                            video={video} 
-                            className="video"
-                            onClickVideo = {this.props.onClickVideo} 
-                            deleteVideo = {this.deleteVideo} 
-                            handleModifyVideo = {this.props.handleModifyVideo}
-                            />
-                        )
-                        })
+                    {
+                        !this.props.searchVideos
+                        ?
+                        <>
+                        {/* User Videos */}
+                            {this.state.videos.map(video => {
+                                return  (
+                                    <Video 
+                                        key={video._id} 
+                                        video={video} 
+                                        className="video"
+                                        onClickVideo = {this.props.onClickVideo} 
+                                        deleteVideo = {this.deleteVideo} 
+                                        handleModifyVideo = {this.props.handleModifyVideo}
+                                        />
+                                    )
+                                })
+                            }
+                        </>
+                        :
+                        <>
+                        {/* Searched Videos */}
+                            {
+                                this.props.searchVideos.length !== 0
+                                ?
+                                <>
+                                    {this.props.searchedVideos.map(video => {
+                                        return  (
+                                            <Video 
+                                                key={video._id} 
+                                                video={video} 
+                                                className="video"
+                                                onClickVideo = {this.props.onClickVideo} 
+                                                deleteVideo = {this.deleteVideo} 
+                                                handleModifyVideo = {this.props.handleModifyVideo}
+                                                />
+                                            )
+                                        })
+                                    }
+                                </>
+                                :
+                                <>
+                                </>
+                            }
+                            
+                        </>
                     }
+                    
                 </div>
             </div>
             </div>

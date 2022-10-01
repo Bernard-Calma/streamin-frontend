@@ -35,6 +35,7 @@ class App extends Component {
       loginMessage: "",
       showAbout: false,
       videoId: "",
+      search: "",
       // view pages
       register: false,
       loggedIn: false,
@@ -42,12 +43,15 @@ class App extends Component {
       showVideoList: true,
       createVideo: false,
       modifyVideo: false,
+      searchVideos: false,
       // modify video
       videoToModify: "",
+      searchedVideos: [],
     }
   }
 
   handleChange = (e) => {
+    // console.log("test ", e.target)
     e.preventDefault();
     this.setState({
         [e.target.name]: e.target.value,
@@ -148,6 +152,8 @@ class App extends Component {
       modifyVideo: false,
       videoToModify: "",
       register: false,
+      searchVideos: false,
+      searchedVideos: [],
     })
     
   }
@@ -201,6 +207,22 @@ class App extends Component {
   // console.log(baseURL)
   }
 
+  handleSearch = (e) => {
+    e.preventDefault()
+    fetch(`${baseURL}/videos/search/${this.state.search}`)
+    .then(res => {
+        if(res.status === 200) return res.json()
+        return ""
+    })
+    .then(data => {
+        this.setState({
+          searchedVideos: data,
+          searchVideos: true,
+        })
+    })
+}
+
+
   render() {
     // if logged in is false
     return( !this.state.loggedIn
@@ -230,7 +252,13 @@ class App extends Component {
       : <>
         {/* If login successful change state.loggedIn to true */}
         {/* // Pass in User Component  */}
-        <SignInHeader signOut={this.handleSignOut} handleLogo = {this.handleLogo}/>
+        <SignInHeader 
+          signOut={this.handleSignOut} 
+          handleLogo = {this.handleLogo}
+          handleChange = {this.handleChange}
+          search = {this.state.search}
+          handleSearch = {this.handleSearch}
+          />
         <User 
           key = {this.state.user._id} 
           user = {this.state.user} 
@@ -245,6 +273,8 @@ class App extends Component {
           handleCreateReturn = {this.handleCreateReturn}
           handleModifyVideo = {this.handleModifyVideo}
           modifyVideo = {this.state.modifyVideo}
+          searchVideos = {this.state.searchVideos}
+          searchedVideos = {this.state.searchedVideos}
         />     
         <Footer />
       </>                               
