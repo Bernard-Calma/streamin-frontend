@@ -43,17 +43,19 @@ class CreateForm extends Component {
 render(){
   return(
     <div className="createPageHolder">
-      <div className="returnBtn">
-      <div type="button" value="Return" onClick={this.props.handleCreateReturn}>Return</div>
+      <div className="returnBtnHolder">
+      <div className="returnBtn" value="Return" onClick={this.props.handleCreateReturn}>Return</div>
     </div>
+    <div className="formCreateHolder">
   <div className="formCreateOuter">
     
-    <h2 className="createFormHeader">Create Video Form</h2>
+    <h2 className="createFormHeader">Create Video</h2>
     <Form id="createForm" onSubmit={this.handleSubmit}>
       {/* videoLink input*/}
       <Form.Group className="mb-3">
         <Form.Label htmlFor="videoLink">Video Link</Form.Label>
           <Form.Control 
+          id="url"
             type="url" 
             placeholder="Add your Video link" 
             name="videoLink" 
@@ -81,6 +83,7 @@ render(){
       <Form.Group className="mb-3" >
         <Form.Label htmlFor="description">Description</Form.Label>
           <Form.Control 
+          id="textarea"
               as="textarea" rows={3}
               name="description" 
               value={this.state.description}
@@ -90,7 +93,9 @@ render(){
 
       {/* Tag Dropdown/ Option */}
       {/* Testing how to do tags */}
+      
       <Form.Group className="mb-3">
+        <Form.Label htmlfor="tags">Tags</Form.Label>
         <Form.Select aria-label="Tags"
         id="tags"
         onChange={this.handleChange}
@@ -103,11 +108,12 @@ render(){
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Button variant="primary" className="createVideoBtn" type="submit" >
+        <Button variant="primary" id="createVideoBtn" type="submit" >
           Submit Your Video
         </Button>
       </Form.Group>
-    </Form>   
+    </Form> 
+    </div>  
   </div>
   </div>
      )}}

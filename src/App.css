@@ -143,10 +143,25 @@ a:hover {
 .createPageHolder{
   background-color: #080710;
     display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
     flex-direction: column;
+}
+.returnBtnHolder{
+  margin-top: 28px;
+  margin-left: 48px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  justify-items: flex-start;
+}
+.returnBtn{
+  border: solid white 2px;
+  border-radius: 5px;
+  padding: 7px 21px;
+  font-size: 20px;
+}
+.formCreateHolder{
+  display:flex;
+  justify-content:center;
 }
 .formCreateOuter{
   box-shadow: 0 0 40px rgb(8 7 16 / 60%);
@@ -155,7 +170,6 @@ a:hover {
   border: 2px solid rgba(255,255,255,0.1);
   padding: 40px;
     margin: 50px;
-    height: 571px;
     width: 70%;
     display: flex;
     flex-direction: column;
@@ -165,8 +179,9 @@ a:hover {
 .createFormHeader{
   text-align:center;
   /* margin: 5px; */
-  padding-top: 20px;
+  /* padding-top: 20px; */
   color:white;
+  font-size:30px;
 }
 #createForm{
   width: 100%;
@@ -174,8 +189,26 @@ a:hover {
   flex-direction: column;
   justify-content: center;
 }
-.createVideoBtn{
-  width:100%
+
+.form-label{
+  color:white;
+}
+.form-control:focus {
+  border-color: #FF0000;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+.form-control{
+  width: 100%;
+  min-height: 60px;
+  border-radius: 3px;
+}
+#createVideoBtn{
+  width:100%;
+  background-color: white;
+  color: black;
+  height: 70px;
+   border-radius: 5px;
+   font-size: 22px;
 }
 
 
@@ -243,12 +276,12 @@ a:hover {
     font-size: 20px;
     font-weight: 600;
 }
-.input-field{
+.input-field, .mb-3{
   padding-top:24px;
   padding-bottom: 24px;
   width:100%;
 }
-#username, #password, #displayName, #passwordCheck{
+#username, #password, #displayName, #passwordCheck,#textarea,#title, #url, #tags{
   width:100%;
   min-height: 60px;
   border-radius: 3px;
@@ -261,11 +294,12 @@ a:hover {
     outline: none;
     border: none;
 }
-/* [type="submit"]{
-  width:100%;
-  height:60px;
-  border-radius: 16px;
-} */
+.form-label{
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
 .formSub{
   width:100%;
   height:60px;
