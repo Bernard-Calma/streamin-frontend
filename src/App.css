@@ -306,6 +306,11 @@ a:hover {
   border-radius: 5px;
   background-color:white;
 }
+.formSub:active{
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
 .formSubmit{
   width:100%;
   font-size:22px;
@@ -406,6 +411,10 @@ a:hover {
   /* margin-top: 30px; */
 }
 
+.user-infoContainer{
+  background-color: #080710;
+    border-bottom: gray solid 1px;
+}
 .userInfo {
   display: flex;
   flex-direction: row;
@@ -413,13 +422,16 @@ a:hover {
   width: 100%;
   height: 60px;
   font-size: 20px;
-  background-color: #004BA8;
+  border: black solid 2px;
 }
 
 .usernameInfo {
-  border: gray 5px solid;
-  width: 20%;
-  background-color: white;
+  border: white 2px solid;
+    width: 20%;
+    border-radius: 5px;
+    background-color: black;
+    margin: 5px;
+    color: white;
 }
 
 .usernameInfo p {
@@ -444,7 +456,6 @@ a:hover {
   justify-content: center;
   align-items: center;
   align-content:flex-start;
-  background-color: gray;
   width: 80%;
 }
 
@@ -452,14 +463,18 @@ a:hover {
 .createVideo input{
   margin: 0 auto;
   margin-left: 20px;
-  border-radius: 10px;
-  background-color: white;
-  padding: 0 20px 0 20px;
+  border-radius: 5px;
+  border: white solid 2px;
+  padding: 5px 20px 6px 20px;
+  color:white;
+  background-color: black;
 
 }
 
 /* <<<---- User Menu */
-
+.videoListContainer{
+  background-color: #080710;
+}
 .videoList {
   /* display: flex;
   margin: 0 auto;
@@ -474,14 +489,20 @@ a:hover {
   /* margin-top: 20px; */
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
-  /* max-width: 1514px; */
   padding: 20px 27px;
   border: 1px black solid;
+  background-color: #080710;
+  padding: 40px;
+  margin: 50px;
+  /* height: 770px; */
+  /* width: 100%; */
+  box-shadow: 0 0 40px rgb(8 7 16 / 60%);
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.13);
+  border: 2px solid rgba(255,255,255,0.1);
 }
 
 .videos {
-  margin: 20px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -490,37 +511,45 @@ a:hover {
     flex-wrap: wrap;
     align-content: center;
     align-items: center;
+    
 }
 .video {
   text-align: center;
   display:flex;
   flex-direction: column;
   margin: 25px;
+  /* border:1px white solid; */
 }
 
 .video iframe {
   width: 250px;
   height: 150px;
 }
-
+.videoTitle{
+  color:white;
+}
 .videoButtons {
   margin-top: 5px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
-.btnModify {
-  border-radius: 10px;
+.btnModify, .btnDelete {
+  border-radius: 5px;
   width: 30%;
-}
-.btnDelete {
-  border-radius: 10px;
-  width: 30%;
-
+  background-color: #080710;
+  color:white;
+  border: white solid 2px;
 }
 
 #Categories {
   margin: 20px;
+  border: white solid 2px;
+  background-color: black;
+  color: white;
+  padding: 9px 40px;
+  font-size: 20px;
+  border-radius: 5px;
 }
 
 .videoInfo{
@@ -587,4 +616,19 @@ a:hover {
   flex-direction: column;
   gap:0px;
 }
+.usernameInfo p {
+  flex-wrap: wrap;
+  font-size: 15px;
   }
+  .videoCategoriesHolder{
+    display:flex;
+    justify-content: center;
+  }
+  .videoButtons{
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+}

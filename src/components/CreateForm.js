@@ -79,7 +79,7 @@ render(){
           We'll never share your email with anyone else.
         </Form.Text> */}
       </Form.Group>
-      
+
       {/* Description Textarea */}
       <Form.Group className="mb-3" >
         <Form.Label htmlFor="description">Description</Form.Label>
@@ -96,7 +96,7 @@ render(){
       {/* Testing how to do tags */}
       
       <Form.Group className="mb-3">
-        <Form.Label htmlfor="tags">Tags</Form.Label>
+        <Form.Label htmlFor="tags">Tags</Form.Label>
         <Form.Select aria-label="Tags"
         id="tags"
         onChange={this.handleChange}
