@@ -4,7 +4,7 @@ body{
   overflow-x:hidden;
   padding:0;
   box-sizing: border-box;
-  
+  background-color: #080710;
 }
 /* HEADER/ NAVBAR CSS */
 .header{
@@ -14,6 +14,7 @@ body{
   position:sticky;
   background-color: #080710;
   color:white;
+  border-bottom: gray solid 1px;
 }
 .navbar{
   width: 100%;
@@ -38,18 +39,18 @@ body{
   padding-right: 30px;
   
 }
-/* a:visited{
+a:visited{
   text-decoration: none;
-  color:black;
+  color:white;
 }
 a:link {
   text-decoration: none;
-  color:black;
+  color:white;
 }
 a:hover {
   text-decoration: none;
-  color:black;
-} */
+  color:white;
+}
 
 /* NAV LOGO CSS */
 .homepageLink{
@@ -78,17 +79,41 @@ a:hover {
 }
 
 #aboutStreamin{
-  width: 900px;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+.aboutInfo{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.projectDescription{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+  
 
 #projectMemberInfoDiv{
   margin-top: 30px;
   display: flex;
   justify-content: space-around;
   width: 100%;
+  gap: 10px;
 }
 
 .aboutDiv{
@@ -96,13 +121,24 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 20px;
 }
 
 .teamMemberPic{
   width: 300px;
   border-radius: 60px;
 }
- 
+ .github ,.linkedin{
+  border-radius: 5px;
+    font-size: 20px;
+    padding: 5px 21px 8px;
+    border: white solid 2px;
+ }
+ .socials{
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+ }
 /* CREATE FORM STYLE */
 /* .formContainer{
   background-color: rgb(211, 184, 150);
@@ -288,7 +324,7 @@ a:hover {
   justify-content: center;
   position:sticky;
   background-color: #080710;
-  
+  border-top: gray solid 1px;
 }
 .footerHeader{
   font-size:20px;
@@ -467,4 +503,25 @@ a:hover {
   .userPage{
     max-width: 1214px;
   }
+  #projectMemberInfoDiv{
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+ .projectDescription{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.formOuterSignOut{
+  height:100%;
+}
+.nameUsernameHolder{
+  flex-direction: column;
+  gap:0px;
+}
   }
