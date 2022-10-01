@@ -515,10 +515,12 @@ a:hover {
 }
 .video {
   text-align: center;
-  display:flex;
+  display: flex;
   flex-direction: column;
   margin: 25px;
-  /* border:1px white solid; */
+  border: 1px white solid;
+  padding: 30px;
+  border-radius: 5px;
 }
 
 .video iframe {
