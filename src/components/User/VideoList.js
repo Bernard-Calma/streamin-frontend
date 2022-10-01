@@ -62,7 +62,14 @@ class VideoList extends Component {
                 <div className ="videos">
                     {this.state.videos.map(video => {
                         return  (
-                        <Video key={video._id} video={video} className="video" onClickVideo = {this.props.onClickVideo} deleteVideo = {this.deleteVideo} modifyVideo = {this.props.modifyVideo}/>
+                        <Video 
+                            key={video._id} 
+                            video={video} 
+                            className="video"
+                            onClickVideo = {this.props.onClickVideo} 
+                            deleteVideo = {this.deleteVideo} 
+                            handleModifyVideo = {this.props.handleModifyVideo}
+                            />
                         )
                         })
                     }

@@ -11,7 +11,11 @@ class Video extends Component {
                 </div>
                 <h3>{this.props.video.title}</h3>
                 <div className="videoButtons">
-                    <button type="button" className ="btnModify" onClick={this.props.modifyVideo}>Modify</button>
+                    <button 
+                        type="button" 
+                        className ="btnModify" 
+                        onClick={this.props.handleModifyVideo}
+                    >Modify</button>
                     {/* Delete Button */}
                     <button type="button"  className ="btnDelete" onClick={this.props.deleteVideo}>Delete</button>
                 </div>
