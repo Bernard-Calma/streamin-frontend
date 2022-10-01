@@ -4,6 +4,7 @@ body{
   overflow-x:hidden;
   padding:0;
   box-sizing: border-box;
+  background-color: #080710;
 }
 /* HEADER/ NAVBAR CSS */
 .header{
@@ -11,7 +12,9 @@ body{
   display:flex;
   flex-direction: row;
   position:sticky;
-  color:black;
+  background-color: #080710;
+  color:white;
+  border-bottom: gray solid 1px;
 }
 .navbar{
   width: 100%;
@@ -38,32 +41,32 @@ body{
 }
 a:visited{
   text-decoration: none;
-  color:black;
+  color:white;
 }
 a:link {
   text-decoration: none;
-  color:black;
+  color:white;
 }
 a:hover {
   text-decoration: none;
-  color:black;
+  color:white;
 }
 
 /* NAV LOGO CSS */
 .homepageLink{
-  border: black solid 2px;
+  border: white solid 2px;
   font-size: 35px;
   padding: 9px 27px;
   border-radius:10px;
 }
 .homepageLink:hover{
-  color:black;
+  color:rgb(255, 255, 255);
 }
  #nav-link{
-  border-radius: 60px;
-  background-color: #E3E1E1;
-  font-size: 20px;
-  padding: 5px 40px 8px;
+  border-radius: 5px;
+    font-size: 20px;
+    padding: 5px 21px 8px;
+    border: white solid 2px;
 }
 
 /* ABOUT */
@@ -71,20 +74,46 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #080710;
+  color:white;
 }
 
 #aboutStreamin{
-  width: 900px;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+.aboutInfo{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.projectDescription{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+  
 
 #projectMemberInfoDiv{
   margin-top: 30px;
   display: flex;
   justify-content: space-around;
   width: 100%;
+  gap: 10px;
 }
 
 .aboutDiv{
@@ -92,13 +121,24 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 20px;
 }
 
 .teamMemberPic{
   width: 300px;
   border-radius: 60px;
 }
- 
+ .github ,.linkedin{
+  border-radius: 5px;
+    font-size: 20px;
+    padding: 5px 21px 8px;
+    border: white solid 2px;
+ }
+ .socials{
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+ }
 /* CREATE FORM STYLE */
 /* .formContainer{
   background-color: rgb(211, 184, 150);
@@ -127,9 +167,19 @@ a:hover {
     align-content: center;
     justify-content: center;
     align-items: center;
-    margin:50px;
+    /* margin:50px; */
     width:100%;
     height:100%;
+
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+.holder{
+  background-color: #080710;
+  width:100%;
 }
 .formOuterSignIn{
   border: solid 1px black;
@@ -137,17 +187,21 @@ a:hover {
   margin:50px;
   /* height: 770px; */
   /* width:100% */
-  box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, .4);
-  border-radius: 45px;
+  box-shadow: 0 0 40px rgb(8 7 16 / 60%);
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.13);
+   border: 2px solid rgba(255,255,255,0.1);
 }
 .formOuterSignOut{
   border: solid 1px black;
   padding:40px;
   margin:50px;
   height: 571px;
-  width: 778px;
-  box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, .4);
-  border-radius: 45px;
+  width: 60%;
+  box-shadow: 0 0 40px rgb(8 7 16 / 60%);
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.13);
+  border: 2px solid rgba(255,255,255,0.1);
 }
 .signInTitle{
   /* border-radius: 60px;
@@ -157,9 +211,10 @@ a:hover {
   
 }
 .signIn{
-  border-radius: 60px;
-  background-color: white;
-  padding: 18px 46px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
   font-size:30px;
 }
 
@@ -176,10 +231,15 @@ a:hover {
 #username, #password, #displayName, #passwordCheck{
   width:100%;
   min-height: 60px;
-  border-radius: 16px;
-  background-color:white;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.07);
   padding: 12px 25px;
-  font-size: 15px; 
+  font-size: 14px; 
+  font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
 }
 /* [type="submit"]{
   width:100%;
@@ -189,12 +249,14 @@ a:hover {
 .formSub{
   width:100%;
   height:60px;
-  border-radius: 16px;
+  border-radius: 5px;
+  background-color:white;
 }
 .formSubmit{
   width:100%;
   font-size:22px;
-  border-radius: 16px;
+  border-radius: 5px;
+  
   
 }
 .registerLink{
@@ -207,11 +269,27 @@ a:hover {
   display: flex;
     gap: 36px;
 }
+.registerTitle{
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+}
 .registerBtn{
   padding-bottom: 62px;
 }
 .registerValue{
   padding: 5px;
+  text-align: center;
+  background-color:white;
+  border-radius: 5px;
+  height: 60px;
+}
+.registerValue:active{
+  transform: scale(0.98);
+  /* Scaling button to 0.98 to its original size */
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
 .message{
   text-align:center;
@@ -245,11 +323,13 @@ a:hover {
   display: flex;
   justify-content: center;
   position:sticky;
-  
+  background-color: #080710;
+  border-top: gray solid 1px;
 }
 .footerHeader{
   font-size:20px;
   padding: 20px;
+  color:white;
 }
 
 
@@ -423,4 +503,25 @@ a:hover {
   .userPage{
     max-width: 1214px;
   }
+  #projectMemberInfoDiv{
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+ .projectDescription{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.formOuterSignOut{
+  height:100%;
+}
+.nameUsernameHolder{
+  flex-direction: column;
+  gap:0px;
+}
   }
