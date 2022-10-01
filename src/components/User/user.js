@@ -27,6 +27,7 @@ class User extends Component {
                             user={this.props.user} 
                             onClickVideo = {this.props.onClickVideo} 
                             handleModifyVideo = {this.props.handleModifyVideo}
+                            searchVideos = {this.props.searchVideos}
                             />
                     </>
                     :

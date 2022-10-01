@@ -60,19 +60,30 @@ class VideoList extends Component {
                     </select>
                 </div>
                 <div className ="videos">
-                    {this.state.videos.map(video => {
-                        return  (
-                        <Video 
-                            key={video._id} 
-                            video={video} 
-                            className="video"
-                            onClickVideo = {this.props.onClickVideo} 
-                            deleteVideo = {this.deleteVideo} 
-                            handleModifyVideo = {this.props.handleModifyVideo}
-                            />
-                        )
-                        })
+                    {
+                        !this.props.searchVideos
+                        ?
+                        <>
+                            {this.state.videos.map(video => {
+                                return  (
+                                    <Video 
+                                        key={video._id} 
+                                        video={video} 
+                                        className="video"
+                                        onClickVideo = {this.props.onClickVideo} 
+                                        deleteVideo = {this.deleteVideo} 
+                                        handleModifyVideo = {this.props.handleModifyVideo}
+                                        />
+                                    )
+                                })
+                            }
+                        </>
+                        :
+                        <>
+                            Searched Video
+                        </>
                     }
+                    
                 </div>
             </div>
         )
