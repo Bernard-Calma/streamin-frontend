@@ -19,7 +19,7 @@ class Register extends Component {
                 <div className="registerTitle">
                     <h2>Register</h2>
                 </div>
-                <form  id="signIForm"
+                <form  id="signUpForm"
                 onSubmit={this.props.handleRegister}>
                     <div className="nameUsernameHolder">
                     <div className=" input-field" >
