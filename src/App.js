@@ -169,6 +169,7 @@ class App extends Component {
     // console.log("Modify Video", e.target.parentNode.parentNode.firstChild.id)
     let videoID = e.target.parentNode.parentNode.firstChild.id;
     this.setState({
+            showMain: false,
             modifyVideo: true,
             videoToModify: videoID,
         }
