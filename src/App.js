@@ -106,11 +106,6 @@ class App extends Component {
     if(this.state.password !== this.state.passwordCheck){
     this.setState({
       loginMessage: "Password does not match."
-  handleRegister = (e) => {
-    e.preventDefault();
-    if(this.state.password !== this.state.passwordCheck){
-      this.setState({
-        loginMessage: "Password does not match."
       })
       return;
     }
@@ -203,7 +198,6 @@ class App extends Component {
     this.setState({
         register: true,
     })
-  }
   // console.log(baseURL)
   fetch(`${baseURL}/users/`, {
       method: "POST",
@@ -230,46 +224,34 @@ class App extends Component {
           loginMessage: "Account Created."
         })
       }    
-  })
-}
+  })}
 
   render() {
     // if logged in is false
     return( !this.state.loggedIn
       ? <>
-          <Header
-            showAbout = {this.showAbout}
-            isShowingAbout = {this.state.showAbout}
-          />
-
-          {this.state.showAbout === true
-            ? <>
+        <Header
+          showAbout = {this.showAbout}
+          isShowingAbout = {this.state.showAbout}
+          handleLogo={this.handleLogo}
+        />
+        {this.state.showAbout === true
+          ? <>
               <About/>
-            </>
-                    
-            : <>
-              <SignIn
-                handleChange = {this.handleChange}
-                handleLogin = {this.handleLogin}
-                handleRegister = {this.handleRegister}
-                message = {this.state.loginMessage}
-              />
-            </>
-          }                        
-          <Header handleLogo={this.handleLogo}/>
-         
-          <SignIn
-            handleChange = {this.handleChange}
-            handleLogin = {this.handleLogin}
-            handleRegister = {this.handleRegister}
-            message = {this.state.loginMessage}
-            onClickRegister = {this.onClickRegister}
-            register = {this.state.register}
+            </>      
+          : <>
+            <SignIn
+              handleChange = {this.handleChange}
+              handleLogin = {this.handleLogin}
+              handleRegister = {this.handleRegister}
+              message = {this.state.loginMessage}
+              onClickRegister = {this.onClickRegister}
+              register = {this.state.register}
             />
-            
-            
-          <Footer />
-        </>
+          </>
+        }                 
+        <Footer />
+      </>
       : <>
         {/* If login successful change state.loggedIn to true */}
         {/* // Pass in User Component  */}
@@ -290,8 +272,7 @@ class App extends Component {
           modifyVideo = {this.state.modifyVideo}
         />     
         <Footer />
-      </>
-                                
+      </>                               
     )
   }
 }
