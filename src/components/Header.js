@@ -4,6 +4,8 @@ import React, {Component} from 'react'
 //Import About
 import About from './About';
 
+// // Import Sign Form
+// import SignInForm from './SignIn'
 class Header extends Component  {
     constructor(props) {
         super(props)
@@ -54,7 +56,11 @@ class Header extends Component  {
                         </nav>
                 </div>
                 {this.state.showAbout === true
-                    ? <About />
+                    ? <>
+                    <About/>
+                    
+                    </>
+                    
                     : <></>
                 }
             </div>

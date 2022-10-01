@@ -19,10 +19,11 @@ class SignIn extends Component {
 
                 // if register state is false show login component
         return ( !this.state.register 
-            ?<div className=" container-fluid formContainer">
-                <div className="formOuter">
+            ?<div class="holder">
+                <div className=" container-fluid formContainer">
+                <div className="formOuterSignIn">
                     <div className="signInTitle">
-                        <h1 className="signIn">Sign In</h1>
+                        <h2 className="signIn">Sign In</h2>
                     </div>
                 
                 
@@ -66,6 +67,7 @@ class SignIn extends Component {
                 </form>
                 </div>
                 
+            </div>
             </div>
             // if register is true show register component
             : <>
