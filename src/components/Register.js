@@ -54,6 +54,17 @@ class Register extends Component {
                             required
                         />
                     </div>
+                    <div className=" input-field">
+                        <label className="labelStyle"
+                        for="password">Password: </label>
+                        <input
+                            id="passwordCheck"
+                            type="password"
+                            name="passwordCheck"
+                            onChange={this.props.handleChange}
+                            required
+                        />
+                    </div>
                     <div className="message">
                         <span>
                              {this.props.message}

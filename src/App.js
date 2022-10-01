@@ -199,32 +199,7 @@ class App extends Component {
         register: true,
     })
   // console.log(baseURL)
-  fetch(`${baseURL}/users/`, {
-      method: "POST",
-      body: JSON.stringify(this.state),
-      headers: {
-          'Content-Type': 'application/json'
-      }
-  }).then(res => {
-    return res.json()})
-  .then(resJson => {
-      if(!resJson._id) {
-        this.setState({
-          loginMessage: "Username is already taken.",
-        })
-      } else {
-        // console.log("JSon", resJson)
-        this.setState({
-          username: "",
-          password: "",
-          name: "",
-          user: resJson,
-          loggedIn: true,
-          register: false,
-          loginMessage: "Account Created."
-        })
-      }    
-  })}
+  }
 
   render() {
     // if logged in is false
