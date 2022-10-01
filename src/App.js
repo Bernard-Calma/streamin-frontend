@@ -5,6 +5,9 @@ import './App.css';
 import Header from './components/Header'
 import SignInHeader from './components/signInHeader'
 
+//Import About
+import About from './components/About';
+
 //Signin Component
 import SignIn from "./components/SignIn";
 
@@ -30,6 +33,7 @@ class App extends Component {
       name: "",
       user: "",
       loginMessage: "",
+      showAbout: false,
       videoId: "",
       // view pages
       register: false,
@@ -85,11 +89,23 @@ class App extends Component {
     })
   }
 
+  showAbout = () => {
+    if(this.state.showAbout === true) {
+      this.setState({
+        showAbout: false
+      })
+    } else {
+      this.setState({
+        showAbout: true
+      })
+    }
+  }
+
   handleRegister = (e) => {
     e.preventDefault();
     if(this.state.password !== this.state.passwordCheck){
-      this.setState({
-        loginMessage: "Password does not match."
+    this.setState({
+      loginMessage: "Password does not match."
       })
       return;
     }
@@ -182,26 +198,60 @@ class App extends Component {
     this.setState({
         register: true,
     })
-  }
+  // console.log(baseURL)
+  fetch(`${baseURL}/users/`, {
+      method: "POST",
+      body: JSON.stringify(this.state),
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  }).then(res => {
+    return res.json()})
+  .then(resJson => {
+      if(!resJson._id) {
+        this.setState({
+          loginMessage: "Username is already taken.",
+        })
+      } else {
+        // console.log("JSon", resJson)
+        this.setState({
+          username: "",
+          password: "",
+          name: "",
+          user: resJson,
+          loggedIn: true,
+          register: false,
+          loginMessage: "Account Created."
+        })
+      }    
+  })}
 
   render() {
     // if logged in is false
     return( !this.state.loggedIn
       ? <>
-          <Header handleLogo={this.handleLogo}/>
-         
-          <SignIn
-            handleChange = {this.handleChange}
-            handleLogin = {this.handleLogin}
-            handleRegister = {this.handleRegister}
-            message = {this.state.loginMessage}
-            onClickRegister = {this.onClickRegister}
-            register = {this.state.register}
+        <Header
+          showAbout = {this.showAbout}
+          isShowingAbout = {this.state.showAbout}
+          handleLogo={this.handleLogo}
+        />
+        {this.state.showAbout === true
+          ? <>
+              <About/>
+            </>      
+          : <>
+            <SignIn
+              handleChange = {this.handleChange}
+              handleLogin = {this.handleLogin}
+              handleRegister = {this.handleRegister}
+              message = {this.state.loginMessage}
+              onClickRegister = {this.onClickRegister}
+              register = {this.state.register}
             />
-            
-            
-          <Footer />
-        </>
+          </>
+        }                 
+        <Footer />
+      </>
       : <>
         {/* If login successful change state.loggedIn to true */}
         {/* // Pass in User Component  */}
@@ -222,8 +272,7 @@ class App extends Component {
           modifyVideo = {this.state.modifyVideo}
         />     
         <Footer />
-      </>
-                                
+      </>                               
     )
   }
 }

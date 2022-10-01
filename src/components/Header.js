@@ -1,42 +1,24 @@
 import React, {Component} from 'react'
 // Import the Font Awesome bar that will change
 
-//Import About
-import About from './About';
-
 // // Import Sign Form
 // import SignInForm from './SignIn'
 class Header extends Component  {
     constructor(props) {
         super(props)
-        this.state = {
-            showAbout: false
-        }
-    }
-
-    showAbout = () => {
-        if(this.state.showAbout === true) {
-            this.setState({
-                showAbout: false
-            })
-        } else {
-            this.setState({
-                showAbout: true
-            })
-        }
     }
 
     render(){
         return(
             <div>
                 <div className="header container-fluid ">
-                        <nav className="navbar">
-                            {/* Menu Icon that will show at a specific media query */}
-                            <div className="menu-icon">
-                                {/* Will add an icon */}
-                            </div>
-                            
-                            <ul className="nav-menu">
+                    <nav className="navbar">
+                        {/* Menu Icon that will show at a specific media query */}
+                        <div className="menu-icon">
+                            {/* Will add an icon */}
+                        </div>
+                        
+                        <ul className="nav-menu">
                             <div id="navLogo">
                             <p className="homepageLink"
                                 onClick={this.props.handleLogo}    
@@ -45,26 +27,27 @@ class Header extends Component  {
                                 Streamin
                             </p>
                             </div>
-                                <li className="nav-item">
-                                    <p
+                            <li className="nav-item">
+                                {this.props.isShowingAbout === true
+                                    ?<p
                                         id="nav-link"
                                         className="nav-link"
-                                        onClick={this.showAbout}
-                                    > 
-                                    About
+                                        onClick={this.props.showAbout}
+                                    >
+                                        Back to Sign In
                                     </p>
-                                </li>
-                            </ul>
-                        </nav>
+                                    :<p
+                                        id="nav-link"
+                                        className="nav-link"
+                                        onClick={this.props.showAbout}
+                                    >
+                                        About
+                                    </p>
+                                }
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-                {this.state.showAbout === true
-                    ? <>
-                    <About/>
-                    
-                    </>
-                    
-                    : <></>
-                }
             </div>
         );
     }
