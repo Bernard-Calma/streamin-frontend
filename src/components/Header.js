@@ -20,10 +20,12 @@ class Header extends Component  {
                         
                         <ul className="nav-menu">
                             <div id="navLogo">
-                                <p className="homepageLink">
-                                    {/* Add image or App title  */}
-                                    Streamin
-                                </p>
+                            <p className="homepageLink"
+                                onClick={this.props.handleLogo}    
+                            >
+                                {/* Add image or App title  */}
+                                Streamin
+                            </p>
                             </div>
                             <li className="nav-item">
                                 {this.props.isShowingAbout === true
