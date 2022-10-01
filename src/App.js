@@ -5,6 +5,9 @@ import './App.css';
 import Header from './components/Header'
 import SignInHeader from './components/signInHeader'
 
+//Import About
+import About from './components/About';
+
 //Signin Component
 import SignIn from "./components/SignIn";
 
@@ -31,6 +34,7 @@ class App extends Component {
       user: "",
       loggedIn: false,
       loginMessage: "",
+      showAbout: false,
     }
   }
 
@@ -76,9 +80,21 @@ class App extends Component {
     })
   }
 
-handleRegister = (e) => {
-  e.preventDefault();
-  if(this.state.password !== this.state.passwordCheck){
+  showAbout = () => {
+    if(this.state.showAbout === true) {
+      this.setState({
+        showAbout: false
+      })
+    } else {
+      this.setState({
+        showAbout: true
+      })
+    }
+  }
+
+  handleRegister = (e) => {
+    e.preventDefault();
+    if(this.state.password !== this.state.passwordCheck){
     this.setState({
       loginMessage: "Password does not match."
     })
@@ -109,8 +125,7 @@ handleRegister = (e) => {
           register: false,
           loginMessage: "Account Created."
         })
-      } 
-      
+      }    
   })
 }
 
@@ -118,16 +133,25 @@ handleRegister = (e) => {
     // if logged in is false
     return( !this.state.loggedIn
       ? <>
-          <Header />
-         
-          <SignIn
-            handleChange = {this.handleChange}
-            handleLogin = {this.handleLogin}
-            handleRegister = {this.handleRegister}
-            message = {this.state.loginMessage}
-            />
-            
-            
+          <Header
+            showAbout = {this.showAbout}
+            isShowingAbout = {this.state.showAbout}
+          />
+
+          {this.state.showAbout === true
+            ? <>
+              <About/>
+            </>
+                    
+            : <>
+              <SignIn
+                handleChange = {this.handleChange}
+                handleLogin = {this.handleLogin}
+                handleRegister = {this.handleRegister}
+                message = {this.state.loginMessage}
+              />
+            </>
+          }                        
           <Footer />
         </>
       : <>
