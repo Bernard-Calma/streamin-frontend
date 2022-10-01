@@ -82,27 +82,18 @@ handleSubmit = (event) => {
 
 render(){
   return(
-  <div className="container formContainer">
-    <div className="returnBtn">
-      <input type="button" value="Return" onClick={this.props.handleCreateReturn}/>
+    <div className="createPageHolder">
+  
+    <div className="returnBtnHolder">
+      <div className="returnBtn"
+        value="Return" onClick={this.props.handleCreateReturn}>Return
+      </div>
     </div>
+
+    <div className="container formContainer">
+      <div className="formCreateOuter">
     <h2 className="createFormHeader">Modify Video</h2>
     <Form id="createForm" onSubmit={this.handleSubmit}>
-      {/* videoLink input*/}
-      <Form.Group className="mb-3">
-        <Form.Label htmlFor="videoLink">Video Link</Form.Label>
-          <Form.Control 
-            type="url" 
-            placeholder="Add your Video link" 
-            name="videoLink" 
-            onChange={this.handleChange}
-            value={this.state.videoLink}
-          />
-        {/* <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text> */}
-      </Form.Group>
-
       {/* Title Input */}
       <Form.Group className="mb-3">
         <Form.Label htmlFor="title">Title</Form.Label>
@@ -115,10 +106,25 @@ render(){
           placeholder="Title" />
       </Form.Group>
 
+     {/* videoLink input*/}
+     <Form.Group className="mb-3">
+        <Form.Label htmlFor="videoLink">Video Link</Form.Label>
+          <Form.Control 
+           id="url"
+            type="url" 
+            placeholder="Add your Video link" 
+            name="videoLink" 
+            onChange={this.handleChange}
+            value={this.state.videoLink}
+          />
+        
+      </Form.Group>
+
       {/* Description Textarea */}
       <Form.Group className="mb-3" >
         <Form.Label htmlFor="description">Description</Form.Label>
           <Form.Control 
+          id="textarea"
               as="textarea" rows={3}
               name="description" 
               value={this.state.description}
@@ -129,6 +135,7 @@ render(){
       {/* Tag Dropdown/ Option */}
       {/* Testing how to do tags */}
       <Form.Group className="mb-3">
+        <Form.Label htmlFor="tags">Tags</Form.Label>
         <Form.Select aria-label="Tags"
         id="tags"
         onChange={this.handleChange}
@@ -141,12 +148,16 @@ render(){
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Button variant="primary" className="createVideoBtn" type="submit" >
-          Submit Your Video
+        <Button variant="primary" 
+        id="createVideoBtn" type="submit" >
+          Modify Your Video
         </Button>
       </Form.Group>
     </Form>   
   </div>
+  </div>
+  </div>
+
      )}}
 
 export default ModifyForm
