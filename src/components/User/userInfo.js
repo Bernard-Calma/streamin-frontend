@@ -3,6 +3,7 @@ import React , {Component} from "react"
 class UserInfo extends Component {
     render(){
         return( 
+            <div className="user-infoContainer">
             <div className = "userInfo" >
                 {/* Pass in user name below */}
                 {
@@ -26,6 +27,7 @@ class UserInfo extends Component {
                     <span id="usernameInfoName"> {this.props.user.username} 
                     </span></p>
                 </div>
+            </div>
             </div>
         )
     }
