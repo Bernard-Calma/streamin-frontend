@@ -29,11 +29,16 @@ class App extends Component {
       passwordCheck: "",
       name: "",
       user: "",
-      loggedIn: false,
       loginMessage: "",
+      videoId: "",
+      // view pages
+      loggedIn: false,
       showMain: false,
       showVideoList: true,
-      videoId: "",
+      createVideo: false,
+      modifyVideo: false,
+      // modify video
+      videoToModify: "",
     }
   }
 
@@ -122,6 +127,9 @@ class App extends Component {
     this.setState({
       showMain: true,
       showVideoList: true,
+      createVideo: false,
+      modifyVideo: false,
+      videoToModify: "",
     })
     
   }
@@ -133,7 +141,38 @@ class App extends Component {
         showVideoList: false,
         videoId: e.target.id,
     })
-}
+  }
+
+  handleCreateSubmit = (e) =>{
+    e.preventDefault();
+    // console.log("create video")
+    this.setState({
+        createVideo: true,
+        showVideoList: false,
+    })
+  }
+
+  // Being used on Crate and Modify Forms
+  handleCreateReturn = () => {
+    this.setState({
+        createVideo: false,
+        showVideoList: true,
+        modifyVideo: false,
+        videoToModify: "",
+    })
+  }
+
+  handleModifyVideo = (e) => {
+    e.preventDefault()
+    // console.log("Modify Video", e.target.parentNode.parentNode.firstChild.id)
+    let videoID = e.target.parentNode.parentNode.firstChild.id;
+    this.setState({
+            modifyVideo: true,
+            videoToModify: videoID,
+        }
+        
+    )
+  }
 
   render() {
     // if logged in is false
@@ -163,6 +202,12 @@ class App extends Component {
           onClickVideo = {this.onClickVideo}
           showVideoList = {this.state.showVideoList}
           videoId = {this.state.videoId}
+          handleCreateSubmit = {this.handleCreateSubmit}
+          createVideo = {this.state.createVideo}
+          videoToModify = {this.state.videoToModify}
+          handleCreateReturn = {this.handleCreateReturn}
+          handleModifyVideo = {this.handleModifyVideo}
+          modifyVideo = {this.state.modifyVideo}
         />     
         <Footer />
       </>
