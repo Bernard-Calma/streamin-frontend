@@ -140,14 +140,33 @@ a:hover {
   flex-direction: column;
  }
 /* CREATE FORM STYLE */
-/* .formContainer{
-  background-color: rgb(211, 184, 150);
-  /* width: 100%; */
-/* } */
+.createPageHolder{
+  background-color: #080710;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.formCreateOuter{
+  box-shadow: 0 0 40px rgb(8 7 16 / 60%);
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.13);
+  border: 2px solid rgba(255,255,255,0.1);
+  padding: 40px;
+    margin: 50px;
+    height: 571px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
 .createFormHeader{
   text-align:center;
   /* margin: 5px; */
   padding-top: 20px;
+  color:white;
 }
 #createForm{
   width: 100%;
@@ -158,6 +177,7 @@ a:hover {
 .createVideoBtn{
   width:100%
 }
+
 
 
 /* SIGN IN & REGISTER FORM */
@@ -297,7 +317,7 @@ a:hover {
 }
 /* SEARCH INPUT STYLE */
 .searchBar{
-  border: solid black 2px;
+  border: solid white 2px;
     border-radius: 71px;
 }
 #header-search{
@@ -305,9 +325,15 @@ a:hover {
   border-radius: 11px;
     width: 353px;
     padding: 4px 22px;
-    border: none;
+    border: white;
     margin-left: 9px;
     outline: none;
+    background-color: rgba(255, 255, 255, 0.07);
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
 }
 .fontIcon{
   background: transparent;
@@ -315,8 +341,11 @@ a:hover {
   border-radius: 17px;
   margin: 5px;
   padding: 4px 8px;
+  background: white;
 }
-
+::placeholder{
+  color: #e5e5e5;
+}
 
 /* FOOTER STYLE */
 .footer{

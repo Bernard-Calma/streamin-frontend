@@ -42,10 +42,12 @@ class CreateForm extends Component {
 
 render(){
   return(
-  <div className="container formContainer">
-    <div className="returnBtn">
-      <input type="button" value="Return" onClick={this.props.handleCreateReturn}/>
+    <div className="createPageHolder">
+      <div className="returnBtn">
+      <div type="button" value="Return" onClick={this.props.handleCreateReturn}>Return</div>
     </div>
+  <div className="formCreateOuter">
+    
     <h2 className="createFormHeader">Create Video Form</h2>
     <Form id="createForm" onSubmit={this.handleSubmit}>
       {/* videoLink input*/}
@@ -106,6 +108,7 @@ render(){
         </Button>
       </Form.Group>
     </Form>   
+  </div>
   </div>
      )}}
 
