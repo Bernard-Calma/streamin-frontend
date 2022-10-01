@@ -32,6 +32,7 @@ class App extends Component {
       loginMessage: "",
       videoId: "",
       // view pages
+      register: false,
       loggedIn: false,
       showMain: false,
       showVideoList: true,
@@ -130,6 +131,7 @@ class App extends Component {
       createVideo: false,
       modifyVideo: false,
       videoToModify: "",
+      register: false,
     })
     
   }
@@ -174,17 +176,26 @@ class App extends Component {
     )
   }
 
+  onClickRegister = (e) => {
+    e.preventDefault();
+    this.setState({
+        register: true,
+    })
+  }
+
   render() {
     // if logged in is false
     return( !this.state.loggedIn
       ? <>
-          <Header />
+          <Header handleLogo={this.handleLogo}/>
          
           <SignIn
             handleChange = {this.handleChange}
             handleLogin = {this.handleLogin}
             handleRegister = {this.handleRegister}
             message = {this.state.loginMessage}
+            onClickRegister = {this.onClickRegister}
+            register = {this.state.register}
             />
             
             
