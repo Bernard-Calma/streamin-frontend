@@ -13,10 +13,11 @@ class Register extends Component {
     }
     render() {
         return(
-            <div className="container-fluid formContainer">
+            <div className="holder">
+                <div className="container-fluid formContainer">
                 <div className="formOuterSignOut">
                 <div className="registerTitle">
-                    <h1>Register</h1>
+                    <h2>Register</h2>
                 </div>
                 <form  id="signIForm"
                 onSubmit={this.props.handleRegister}>
@@ -58,16 +59,16 @@ class Register extends Component {
                              {this.props.message}
                         </span>
                     </div>
-                    <div className=" input-field formSub registerBtn">
+                    <div className=" input-field registerBtn">
                         <input className=" registerValue formSubmit"
                             type="submit"
                             value='Register'
                         />
                     </div>
                 </form>
-                </div>
             </div>
-
+        </div>
+    </div>
         )
     }
 }
