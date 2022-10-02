@@ -53,6 +53,7 @@ class User extends Component {
                         video = {this.props.videoId} 
                         user = {this.props.user} 
                         handleLogo = {this.props.handleLogo}
+                        handleModifyVideo = {this.props.handleModifyVideo}
                         />
                 }
             </>
