@@ -26,6 +26,7 @@ class SeachBar extends React.Component {
                 id="header-search"
                 placeholder="search your video"
                 name="search"
+                required
                 onChange={this.props.handleChange}
                 
             />
