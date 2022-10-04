@@ -1,6 +1,10 @@
+import { toHaveStyle } from "@testing-library/jest-dom/dist/matchers";
 import React, {Component} from "react";
+import Comments from "./Video/comments"
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import fontawesome
+
 
 //URL
 let baseURL = process.env.REACT_APP_SERVER_URL;
@@ -12,6 +16,8 @@ class VideoInfo extends Component {
             video: "",
             user: "",
             userlikes: [],
+            commentToBeAdded: {},
+            comments: [],
         }
     }
 
@@ -84,12 +90,49 @@ class VideoInfo extends Component {
       e.target.setAttribute("hidden", true)
     }
 
-    checkLiked = (e) => {
-      // console.log("target", e)
-      // console.log("likes: ",this.state.userlikes)
-      // console.log(this.props.user._id)
-      // console.log("Is liked? ", this.state.likes.includes(this.props.user._id))
-    }
+    handleChangeComment = (e) =>{
+      e.preventDefault();
+      // console.log(e.target.value)
+      this.setState({
+          commentToBeAdded: {
+              comment: e.target.value,
+              user: this.props.user.username,
+              date: Date.now(),
+      }
+      })
+  }
+
+    handleAddComment = (e) => {
+      e.preventDefault();
+      // let commentsToBeAdded = {comments: [...this.state.comments, this.state.commentToBeAdded]};
+      // // console.log("add comment", this.state.commentToBeAdded);
+      // // console.log(this.props.video)
+      // console.log("Comments: ", commentsToBeAdded)
+      
+      // Edit route
+      fetch(`${process.env.REACT_APP_SERVER_URL}/videos/${this.state.video._id}`,{
+          method: "PUT",
+          body: JSON.stringify({
+              comments: [...this.state.video.comments, this.state.commentToBeAdded],
+          }),
+          headers: {
+              'Content-Type': 'application/json'
+          },
+      }).then(res => {
+          if (res.status === 200) {
+              return res.json();
+            } else {
+              return []
+            }  
+      }).then(data => {
+          // console.log(data)
+          this.setState({
+              video: data,
+          })
+          this.componentDidMount()
+      })
+      
+  }
 
     render() {
       let likes = 0;
@@ -116,16 +159,16 @@ class VideoInfo extends Component {
                   <FontAwesomeIcon icon={solid("heart")} />
                   </span>
                 </label> 
-                </div>
-                <div className="comments">
-                  <h3>Comments: </h3>
-                  <div className = "addComment">
-                    <input type = "text" id="inputComment"/>
-                    <button id="btnAddComment"> Comment </button>
-                  </div>
-                </div>
-                </div>
-            </div>
+                
+                <Comments 
+                  video = {this.state.video} 
+                  user = {this.props.user} 
+                  comments = {this.state.video.comments}
+                  commentToBeAdded = {this.state.commentToBeAdded}
+                  handleChangeComment = {this.handleChangeComment}
+                  handleAddComment = {this.handleAddComment}
+                  />
+                
             </div>
         )
     }
