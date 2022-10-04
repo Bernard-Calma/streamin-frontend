@@ -140,26 +140,31 @@ class VideoInfo extends Component {
       
         return (
           <div className="videoPage">
-          <div className="videoContainer">
-            <div className = "videoInfo">
+            <div className="videoContainer">
+              <div className = "videoInfo">
                 <div className="videoHandler">
-                <iframe className = "videoIframe" src={this.state.video.videoLink}/>
+                  <iframe className = "videoIframe" src={this.state.video.videoLink}/>
                 </div>
-                    <div className="description">
-
-                <h2>{this.state.video.title}</h2>
-                <label>Uploaded: {this.changeDateFormat(this.state.video.publishedDate)}</label>
-                <label>Uploaded by: {this.state.username}</label>
-                <label>
-                    Description: {this.state.video.description}
-                </label>
-                <label>
-                  Likes : {likes} 
-                  <span className="likeButton"onLoad={() => this.checkLiked()} onClick={this.handleLike}>
-                  <FontAwesomeIcon icon={solid("heart")} />
-                  </span>
-                </label> 
-                
+                <div className="description">
+                  <h2>
+                    {this.state.video.title}
+                  </h2>
+                  <label>
+                    Uploaded: {this.changeDateFormat(this.state.video.publishedDate)}
+                  </label>
+                  <label>
+                    Uploaded by: {this.state.username}
+                  </label>
+                  <label>
+                      Description: {this.state.video.description}
+                  </label>
+                  <label>
+                    Likes : {likes} 
+                    <span className="likeButton"onLoad={() => this.checkLiked()} onClick={this.handleLike}>
+                    <FontAwesomeIcon icon={solid("heart")} />
+                    </span>
+                  </label> 
+                </div>
                 <Comments 
                   video = {this.state.video} 
                   user = {this.props.user} 
@@ -168,8 +173,9 @@ class VideoInfo extends Component {
                   handleChangeComment = {this.handleChangeComment}
                   handleAddComment = {this.handleAddComment}
                   />
-                
-            </div>
+                  </div>
+                </div>
+                </div>
         )
     }
 }
