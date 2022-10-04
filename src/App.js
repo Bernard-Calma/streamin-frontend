@@ -218,6 +218,7 @@ class App extends Component {
         this.setState({
           searchedVideos: data,
           searchVideos: true,
+          showVideoList: true,
         })
     })
 }
