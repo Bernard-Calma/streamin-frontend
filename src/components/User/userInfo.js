@@ -11,7 +11,7 @@ class UserInfo extends Component {
                     ?
                     <>
                         <div className = "createVideo" >
-                            <input type = "button" value = "create" id="createVideoButton" onClick={this.props.handleCreateSubmit}/>
+                            <input type = "button" value = "Create" id="createVideoButton" onClick={this.props.handleCreateSubmit}/>
                         </div>
                     </>
                     :
