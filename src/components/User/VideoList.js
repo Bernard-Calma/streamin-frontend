@@ -87,6 +87,7 @@ class VideoList extends Component {
                                 this.props.searchVideos.length !== 0
                                 ?
                                 <>
+                                
                                     {this.props.searchedVideos.map(video => {
                                         return  (
                                             <Video 

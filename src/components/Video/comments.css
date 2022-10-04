@@ -1,3 +1,5 @@
+/* COMMENTS */
+
 .comments {
     display: flex;
     flex-direction: column;
@@ -15,6 +17,10 @@
     
 }
 
+.addComment {
+    margin-top: 5px;
+}
+
 #txtAddComment {
     width: 80%;
     height: 70px;
@@ -26,4 +32,22 @@
     width: 20%;
     height: 30px;
     font-size: small;
+}
+
+
+/* COMMENT */
+.comment {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.comment div {
+    display: flex;
+}
+
+.comment div p {
+    margin-right: 10px;
 }
