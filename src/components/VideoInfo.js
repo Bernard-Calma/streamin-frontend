@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import fontawesome
 
 //URL
 let baseURL = process.env.REACT_APP_SERVER_URL;
@@ -94,27 +96,36 @@ class VideoInfo extends Component {
       if(this.state.video) likes = this.state.video.likes.length;
       
         return (
+          <div className="videoPage">
+          <div className="videoContainer">
             <div className = "videoInfo">
-                
+                <div className="videoHandler">
                 <iframe className = "videoIframe" src={this.state.video.videoLink}/>
-                <h1>{this.state.video.title}</h1>
+                </div>
+                    <div className="description">
+
+                <h2>{this.state.video.title}</h2>
                 <label>Uploaded: {this.changeDateFormat(this.state.video.publishedDate)}</label>
                 <label>Uploaded by: {this.state.username}</label>
                 <label>
                     Description: {this.state.video.description}
                 </label>
                 <label>
-                  Likes : {likes}          <button onLoad={() => this.checkLiked()} onClick={this.handleLike}>👍</button>
+                  Likes : {likes} 
+                  <span className="likeButton"onLoad={() => this.checkLiked()} onClick={this.handleLike}>
+                  <FontAwesomeIcon icon={solid("heart")} />
+                  </span>
                 </label> 
-                
+                </div>
                 <div className="comments">
-                  <h1>Comments: </h1>
+                  <h3>Comments: </h3>
                   <div className = "addComment">
-                    <input type = "text" />
-                    <button id="btnAddComment"> Add Comment </button>
+                    <input type = "text" id="inputComment"/>
+                    <button id="btnAddComment"> Comment </button>
                   </div>
                 </div>
-                
+                </div>
+            </div>
             </div>
         )
     }

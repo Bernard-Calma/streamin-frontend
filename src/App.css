@@ -327,6 +327,11 @@ a:hover {
   text-align: center;
   font-weight: 600;
   font-size:20px;
+
+}
+#registerPageLink:hover{
+color:red;
+cursor:pointer;
 }
 .nameUsernameHolder{
   display: flex;
@@ -558,27 +563,87 @@ a:hover {
   border-radius: 5px;
 }
 
+
+.videoPage{
+  background-color: #080710;
+}
 .videoInfo{
   margin: 0 auto;
-  margin-top: 25px;
-  width: 80%;
   display: flex;
   flex-direction: column;
+  padding: 20px 27px;
+  border: 1px black solid;
+  background-color: #080710;
+  box-shadow: 0 0 40px rgb(8 7 16 / 60%);
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.13);
+  border: 2px solid rgba(255,255,255,0.1);
+  width:80%;
 }
-
+.videoContainer{
+  padding:50px;
+  padding: 50px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.videoHandler{
+  display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    border: white solid 2px;
+    padding: 20px;
+    border-radius: 5px;
+}
 .videoIframe {
-  margin-top: 50px;
-  margin-bottom: 30px;
-  width: 90%;
+  width: 100%;
   height: 500px;
+}
+.description{
+  color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
 }
 
 .comments {
-  margin-top: 20px;
-  margin-bottom: 50px;
-  background-color: gray;
-  width: 70%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  /* background-color: gray; */
+  width: 100%;
   height: 300px;
+  border: 2px white solid;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+.addComment{
+  display:flex;
+  flex-direction:row;
+}
+#inputComment{
+  width: 80%;
+  height: 30px;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.07);
+    padding: 12px 25px;
+    font-size: 14px;
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+#btnAddComment{
+  border-radius: 5px;
+  background-color: white;
+}
+.likeButton{
+  color:green;
+  padding: 10px;
 }
 /* MEDIA QUERY */
 @media screen and (max-width: 980px) and (min-width:200px){
