@@ -107,7 +107,7 @@ render(){
       </Form.Group>
 
      {/* videoLink input*/}
-     <Form.Group className="mb-3">
+     {/* <Form.Group className="mb-3">
         <Form.Label htmlFor="videoLink">Video Link</Form.Label>
           <Form.Control 
            id="url"
@@ -118,7 +118,7 @@ render(){
             value={this.state.videoLink}
           />
         
-      </Form.Group>
+      </Form.Group> */}
 
       {/* Description Textarea */}
       <Form.Group className="mb-3" >
@@ -134,7 +134,7 @@ render(){
 
       {/* Tag Dropdown/ Option */}
       {/* Testing how to do tags */}
-      <Form.Group className="mb-3">
+      {/* <Form.Group className="mb-3">
         <Form.Label htmlFor="tags">Tags</Form.Label>
         <Form.Select aria-label="Tags"
         id="tags"
@@ -145,7 +145,7 @@ render(){
           <option value="Test-2">Test 2</option>
           <option value="Test-3">Test 3</option>
         </Form.Select>
-      </Form.Group>
+      </Form.Group> */}
 
       <Form.Group className="mb-3">
         <Button variant="primary" 

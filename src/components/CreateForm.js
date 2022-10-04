@@ -95,7 +95,7 @@ render(){
       {/* Tag Dropdown/ Option */}
       {/* Testing how to do tags */}
       
-      <Form.Group className="mb-3">
+      {/* <Form.Group className="mb-3">
         <Form.Label htmlFor="tags">Tags</Form.Label>
         <Form.Select aria-label="Tags"
         id="tags"
@@ -106,7 +106,7 @@ render(){
           <option value="Test-2">Test 2</option>
           <option value="Test-3">Test 3</option>
         </Form.Select>
-      </Form.Group>
+      </Form.Group> */}
 
       <Form.Group className="mb-3">
         <Button variant="primary" id="createVideoBtn" type="submit" >

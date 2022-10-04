@@ -53,13 +53,13 @@ class VideoList extends Component {
         return (
             <div className="videoListContainer">
             <div className = "videoList" >
-                <div className="videoCategoriesHolder">
+                {/* <div className="videoCategoriesHolder">
                     <select name = "Categories" id="Categories">
                         <option value = "category1">Category 1</option>
                         <option value = "category2">Category 2</option>
                         <option value = "category3">Category 3</option>
                     </select>
-                </div>
+                </div> */}
                 <div className ="videos">
                     {
                         !this.props.searchVideos
