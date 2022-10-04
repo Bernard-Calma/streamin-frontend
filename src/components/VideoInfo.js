@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Comments from "./Video/comments"
 
 //URL
 let baseURL = process.env.REACT_APP_SERVER_URL;
@@ -107,13 +108,7 @@ class VideoInfo extends Component {
                   Likes : {likes}          <button onLoad={() => this.checkLiked()} onClick={this.handleLike}>👍</button>
                 </label> 
                 
-                <div className="comments">
-                  <h1>Comments: </h1>
-                  <div className = "addComment">
-                    <input type = "text" />
-                    <button id="btnAddComment"> Add Comment </button>
-                  </div>
-                </div>
+                <Comments video = {this.state.video} user = {this.props.user} comments = {this.state.video.comments}/>
                 
             </div>
         )
