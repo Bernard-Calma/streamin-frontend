@@ -6,11 +6,15 @@ class Comment extends Component {
 
         return(
             <div class ="comment" id={this.props.id}>
-                <h4>{this.props.user}</h4>
-                <p>{this.props.comment}</p>
-                <p>{this.props.date.slice(0,10)}</p>
-                <div>
-                    <p>Like</p>
+                <div className="commentTitleDate">
+                    <h4>{this.props.user}</h4> <p className="commentDate">{this.props.date.slice(0,10)}</p>
+                    </div>
+                    <div className="commentInfo">
+                    <p >{this.props.comment}</p>
+
+                </div>
+                <div className="likeDelete">
+                    <p >Like</p>
                     {
                         !this.props.user === this.props.loggedInUser._id
                         ?
