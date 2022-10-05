@@ -54,7 +54,7 @@ render(){
 
       {/* Title Input */}
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="title">Title</Form.Label>
+        <Form.Label htmlFor="title">Title <span>(Currently works for : Youtube, Facebook, Vimeo, Dailymotion Links)</span></Form.Label>
         <Form.Control 
           type="text"
           id="title" 
