@@ -5,7 +5,7 @@ class Comment extends Component {
     render(){
 
         return(
-            <div class ="comment">
+            <div class ="comment" id={this.props.id}>
                 <h4>{this.props.user}</h4>
                 <p>{this.props.comment}</p>
                 <p>{this.props.date.slice(0,10)}</p>
@@ -19,7 +19,7 @@ class Comment extends Component {
                         </>
                         :
                         <>
-                            <p>Delete</p>
+                            <p onClick={this.props.handleDeleteComment}>Delete</p>
                         </>
                     }
                     

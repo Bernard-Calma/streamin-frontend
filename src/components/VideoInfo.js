@@ -131,7 +131,34 @@ class VideoInfo extends Component {
           })
           this.componentDidMount()
       })
-      
+  }
+
+  handleDeleteComment = (e) => {
+    e.preventDefault()
+    // console.log(e.target.parentNode.parentNode.id)
+    // console.log(this.state.video.comments)
+    let findIndex = this.state.video.comments.findIndex(comment => comment._id === e.target.parentNode.parentNode.id)
+    this.state.video.comments.splice(findIndex, 1)
+    fetch(`${baseURL}/videos/${this.state.video._id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        comments: [...this.state.video.comments],
+      }),
+      headers: {
+        'Content-Type' : 'application/json'
+      },
+    }).then(res => {
+      if(res.status === 200) {
+        return res.json()
+      } else {
+        return []
+      }
+    }).then(data => {
+      this.setState({
+        video: data
+      })
+      this.componentDidMount()
+    })
   }
 
     render() {
@@ -172,6 +199,7 @@ class VideoInfo extends Component {
                   commentToBeAdded = {this.state.commentToBeAdded}
                   handleChangeComment = {this.handleChangeComment}
                   handleAddComment = {this.handleAddComment}
+                  handleDeleteComment = {this.handleDeleteComment}
                   />
                   </div>
                 </div>
