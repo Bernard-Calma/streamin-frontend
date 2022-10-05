@@ -54,8 +54,8 @@ class Comments extends Component{
                 }
             </div>
             <div className = "addComment">
-              <textarea required type = "text" id = "txtAddComment" placeholder="add a comment" onChange={this.props.handleChangeComment} value ={this.props.commentToBeAdded.comment}/>
-              <button id="btnAddComment" onClick={this.props.handleAddComment} > Add Comment </button>              
+              <textarea required type = "text" id = "txtAddComment" placeholder="Add a Comment" onChange={this.props.handleChangeComment} value ={this.props.commentToBeAdded.comment}/>
+              <button id="btnAddComment" onClick={this.props.handleAddComment} >Comment </button>              
             </div>
           </div>
           
