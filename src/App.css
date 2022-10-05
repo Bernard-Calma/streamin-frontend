@@ -78,6 +78,13 @@ a:hover {
     color: #000;
     font-size: 18px;
 }
+.burger-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  align-items: baseline;
+  }
 
 /* ABOUT */
 #aboutContainer{
@@ -627,24 +634,50 @@ cursor:pointer;
 /* MEDIA QUERY */
 @media screen and (max-width: 980px) and (min-width:200px){
   /* NAVBAR */
-  .nav-list{
-    flex-direction:column;
-    height:auto;
+  /* close navabr */
+  .burger-list{
+    
+    flex-direction: column;
+    height: auto;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 100px;
+    right: -900px;
+    height: 30vh;
+    width: 100%;
+    background: #080710;;
+    align-content: center;
+    border-radius: 5px;
+    
   }
-  /* .burger-item:nth-child(1){
-    border-top: 1px solid rgba(255, 255, 255, 0.555);
-    margin-top: 50px;
-}
+  /* open navbar */
+  .burger-list.active{
+right:0px;
+     
+  
+
+  }
+
 .burger-item {
-    border-top: 1px solid rgba(255, 255, 255, 0.555);
+    
     text-align: center;
     margin-right: 0px;
     padding: 20px 0;
-} */
+    margin:10px;
+} 
+.signOut{
+  border-top: 1px solid rgba(255, 255, 255, 0.555);
+}
   .hamburger{
     display: block;
+    /* height: 41px; */
+    color:white;
   }
-
+#bars{
+  font-size:43px;
+  height: 41px;
+}
   #header-search{
     width: 200px;
   }
@@ -663,7 +696,7 @@ cursor:pointer;
   }
   #projectMemberInfoDiv{
     justify-content: center;
-    width: 100%;
+    /* width: 100%; */
     flex-direction: column;
     align-content: center;
     align-items: center;

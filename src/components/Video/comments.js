@@ -25,8 +25,6 @@ class Comments extends Component{
         this.loadComments();
     }
 
-    
-
     render(){
 
         return(
@@ -45,6 +43,8 @@ class Comments extends Component{
                                     user = {comment.user}
                                     date = {comment.date}
                                     loggedInUser = {this.props.user}
+                                    handleDeleteComment = {this.props.handleDeleteComment}
+                                    id = {comment._id}
                                 />
                             })}
                     </>
