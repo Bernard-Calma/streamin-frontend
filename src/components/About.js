@@ -20,8 +20,8 @@ class About extends Component {
                         <p>Rousse is amazing and totally kicked butt working on frontend and styling for the most part!</p>
                         </div>
                         <div className="socials">
-                        <a className="linkedin" href='https://www.linkedin.com/in/roussebidon/' target="_blank">Rousse's LinkedIn</a>
-                        <a className="github" href='https://github.com/rbidon' target="_blank">Rousse's GitHub</a>
+                        <a className="linkedin" href='https://www.linkedin.com/in/roussebidon/' target="_blank" rel="noopener noreferrer">Rousse's LinkedIn</a>
+                        <a className="github" href='https://github.com/rbidon' target="_blank" rel="noopener noreferrer">Rousse's GitHub</a>
                         </div>
                         </div>
                     </div>
@@ -31,8 +31,8 @@ class About extends Component {
                         <h1>Bernard Calma</h1>
                         <p>Bernard is top notch and did an amazing job on the vast majority of the backend and plenty of the frontend.</p>
                         <div className="socials">
-                        <a className="linkedin" href='https://www.linkedin.com/in/bernard-calma/' target="_blank">Bernard's LinkedIn</a>
-                        <a className="github" href='https://github.com/Bernard-Calma' target="_blank">Bernard's GitHub</a>
+                        <a className="linkedin" href='https://www.linkedin.com/in/bernard-calma/' target="_blank" rel="noopener noreferrer">Bernard's LinkedIn</a>
+                        <a className="github" href='https://github.com/Bernard-Calma' target="_blank" rel="noopener noreferrer">Bernard's GitHub</a>
                         </div>
                         </div>
                     </div>
@@ -42,8 +42,8 @@ class About extends Component {
                         <h1>Jorge Gonzalez</h1>
                         <p>Jorge is also pretty cool and mostly worked on the frontend.</p>
                         <div className="socials">
-                        <a  className="linkedin" href='https://www.linkedin.com/in/jorge-gonzalez-atx90125/' target="_blank">Jorge's LinkedIn</a>
-                        <a className="github" href='https://github.com/jorge90125' target="_blank">Jorge's GitHub</a>
+                        <a  className="linkedin" href='https://www.linkedin.com/in/jorge-gonzalez-atx90125/' target="_blank" rel="noopener noreferrer">Jorge's LinkedIn</a>
+                        <a className="github" href='https://github.com/jorge90125' target="_blank" rel="noopener noreferrer">Jorge's GitHub</a>
                         </div>
                         </div>
                     </div>
