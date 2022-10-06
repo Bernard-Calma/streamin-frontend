@@ -3,9 +3,6 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 
-//URL
-let baseURL = process.env.REACT_APP_SERVER_URL;
-
 class SeachBar extends React.Component {
     constructor(props){
         super(props)

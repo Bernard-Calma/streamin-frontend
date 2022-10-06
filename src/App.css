@@ -15,6 +15,7 @@ body{
   background-color: #080710;
   color:white;
   border-bottom: gray solid 1px;
+  cursor:pointer;
 }
 .navbar{
   width: 100%;
@@ -68,6 +69,22 @@ a:hover {
     padding: 5px 21px 8px;
     border: white solid 2px;
 }
+.hamburger{
+  display:none;
+  position: absolute;
+    right: 10px;
+    top: 16px;
+    padding: 5px;
+    color: #000;
+    font-size: 18px;
+}
+.burger-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  align-items: baseline;
+  }
 
 /* ABOUT */
 #aboutContainer{
@@ -609,47 +626,58 @@ cursor:pointer;
     margin-top: 10px;
 }
 
-.comments {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  /* background-color: gray; */
-  width: 100%;
-  height: 300px;
-  border: 2px white solid;
-  color: white;
-  border-radius: 5px;
-  padding: 10px;
-}
-.addComment{
-  display:flex;
-  flex-direction:row;
-}
-#inputComment{
-  width: 80%;
-  height: 30px;
-    border-radius: 3px;
-    background-color: rgba(255, 255, 255, 0.07);
-    padding: 12px 25px;
-    font-size: 14px;
-    font-family: 'Poppins',sans-serif;
-    color: #ffffff;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
-}
-#btnAddComment{
-  border-radius: 5px;
-  background-color: white;
-}
+
 .likeButton{
   color:green;
   padding: 10px;
 }
 /* MEDIA QUERY */
 @media screen and (max-width: 980px) and (min-width:200px){
-  /* .searchBar{
-    display:none;
-  } */
+  /* NAVBAR */
+  /* close navabr */
+  .burger-list{
+    
+    flex-direction: column;
+    height: auto;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 100px;
+    right: -900px;
+    height: 30vh;
+    width: 100%;
+    background: #080710;;
+    align-content: center;
+    border-radius: 5px;
+    
+  }
+  /* open navbar */
+  .burger-list.active{
+right:0px;
+     
+  
+
+  }
+
+.burger-item {
+    
+    text-align: center;
+    margin-right: 0px;
+    padding: 20px 0;
+    margin:10px;
+} 
+.signOut{
+  border-top: 1px solid rgba(255, 255, 255, 0.555);
+}
+  .hamburger{
+    display: block;
+    /* height: 41px; */
+    color:white;
+  }
+#bars{
+  font-size:43px;
+  height: 41px;
+}
   #header-search{
     width: 200px;
   }
@@ -658,9 +686,9 @@ cursor:pointer;
     
   }
   .videoList {
-    /* display:block; */
-    /* margin: 5px; */
-    /* margin-top: 20px; */
+    display:block; 
+    margin: 5px;
+    margin-top: 20px;
     flex-direction: column;
   }
   .userPage{
@@ -668,7 +696,7 @@ cursor:pointer;
   }
   #projectMemberInfoDiv{
     justify-content: center;
-    width: 100%;
+    /* width: 100%; */
     flex-direction: column;
     align-content: center;
     align-items: center;
@@ -700,6 +728,6 @@ cursor:pointer;
     flex-direction: column;
     align-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
   }
 }

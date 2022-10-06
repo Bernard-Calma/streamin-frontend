@@ -10,14 +10,15 @@ class Comment extends Component {
         let likes = this.props.likes.length
         return(
             <div class ="comment" id={this.props.id}>
-                <h4>{this.props.user}</h4>
-                <p>{this.props.comment}</p>
-                <p>{this.props.date.slice(0,10)}</p>
-                <div>
-                    Likes : {likes} 
-                    <span className="likeButton" onClick={this.props.handleCommentLike}>
-                    <FontAwesomeIcon icon={solid("heart")} />
-                    </span>
+                <div className="commentTitleDate">
+                    <h4>{this.props.user}</h4> <p className="commentDate">{this.props.date.slice(0,10)}</p>
+                    </div>
+                    <div className="commentInfo">
+                    <p >{this.props.comment}</p>
+
+                </div>
+                <div className="likeDelete">
+                    <p >Like</p>
                     {
                         !this.props.user === this.props.loggedInUser._id
                         ?

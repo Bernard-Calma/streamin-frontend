@@ -7,7 +7,7 @@ class Video extends Component {
             <div className="video">
                 {/* Modify Button */}
                 <div onClick={this.props.onClickVideo} id={this.props.video._id}>
-                    <iframe title={this.props.title} name= {this.props.title} src={this.props.video.videoLink} style={{pointerEvents: "none"}}></iframe>
+                    <iframe title={this.props.video._id} name= {this.props.video.title} src={this.props.video.videoLink} style={{pointerEvents: "none"}}></iframe>
                 </div>
                 <h3 className="videoTitle">{this.props.video.title}</h3>
                 <div className="videoButtons">
