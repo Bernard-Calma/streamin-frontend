@@ -45,6 +45,8 @@ class Comments extends Component{
                                     loggedInUser = {this.props.user}
                                     handleDeleteComment = {this.props.handleDeleteComment}
                                     id = {comment._id}
+                                    likes = {comment.likes}
+                                    handleCommentLike = {this.props.handleCommentLike}
                                 />
                             })}
                     </>
