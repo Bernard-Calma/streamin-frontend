@@ -4,10 +4,6 @@ import React, {Component} from 'react'
 // // Import Sign Form
 // import SignInForm from './SignIn'
 class Header extends Component  {
-    constructor(props) {
-        super(props)
-    }
-
     render(){
         return(
             <div>
