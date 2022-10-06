@@ -75,6 +75,7 @@ class VideoList extends Component {
                                         onClickVideo = {this.props.onClickVideo} 
                                         deleteVideo = {this.deleteVideo} 
                                         handleModifyVideo = {this.props.handleModifyVideo}
+                                        user = {this.props.user}
                                         />
                                     )
                                 })
@@ -97,6 +98,7 @@ class VideoList extends Component {
                                                 onClickVideo = {this.props.onClickVideo} 
                                                 deleteVideo = {this.deleteVideo} 
                                                 handleModifyVideo = {this.props.handleModifyVideo}
+                                                user = {this.props.user}
                                                 />
                                             )
                                         })

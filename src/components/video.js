@@ -10,15 +10,27 @@ class Video extends Component {
                     <iframe title={this.props.video._id} name= {this.props.video.title} src={this.props.video.videoLink} style={{pointerEvents: "none"}}></iframe>
                 </div>
                 <h3 className="videoTitle">{this.props.video.title}</h3>
-                <div className="videoButtons">
-                    <button 
-                        type="button" 
-                        className ="btnModify" 
-                        onClick={this.props.handleModifyVideo}
-                    >Modify</button>
+                
                     {/* Delete Button */}
-                    <button type="button"  className ="btnDelete" onClick={this.props.deleteVideo}>Delete</button>
-                </div>
+                    {this.props.video.user === this.props.user._id
+                        ?
+                        <>
+                            <div className="videoButtons">
+                                <button 
+                                    type="button" 
+                                    className ="btnModify" 
+                                    onClick={this.props.handleModifyVideo}
+                                >
+                                    Modify
+                                </button>
+                                <button type="button"  className ="btnDelete" onClick={this.props.deleteVideo}>Delete</button>
+                            </div>
+                        </>
+                        :
+                        <>
+                        
+                        </>
+                    }    
             </div>
         )
     }
