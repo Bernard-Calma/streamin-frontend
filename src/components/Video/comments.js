@@ -37,7 +37,6 @@ class Comments extends Component{
                         {
                             this.props.comments.slice(0).reverse().map(comment => {
                                 return <Comment 
-                                    key = {comment._id}
                                     comment = {comment.comment}
                                     user = {comment.user}
                                     date = {comment.date}
@@ -45,7 +44,11 @@ class Comments extends Component{
                                     handleDeleteComment = {this.props.handleDeleteComment}
                                     id = {comment._id}
                                     likes = {comment.likes}
-                                    handleCommentLike = {this.props.handleCommentLike}
+                                    comments = {this.props.comments}
+                                    video = {this.props.video}
+                                    handleModifyVideo = {this.props.handleModifyVideo}
+                                    componentDidMount = {this.componentDidMount}
+                                    loadComments = {this.loadComments}
                                 />
                             })}
                     </>

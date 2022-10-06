@@ -161,15 +161,6 @@ class VideoInfo extends Component {
     })
   }
 
-  handleCommentLike = (e) => {
-    e.preventDefault()
-    console.log(e.target.parentNode.parentNode.parentNode.id)
-    console.log(this.state.video.comments)
-    let findIndex = this.state.video.comments.findIndex(comment => comment._id === e.target.parentNode.parentNode.parentNode.id)
-    console.log(findIndex)
-    
-  }
-
     render() {
       let likes = 0;
       if(this.state.video) likes = this.state.video.likes.length;
@@ -202,7 +193,7 @@ class VideoInfo extends Component {
                   </label> 
                 </div>
                 <Comments 
-                  video = {this.state.video} 
+                  video = {this.state.video}
                   user = {this.props.user} 
                   comments = {this.state.video.comments}
                   commentToBeAdded = {this.state.commentToBeAdded}
@@ -210,6 +201,7 @@ class VideoInfo extends Component {
                   handleAddComment = {this.handleAddComment}
                   handleDeleteComment = {this.handleDeleteComment}
                   handleCommentLike = {this.handleCommentLike}
+                  handleModifyVideo = {this.props.handleModifyVideo}
                   />
                   </div>
                 </div>
