@@ -88,6 +88,7 @@ class VideoInfo extends Component {
         this.props.handleModifyVideo(e)
       } 
       e.target.setAttribute("hidden", true)
+      this.componentDidMount();
     }
 
     handleChangeComment = (e) =>{
