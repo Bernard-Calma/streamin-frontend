@@ -57,6 +57,7 @@ class VideoInfo extends Component {
 
     getUserName = () => {
       // console.log("user", this.state)
+      if(this.state.video) //404 error fixed
       fetch(baseURL + "/users/"+ this.state.video.user)
       .then(res => {
         if(res.status === 200) return res.json()

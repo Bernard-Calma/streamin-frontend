@@ -43,7 +43,7 @@ class Comment extends Component {
     render(){
         let likes = this.props.likes.length
         return(
-            <div class ="comment" id={this.props.id}>
+            <div className ="comment" id={this.props.id}>
                 <div className="commentTitleDate">
                     <h4>{this.props.user}</h4> <p className="commentDate">{this.props.date.slice(0,10)}</p>
                     </div>
