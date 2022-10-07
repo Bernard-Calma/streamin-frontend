@@ -10,7 +10,7 @@ class Video extends Component {
                 <div onClick={this.props.onClickVideo} id={this.props.video._id}>
                     <iframe title={this.props.video._id} name= {this.props.title} src={this.props.video.videoLink} style={{pointerEvents: "none"}}></iframe>
                 </div>
-                <h3 className="videoTitle">{this.props.video.name}</h3>
+                <h3 className="videoTitle">{this.props.video.title}</h3>
                 {!this.props.searchVideos
                 // if user do a search do not show modiy and delete
                     ?
@@ -27,7 +27,7 @@ class Video extends Component {
                     </>
                     :
                     <>
-                    
+
                     </>
                 }
             </div>
