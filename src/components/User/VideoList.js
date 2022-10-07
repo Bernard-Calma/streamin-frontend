@@ -46,7 +46,7 @@ class VideoList extends Component {
         fetch(`${baseURL}/videos/${videoID}`, {
             method: 'DELETE',
         })
-        this.componentDidMount()
+        this.getVideos()
     }
 
     render(){
