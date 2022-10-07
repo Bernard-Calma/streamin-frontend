@@ -634,6 +634,7 @@ cursor:pointer;
 }
 .videoDescriptions span{
   color:white;
+  font-weight:none;
 }
 .description{
   color: white;

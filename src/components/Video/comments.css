@@ -95,7 +95,11 @@
     color: green;
 }
 #likeButton{
-    color:green;
+    color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
    
   }
 #styleDelete{

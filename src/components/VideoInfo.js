@@ -193,9 +193,10 @@ class VideoInfo extends Component {
                      Description:  <span>{this.state.video.description}</span>
                       
                   </label >
-                  <label className="videoDescriptions" className="likeDescription">
-                    Likes : {likes} 
+                  <label className="videoDescriptions likeDescription">
+                    Likes:
                     <span id="likeButton"onLoad={() => this.checkLiked()} onClick={this.handleLike}>
+                       {likes}  
                     <FontAwesomeIcon icon={solid("heart")} />
                     </span>
                   </label> 
