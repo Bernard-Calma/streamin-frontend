@@ -108,6 +108,9 @@ class App extends Component {
   handleRegister = (e) => {
     e.preventDefault();
     if(this.state.password !== this.state.passwordCheck){
+      for(const child of e.target.querySelectorAll("input"))
+        if(child.type === "password")
+        child.value = ""; 
     this.setState({
       loginMessage: "Password does not match."
       })
