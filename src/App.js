@@ -127,6 +127,10 @@ class App extends Component {
           this.setState({
             loginMessage: "Username is already taken.",
           })
+          // console.log(e.target.querySelectorAll("input"))
+          for(const child of e.target.querySelectorAll("input"))
+            if(child.type === "password")
+            child.value = ""; 
         } else {
           // console.log("JSon", resJson)
           this.setState({
