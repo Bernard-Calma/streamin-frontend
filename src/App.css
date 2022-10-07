@@ -17,24 +17,26 @@ body{
   border-bottom: gray solid 1px;
   cursor:pointer;
 }
-.navbar{
+.navbar2{
   width: 100%;
   margin-top: 10px;
   display: flex;
   align-content: center;
-  flex-direction: column;
+  flex-wrap:nowrap;
+  /* flex-direction: column; */
 }
 
 .nav-menu{
-  height: 40px;
-  display: flex;
-  align-content: center;
-  width: 100%;
-  justify-content: space-between;
-  list-style-type: none;
-  flex-flow: row nowrap;
-  align-items: center;
-}
+    display: flex;
+    align-content: center;
+    width: 100%;
+    justify-content: flex-end;
+    list-style-type: none;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-bottom:0px;
+  }
+
 .nav-item{
   list-style-type: none;
   padding-right: 30px;
@@ -468,11 +470,17 @@ cursor:pointer;
   align-content: center;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 4px; 
+  
 }
 
 #usernameInfo {
   font-size: 25px;
+}
+#usernameInfoName{
+  font-style: italic;
+  font-weight: bold;
+  color: white;
 }
 
 .createVideo {
@@ -595,7 +603,7 @@ cursor:pointer;
   border-radius: 10px;
   background-color: rgba(255,255,255,0.13);
   border: 2px solid rgba(255,255,255,0.1);
-  width:80%;
+  width:100%;
 }
 .videoContainer{
   padding:50px;
@@ -619,18 +627,27 @@ cursor:pointer;
   width: 100%;
   height: 500px;
 }
+.videoDescriptions {
+  font-style: italic;
+  font-weight: bold;
+  color: gray;
+}
+.videoDescriptions span{
+  color:white;
+  font-weight:none;
+}
 .description{
   color: white;
     display: flex;
     flex-direction: column;
     margin-top: 10px;
 }
-
-
-.likeButton{
-  color:green;
-  padding: 10px;
+.likeDescription{
+  display:flex;
+  gap:6px;
 }
+
+
 /* MEDIA QUERY */
 @media screen and (max-width: 980px) and (min-width:200px){
   /* NAVBAR */
@@ -643,7 +660,7 @@ cursor:pointer;
     align-items: center;
     position: fixed;
     top: 100px;
-    right: -900px;
+    right: -2000px;
     height: 30vh;
     width: 100%;
     background: #080710;;

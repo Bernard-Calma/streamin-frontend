@@ -32,33 +32,34 @@ class SignInHeader extends Component  {
 
         return(  
        <div className="header container-fluid">
-            <nav className="navbar">
+            <nav className="navbar2">
                 {/* Menu Icon that will show at a specific media query */}
                 <div className="menu-icon">
                     {/* Will add an icon */}
                 </div>
-                <ul className="nav-menu">
                 <div id="navLogo">
                 <p className="homepageLink" onClick={this.props.handleLogo}>
                     {/* Add image or App title  */}
                     Streamin
                 </p>
                 </div>
+                <ul className="nav-menu">
+                
                 
                 <div className={this.state.clicked ?"burger-list active" :"burger-list"} >
                    
-                <li className="nav-item burger-item">
+                <div className="nav-item burger-item">
                 <SeachBar
                     handleChange = {this.props.handleChange}
                     search = {this.props.search}
                     handleSearch = {this.props.handleSearch}
                 />
-                </li>
+                </div>
              
 
-                <li className="signOut nav-item burger-item">
+                <div className="signOut nav-item burger-item">
                     <SignOut signOut={this.props.signOut}/>
-                </li>
+                </div>
                 </div>
                 </ul>
 

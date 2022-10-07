@@ -61,7 +61,7 @@ render(){
           name="title" 
           onChange={this.handleChange}
           value={this.state.title}
-          placeholder="Title" />
+          placeholder="Title" required/>
       </Form.Group>
 
        {/* videoLink input*/}
@@ -74,6 +74,7 @@ render(){
             name="videoLink" 
             onChange={this.handleChange}
             value={this.state.videoLink}
+            required
           />
         {/* <Form.Text className="text-muted">
           We'll never share your email with anyone else.
@@ -89,7 +90,7 @@ render(){
               name="description" 
               value={this.state.description}
               onChange={this.handleChange}
-              placeholder="Description" />
+              placeholder="Description" required/>
       </Form.Group>
 
       {/* Tag Dropdown/ Option */}

@@ -178,18 +178,25 @@ class VideoInfo extends Component {
                   <h2>
                     {this.state.video.title}
                   </h2>
-                  <label>
-                    Uploaded: {this.changeDateFormat(this.state.video.publishedDate)}
+                  <label className="videoDescriptions">
+                    Posted:
+                    <span> {this.changeDateFormat(this.state.video.publishedDate)}</span>
+                    
                   </label>
-                  <label>
-                    Uploaded by: {this.state.username}
-                  </label>
-                  <label>
-                      Description: {this.state.video.description}
-                  </label>
-                  <label>
-                    Likes : {likes} 
-                    <span className="likeButton"onLoad={() => this.checkLiked()} onClick={this.handleLike}>
+                  <label className="videoDescriptions">
+                    Creator: 
+                
+                    <span>{this.state.username}</span>
+                    
+                  </label >
+                  <label className="videoDescriptions">
+                     Description:  <span>{this.state.video.description}</span>
+                      
+                  </label >
+                  <label className="videoDescriptions likeDescription">
+                    Likes:
+                    <span id="likeButton"onLoad={() => this.checkLiked()} onClick={this.handleLike}>
+                       {likes}  
                     <FontAwesomeIcon icon={solid("heart")} />
                     </span>
                   </label> 
