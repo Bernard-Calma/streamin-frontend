@@ -3,7 +3,7 @@ import "./comments.css"
 
 //Import Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro' 
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' 
 
 //URL
 let baseURL = process.env.REACT_APP_SERVER_URL;
@@ -43,19 +43,33 @@ class Comment extends Component {
     render(){
         let likes = this.props.likes.length
         return(
-            <div className ="comment" id={this.props.id}>
+            <div className ="comment" id={this.props.id}>   
+            <div className="titleDateHolder">
                 <div className="commentTitleDate">
-                    <h4>{this.props.user}</h4> <p className="commentDate">{this.props.date.slice(0,10)}</p>
+                    <h4>{this.props.user}</h4> <p className="commentDate">
+                    {/* <FontAwesomeIcon icon={solid ("circle")}/> */}
+                    {this.props.date.slice(0,10)}</p>
+                    
+                    </div>
+                    <div id="styleDelete">
+                        <span onClick={this.props.handleDeleteComment}>
+                            <FontAwesomeIcon icon={solid("xmark") }/>
+                        </span>
+                        
+                        
+                    </div>
                     </div>
                     <div className="commentInfo">
                     <p >{this.props.comment}</p>
 
                 </div>
                 <div className="likeDelete">
-                    Likes : {likes} 
-                    <span className="likeButton" onClick={this.handleCommentLike}>
-                    <FontAwesomeIcon icon={solid("heart")} />
+                     
+                    <span className="likeFunction"  onClick={this.handleCommentLike}>
+                    {likes} <FontAwesomeIcon icon={solid("heart")} id="likeButton"/>
                     </span>
+                    
+                    
                     {
                         !this.props.user === this.props.loggedInUser._id
                         ?
@@ -63,9 +77,8 @@ class Comment extends Component {
                             
                         </>
                         :
-                        <>
-                            <p onClick={this.props.handleDeleteComment}>Delete</p>
-                        </>
+                       <>
+                       </>
                     }
                     
                 </div>

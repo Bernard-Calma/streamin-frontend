@@ -8,14 +8,12 @@ class Header extends Component  {
         return(
             <div>
                 <div className="header container-fluid ">
-                    <nav className="navbar">
+                    <nav className="navbar2">
                         {/* Menu Icon that will show at a specific media query */}
                         <div className="menu-icon">
                             {/* Will add an icon */}
                         </div>
-                        
-                        <ul className="nav-menu">
-                            <div id="navLogo">
+                        <div id="navLogo">
                             <p className="homepageLink"
                                 onClick={this.props.handleLogo}    
                             >
@@ -23,6 +21,8 @@ class Header extends Component  {
                                 Streamin
                             </p>
                             </div>
+                        <ul className="nav-menu">
+                            
                             <li className="nav-item">
                                 {this.props.isShowingAbout === true
                                     ?<p
@@ -34,7 +34,7 @@ class Header extends Component  {
                                     </p>
                                     :<p
                                         id="nav-link"
-                                        className="nav-link"
+                                        className="nav-link about"
                                         onClick={this.props.showAbout}
                                     >
                                         About
