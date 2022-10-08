@@ -328,6 +328,7 @@ a:hover {
   height:60px;
   border-radius: 5px;
   background-color:white;
+  color: black;
 }
 .formSub:active{
     transform: scale(0.98);
