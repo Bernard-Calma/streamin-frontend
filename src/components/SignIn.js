@@ -44,9 +44,8 @@ class SignIn extends Component {
                     </div>
                     <div className=" input-field formSubmit">
                         <input className="formSub"
-                            type="button"
+                            type="submit"
                             value='Sign In'
-                            onClick={this.props.handleLogin}
                         />
                     </div>
                     <div>
