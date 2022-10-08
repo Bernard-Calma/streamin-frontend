@@ -6,7 +6,7 @@ Streamin is a React-based social media app that allows users to post videos they
 
 ## Deployed App
 [Frontend](https://stream-in.herokuapp.com) <br>
-[Backend](stream-in-backend.herokuapp.com)
+[Backend](https://stream-in-backend.herokuapp.com)
 
 ## User Stories
 
