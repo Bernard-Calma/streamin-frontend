@@ -56,6 +56,11 @@ a:hover {
 }
 
 /* NAV LOGO CSS */
+#navLogo{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 .homepageLink{
   border: white solid 2px;
   font-size: 35px;
@@ -422,6 +427,7 @@ cursor:pointer;
   position:sticky;
   background-color: #080710;
   border-top: gray solid 1px;
+  height: 200px;
 }
 .footerHeader{
   font-size:20px;
@@ -529,7 +535,7 @@ cursor:pointer;
   background-color: #080710;
   padding: 40px;
   margin: 50px;
-  /* height: 770px; */
+  min-height: 770px;
   /* width: 100%; */
   box-shadow: 0 0 40px rgb(8 7 16 / 60%);
   border-radius: 10px;
@@ -556,6 +562,7 @@ cursor:pointer;
   border: 1px white solid;
   padding: 30px;
   border-radius: 5px;
+  max-width: 400px;
 }
 
 .video iframe {
@@ -564,6 +571,7 @@ cursor:pointer;
 }
 .videoTitle{
   color:white;
+  max-width: 400px;
 }
 .videoButtons {
   margin-top: 5px;
@@ -652,6 +660,9 @@ cursor:pointer;
 /* MEDIA QUERY */
 @media screen and (max-width: 980px) and (min-width:200px){
   /* NAVBAR */
+  .header{
+    position:sticky;
+  }
   /* close navabr */
   .burger-list{
     
