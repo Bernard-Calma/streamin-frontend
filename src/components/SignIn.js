@@ -51,7 +51,7 @@ class SignIn extends Component {
                     <div>
                 <span className="registerLink">
                     Want to join?
-                    Register <span id="registerPageLink" onClick={this.props.onClickRegister}>here</span>.
+                    Register <span id="registerPageLink" onClick={this.props.onClickRegister}>here.</span>
                 </span>
                 </div>
                 </form>

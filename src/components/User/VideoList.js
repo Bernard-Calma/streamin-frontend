@@ -52,7 +52,7 @@ class VideoList extends Component {
     render(){
         return (
             <div className="videoListContainer">
-            <div className = "videoList" >
+            <div className = "videoList " >
                 {/* <div className="videoCategoriesHolder">
                     <select name = "Categories" id="Categories">
                         <option value = "category1">Category 1</option>
@@ -60,7 +60,8 @@ class VideoList extends Component {
                         <option value = "category3">Category 3</option>
                     </select>
                 </div> */}
-                <div className ="videos">
+                
+                <div className ="videos grid grid-cols-4 gap-4 grid-rows-4">
                     {
                         !this.props.searchVideos
                         ?

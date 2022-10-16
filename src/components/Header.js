@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-// Import the Font Awesome bar that will change
+// Import the ICONIMAGE
+import logoImage from '../Logo2.png'
 
 // // Import Sign Form
 // import SignInForm from './SignIn'
@@ -14,6 +15,7 @@ class Header extends Component  {
                             {/* Will add an icon */}
                         </div>
                         <div id="navLogo">
+                            {/* <img src={logoImage} alt="image"/> */}
                             <p className="homepageLink"
                                 onClick={this.props.handleLogo}    
                             >
