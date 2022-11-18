@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 // Import the ICONIMAGE
-import logoImage from '../Logo2.png'
+// import logoImage from '../Logo2.png'
 
 // // Import Sign Form
 // import SignInForm from './SignIn'
@@ -21,7 +21,7 @@ class Header extends Component  {
                             >
                                 {/* Add image or App title  */}
                                 Streamin
-                            </p>
+                            </p> 
                             </div>
                         <ul className="nav-menu">
                             
