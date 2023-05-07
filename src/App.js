@@ -28,11 +28,14 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
+      user: {
+        id: "Guest",
+        username: "Guest",
+      },
       username: "",
       password: "",
       passwordCheck: "",
       name: "",
-      user: "",
       loginMessage: "",
       showAbout: false,
       videoId: "",
@@ -292,7 +295,9 @@ class App extends Component {
           isShowingAbout = {this.state.showAbout}
           handleLogo={this.handleLogo}
         />
-        <LandingPage />
+        <LandingPage 
+          user={this.state.user}
+        />
         <Footer />
       </>
     )
