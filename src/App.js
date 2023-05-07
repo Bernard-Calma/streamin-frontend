@@ -2,7 +2,7 @@ import React , {Component} from "react"
 import './App.css';
 
 // Components
-import LandingPage from './components/LandingPage'
+import LandingPage from './components/landingPage/LandingPage'
 import Header from './components/Header'
 import SignInHeader from './components/signInHeader'
 
@@ -31,6 +31,7 @@ class App extends Component {
       user: {
         id: "Guest",
         username: "Guest",
+        name: "Guest"
       },
       username: "",
       password: "",

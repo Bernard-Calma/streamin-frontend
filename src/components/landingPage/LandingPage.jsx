@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import './Styles.css'
+import Video from "../video";
 
-const LandingPage = () => {
+const LandingPage = props => {
     const [videoList, setVideoList] = useState([])
     
     useEffect( () => {
@@ -21,7 +23,7 @@ const LandingPage = () => {
     },[])
     return (
         <main>
-
+            { videoList.map(video => <Video video={video} />) }
         </main>
     )
 }
