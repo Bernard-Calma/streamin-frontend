@@ -1,12 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import './Styles.css'
-import Video from "../video";
+import Video from '../Video/Video'
 
 const LandingPage = props => {
     const [videoList, setVideoList] = useState([])
     
-    useEffect( () => {
+    useEffect(() => {
         const handleGetVideoList = () => {
             axios({
                 method: "GET",

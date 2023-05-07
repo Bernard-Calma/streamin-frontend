@@ -1,0 +1,49 @@
+.video {
+    width: 500px;
+    height: 400px;
+    margin: 25px;
+    padding: 0;
+    border: none;
+    display: flex;
+}
+
+iframe {
+    width: 100% !important;
+    height: 200px !important;
+    border-radius: 5px 5px 0 0;
+}
+
+.videoInfo {
+    height: 110px;
+    border-radius: 0 0 5px 5px;
+    text-align: start;
+    padding: 0 0 0 10px;
+    border-top: solid rgb(209, 206, 206);
+}
+
+.videoTitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.videoDescription {
+    color:white;
+    width: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.videoInfo > p {
+    color: white;
+}
+
+.videoFooter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.video > iframe, .videoImage {
+    cursor: pointer !important;
+}

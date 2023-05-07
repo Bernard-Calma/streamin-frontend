@@ -764,3 +764,9 @@ right:0px;
 .formSub {
   color: black;
 }
+
+
+/* New Styles */
+main {
+  justify-content: center;
+}

@@ -1,7 +1,7 @@
 import React , {Component} from "react"
 import UserInfo from "./userInfo";
 import VideoList from "./VideoList";
-import VideoInfo from "../VideoInfo";
+import VideoInfo from "../Video/VideoInfo";
 import CreateForm from "../CreateForm";
 import ModifyForm from "../ModifyForm";
 

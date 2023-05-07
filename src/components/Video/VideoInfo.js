@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Comments from "./Video/comments"
+import Comments from "./comments"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import fontawesome
