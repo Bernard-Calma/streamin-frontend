@@ -49,3 +49,11 @@ The methods taken were to get all routes working on the backend while doing prel
 ### Jorge Gonzalez
 * [Jorge's LinkedIn](https://www.linkedin.com/in/jorge-gonzalez-atx90125/)
 * [Jorge's GitHub](https://github.com/jorge90125)
+
+# Troubleshooting
+Error: error:0308010C:digital envelope routines::unsupported
+
+Go to your package.json file and replace
+        "start": "react-scripts start",
+with
+        "start": "react-scripts --openssl-legacy-provider start",
