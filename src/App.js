@@ -1,7 +1,8 @@
 import React , {Component} from "react"
 import './App.css';
 
-// Import the Header Components 
+// Components
+import LandingPage from './components/LandingPage'
 import Header from './components/Header'
 import SignInHeader from './components/signInHeader'
 
@@ -232,60 +233,68 @@ class App extends Component {
 
 
   render() {
+    
     // if logged in is false
-    return( !this.state.loggedIn
-      ? <>
+    // return( !this.state.loggedIn
+    //   ? <>
+    //     
+    //     {this.state.showAbout === true
+    //       ? <>
+    //           <About/>
+    //         </>      
+    //       : <>
+    //         <SignIn
+    //           handleChange = {this.handleChange}
+    //           handleLogin = {this.handleLogin}
+    //           handleRegister = {this.handleRegister}
+    //           message = {this.state.loginMessage}
+    //           onClickRegister = {this.onClickRegister}
+    //           register = {this.state.register}
+    //         />
+    //       </>
+    //     }                 
+    //     <Footer />
+    //   </>
+    //   : <>
+    //     {/* If login successful change state.loggedIn to true */}
+    //     {/* // Pass in User Component  */}
+    //     <SignInHeader 
+    //       signOut={this.handleSignOut} 
+    //       handleLogo = {this.handleLogo}
+    //       handleChange = {this.handleChange}
+    //       search = {this.state.search}
+    //       handleSearch = {this.handleSearch}
+    //       />
+    //     <User 
+    //       key = {this.state.user._id} 
+    //       user = {this.state.user} 
+    //       showMain = {this.state.showMain} 
+    //       handleLogo = {this.handleLogo} 
+    //       onClickVideo = {this.onClickVideo}
+    //       showVideoList = {this.state.showVideoList}
+    //       videoId = {this.state.videoId}
+    //       handleCreateSubmit = {this.handleCreateSubmit}
+    //       createVideo = {this.state.createVideo}
+    //       videoToModify = {this.state.videoToModify}
+    //       handleCreateReturn = {this.handleCreateReturn}
+    //       handleModifyVideo = {this.handleModifyVideo}
+    //       modifyVideo = {this.state.modifyVideo}
+    //       searchVideos = {this.state.searchVideos}
+    //       searchedVideos = {this.state.searchedVideos}
+    //     />     
+    //     
+    //   </>                               
+    // )
+    return(
+      <>
         <Header
           showAbout = {this.showAbout}
           isShowingAbout = {this.state.showAbout}
           handleLogo={this.handleLogo}
         />
-        {this.state.showAbout === true
-          ? <>
-              <About/>
-            </>      
-          : <>
-            <SignIn
-              handleChange = {this.handleChange}
-              handleLogin = {this.handleLogin}
-              handleRegister = {this.handleRegister}
-              message = {this.state.loginMessage}
-              onClickRegister = {this.onClickRegister}
-              register = {this.state.register}
-            />
-          </>
-        }                 
+        <LandingPage />
         <Footer />
       </>
-      : <>
-        {/* If login successful change state.loggedIn to true */}
-        {/* // Pass in User Component  */}
-        <SignInHeader 
-          signOut={this.handleSignOut} 
-          handleLogo = {this.handleLogo}
-          handleChange = {this.handleChange}
-          search = {this.state.search}
-          handleSearch = {this.handleSearch}
-          />
-        <User 
-          key = {this.state.user._id} 
-          user = {this.state.user} 
-          showMain = {this.state.showMain} 
-          handleLogo = {this.handleLogo} 
-          onClickVideo = {this.onClickVideo}
-          showVideoList = {this.state.showVideoList}
-          videoId = {this.state.videoId}
-          handleCreateSubmit = {this.handleCreateSubmit}
-          createVideo = {this.state.createVideo}
-          videoToModify = {this.state.videoToModify}
-          handleCreateReturn = {this.handleCreateReturn}
-          handleModifyVideo = {this.handleModifyVideo}
-          modifyVideo = {this.state.modifyVideo}
-          searchVideos = {this.state.searchVideos}
-          searchedVideos = {this.state.searchedVideos}
-        />     
-        <Footer />
-      </>                               
     )
   }
 }
