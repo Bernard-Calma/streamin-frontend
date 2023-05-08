@@ -7,16 +7,7 @@ body{
   background-color: #080710;
 }
 /* HEADER/ NAVBAR CSS */
-.header{
-  height: 100px;
-  display:flex;
-  flex-direction: row;
-  position:sticky;
-  background-color: #080710;
-  color:white;
-  border-bottom: gray solid 1px;
-  cursor:pointer;
-}
+
 .navbar2{
   width: 100%;
   margin-top: 10px;
@@ -419,24 +410,6 @@ cursor:pointer;
 ::placeholder{
   color: #e5e5e5;
 }
-
-/* FOOTER STYLE */
-.footer{
-  display: flex;
-  justify-content: center;
-  position:sticky;
-  background-color: #080710;
-  border-top: gray solid 1px;
-  height: 200px;
-}
-.footerHeader{
-  font-size:20px;
-  padding: 20px;
-  color:white;
-}
-
-
-
 
 /* User Menu --->>> */
 .userPage {

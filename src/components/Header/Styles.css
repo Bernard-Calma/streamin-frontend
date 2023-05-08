@@ -1,0 +1,10 @@
+.header {
+    height: 100px;
+    display:flex;
+    flex-direction: row;
+    position:sticky;
+    background-color: #080710;
+    color:white;
+    border-bottom: gray solid 1px;
+    cursor:pointer;
+}

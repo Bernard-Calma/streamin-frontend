@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
+import './Styles.css'
 // Import the ICONIMAGE
-import logoImage from '../Logo2.png'
+// import logoImage from '.'
 
 // // Import Sign Form
 // import SignInForm from './SignIn'

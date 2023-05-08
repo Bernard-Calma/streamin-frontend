@@ -3,7 +3,7 @@ import './App.css';
 
 // Components
 import LandingPage from "./views/LandingPage/LandingPage";
-import Header from './components/Header'
+import Header from "./components/Header/Header";
 import SignInHeader from './components/signInHeader'
 
 //Import About
@@ -13,7 +13,7 @@ import About from './components/About';
 import SignIn from "./components/SignIn";
 
 // Import the Footer Components
-import Footer from './components/Footer'
+import Footer from './components/Footer/Footer'
 
 // Import User Page Components
 import User from "./components/User/user";
