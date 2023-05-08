@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import './Styles.css'
-import Video from '../Video/Video'
-import Show from "../Video/Show";
+import Video from '../../components/Video/Video'
+import Show from "../../components/Video/Show";
 
 const LandingPage = props => {
     const [videoList, setVideoList] = useState([])

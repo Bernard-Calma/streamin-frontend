@@ -2,7 +2,7 @@ import React , {Component} from "react"
 import './App.css';
 
 // Components
-import LandingPage from './components/landingPage/LandingPage'
+import LandingPage from './views/LandingPage/LandingPage'
 import Header from './components/Header'
 import SignInHeader from './components/signInHeader'
 
