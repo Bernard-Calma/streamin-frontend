@@ -1,11 +1,9 @@
 import React from "react";
-import "./Styles.css"
+import "../Styles.css"
 
 const Video = props => {
     return( 
-        <div className="video"
-            onClick={props.handleShowVideo}
-        >
+        <div className="video" onClick={props.handleShowVideo}>
             <div className="videoImage">
                 {/* Enclosed inside a div to provide diferent click events */}
                 <iframe 
@@ -16,6 +14,7 @@ const Video = props => {
                 >
                 </iframe>
             </div>
+            
             <div className="videoInfo">
                 <h3 className="videoTitle">{props.video.title}</h3>
                 <p className="videoDescription">{props.video.description}</p>

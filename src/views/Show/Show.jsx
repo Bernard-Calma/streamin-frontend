@@ -1,4 +1,6 @@
 import React from "react";
+import './Styles.css'
+import Comments from "./components/Comment";
 
 const Show = props => {
     return (
@@ -23,20 +25,7 @@ const Show = props => {
             </div>
 
             <div className="right">
-                <h3>Comments</h3>
-                <div className="comments">
-                    {props.video.comments.map(comment => 
-                        <div className="comment">
-                            <h3 className="user">{comment.user}</h3>
-                            <p className="text">{comment.comment}</p>
-                            <p className="date">{comment.date}</p>
-                        </div>
-                    )}
-                </div>
-                <div className="inputComment">
-                    <input type="text" placeholder="Write a comment"/>
-                    <i class="fa-solid fa-arrow-right" style={{color: "white"}}></i>
-               </div>
+                <Comments video={props.video}/>
             </div>
             
 

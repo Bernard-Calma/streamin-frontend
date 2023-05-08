@@ -2,7 +2,7 @@ import React , {Component} from "react"
 import './App.css';
 
 // Components
-import LandingPage from './views/LandingPage/LandingPage'
+import LandingPage from "./views/LandingPage/LandingPage";
 import Header from './components/Header'
 import SignInHeader from './components/signInHeader'
 
@@ -20,7 +20,7 @@ import User from "./components/User/user";
 
 // Import bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Show from "./components/Video/Show";
+import Show from "./views/Show/Show";
 
 //URL
 let baseURL = process.env.REACT_APP_SERVER_URL

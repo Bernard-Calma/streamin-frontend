@@ -1,5 +1,5 @@
 import React , {Component} from "react"
-import Video from "../Video/Video"
+import Video from "../../views/Show/components/Video"
 
 
 //URL
