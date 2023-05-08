@@ -13,9 +13,7 @@ class User extends Component {
             ?
             <div className = "userPage" >
                 {/* Pass in user name below */}
-                
-                {
-                    !this.props.modifyVideo || this.props.showMain
+                {!this.props.modifyVideo || this.props.showMain
                     ?
                     <>
                         <UserInfo 

@@ -2,10 +2,18 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import './Styles.css'
 import Video from '../Video/Video'
+import Show from "../Video/Show";
 
 const LandingPage = props => {
     const [videoList, setVideoList] = useState([])
-    
+    const [show, setShow] = useState("Landing Page")
+    const [videoToShow, setVideoToShow] = useState({})
+
+    const handleShowVideo = video => {
+        setShow("Show");
+        setVideoToShow(video);
+    }
+
     useEffect(() => {
         const handleGetVideoList = () => {
             axios({
@@ -23,7 +31,23 @@ const LandingPage = props => {
     },[])
     return (
         <main>
-            { videoList.map(video => <Video video={video} />) }
+            {show === "Landing Page"
+                ? <>
+                    {videoList.map(video => 
+                        <Video 
+                            key={video._id}
+                            video={video} 
+                            handleShowVideo={() => handleShowVideo(video)}
+                        />
+                    )}
+                </>
+            :show === "Show"
+                ? <Show 
+                    video = {videoToShow}
+                />
+            : <></>
+            }
+            
         </main>
     )
 }

@@ -769,4 +769,5 @@ right:0px;
 /* New Styles */
 main {
   justify-content: center;
+  flex: 1;
 }

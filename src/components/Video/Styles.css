@@ -47,3 +47,93 @@ iframe {
 .video > iframe, .videoImage {
     cursor: pointer !important;
 }
+
+/* Show Video */
+section.showVideo {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+}
+
+.showVideo > .left  {
+    display: flex;
+    flex-direction: column;
+}
+
+.showVideo > .right{
+    display: flex;
+    flex-direction: column;
+}
+
+.showVideo.videoPlayer {
+    width: 800px;
+    height: 550px;
+}
+
+.showVideo.videoPlayer > iframe {
+    height: 500px !important;
+}
+
+.showVideo .divTitle {
+    display: flex;
+    align-items: center;
+}
+
+.showVideo .divTitle  p {
+    margin: 0;
+    text-align: center;
+}
+
+.showVideo .title {
+    font-size: 40px;
+    padding-left: 20px;
+}
+
+.right{
+    width: 400px;
+    height: 70vh;
+    border: solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.right > h3, .right > input {
+    margin: 0;
+}
+
+.right > .comments {
+    border: none;
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    background-color: gray;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.inputComment {
+    display: inline;
+    background-color: rgb(100, 104, 107);
+}
+
+.right input {
+    background-color: rgb(100, 104, 107);
+    color: black;
+    width: 370px;
+}
+
+.inputComment > i {
+    background-color: rgb(100, 104, 107);
+    font-size: 24px;
+    padding-top: 2px;
+}
+
+.inputComment > i:hover {
+    cursor: pointer;
+}

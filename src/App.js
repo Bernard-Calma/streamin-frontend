@@ -20,6 +20,7 @@ import User from "./components/User/user";
 
 // Import bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Show from "./components/Video/Show";
 
 //URL
 let baseURL = process.env.REACT_APP_SERVER_URL
@@ -33,6 +34,7 @@ class App extends Component {
         username: "Guest",
         name: "Guest"
       },
+      show: "Landing Page",
       username: "",
       password: "",
       passwordCheck: "",
@@ -296,9 +298,7 @@ class App extends Component {
           isShowingAbout = {this.state.showAbout}
           handleLogo={this.handleLogo}
         />
-        <LandingPage 
-          user={this.state.user}
-        />
+        <LandingPage  user={this.state.user}/>
         <Footer />
       </>
     )
