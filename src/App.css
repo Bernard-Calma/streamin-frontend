@@ -8,15 +8,6 @@ body{
 }
 /* HEADER/ NAVBAR CSS */
 
-.navbar2{
-  width: 100%;
-  margin-top: 10px;
-  display: flex;
-  align-content: center;
-  flex-wrap:nowrap;
-  /* flex-direction: column; */
-}
-
 .nav-menu{
     display: flex;
     align-content: center;
@@ -52,15 +43,7 @@ a:hover {
   justify-content: flex-start;
   align-items: center;
 }
-.homepageLink{
-  border: white solid 2px;
-  font-size: 35px;
-  padding: 9px 27px;
-  border-radius:10px;
-}
-.homepageLink:hover{
-  color:rgb(255, 255, 255);
-}
+
  #nav-link{
   border-radius: 5px;
     font-size: 20px;
@@ -380,10 +363,6 @@ cursor:pointer;
   font-size: 25px;
 }
 /* SEARCH INPUT STYLE */
-.searchBar{
-  border: solid white 2px;
-    border-radius: 71px;
-}
 #header-search{
   /* width:100%; */
   border-radius: 11px;

@@ -1,10 +1,73 @@
-.header {
-    height: 100px;
+@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Lato&family=Sigmar&display=swap');
+
+header {
+    height: 80px;
     display:flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     position:sticky;
     background-color: #080710;
     color:white;
     border-bottom: gray solid 1px;
-    cursor:pointer;
 }
+
+/* Logo */
+.header > .logo {
+    font-family: 'Darumadrop One', cursive;
+    border: white solid 2px;
+    font-size: 40px;
+    border-radius: 10px;
+    padding: 0 10px 10px;
+    margin: 10px 0;
+    cursor: pointer;
+
+}
+/* Logo */
+
+/* Nav Bar */
+.navBar {
+    flex: 1;
+    text-align: start;
+    padding-left: 20px;
+    font-family: 'Sigmar', cursive;
+    font-size: 30px;
+}
+
+.navBar.item {
+    cursor: pointer;
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+/* Nav Bar */
+
+/* Search Bar */
+.searchBar {
+    flex: 1;
+    text-align: end;
+    padding-right: 20px;
+}
+/* Search Bar */
+
+/* User */
+header > .user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+}
+
+header > .user > i {
+    padding: 5px;
+    margin: 0 20px;
+    border: solid white;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+header > .user > p {
+    margin: 0;
+    font-size: 20px;
+}
+/* User */

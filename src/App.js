@@ -6,7 +6,7 @@ import LandingPage from "./views/LandingPage/LandingPage";
 import { 
   Header, 
   Footer } from "./components";
-  
+
 import SignInHeader from './components/signInHeader'
 
 //Import About
@@ -294,8 +294,9 @@ class App extends Component {
     return(
       <>
         <Header
-          showAbout = {this.showAbout}
           isShowingAbout = {this.state.showAbout}
+          user = {this.state.user}
+          showAbout = {this.showAbout}
           handleLogo={this.handleLogo}
         />
         <LandingPage  user={this.state.user}/>

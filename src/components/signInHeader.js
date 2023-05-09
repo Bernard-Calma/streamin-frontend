@@ -5,7 +5,7 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- im
 
 
 // Import Searchbar Component
-import SeachBar from './SearchBar';
+import SeachBar from './Header/components/SearchBar';
 
 //Import SignOut Component
 import SignOut from './signout'

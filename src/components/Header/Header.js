@@ -1,55 +1,29 @@
-import React, {Component} from 'react'
+import React from 'react'
 import './Styles.css'
+import SeachBar from './components/SearchBar';
 // Import the ICONIMAGE
 // import logoImage from '.'
 
 // // Import Sign Form
 // import SignInForm from './SignIn'
-class Header extends Component  {
-    render(){
-        return(
-            <div>
-                <div className="header container-fluid ">
-                    <nav className="navbar2">
-                        {/* Menu Icon that will show at a specific media query */}
-                        <div className="menu-icon">
-                            {/* Will add an icon */}
-                        </div>
-                        <div id="navLogo">
-                            {/* <img src={logoImage} alt="image"/> */}
-                            <p className="homepageLink"
-                                onClick={this.props.handleLogo}    
-                            >
-                                {/* Add image or App title  */}
-                                Streamin
-                            </p>
-                            </div>
-                        <ul className="nav-menu">
-                            
-                            <li className="nav-item">
-                                {this.props.isShowingAbout === true
-                                    ?<p
-                                        id="nav-link"
-                                        className="nav-link"
-                                        onClick={this.props.showAbout}
-                                    >
-                                        Back to Sign In
-                                    </p>
-                                    :<p
-                                        id="nav-link"
-                                        className="nav-link about"
-                                        onClick={this.props.showAbout}
-                                    >
-                                        About
-                                    </p>
-                                }
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+const Header = props =>  {
+    return(
+        <header className="header container-fluid ">
+            <h1 className="logo" onClick={props.handleLogo}>Streamin</h1>
+            <nav className="navBar">
+                <p className='navBar item'>HOME</p>
+            </nav>
+
+            <div className='searchBar'>
+                <SeachBar />
             </div>
-        );
-    }
+
+            <div className='user'>
+                <p>{props.user.username ? props.user.username : "Guest" }</p>
+                <i class="fa-solid fa-user"></i>
+            </div>  
+        </header>
+    );
 }
 
 export default Header
