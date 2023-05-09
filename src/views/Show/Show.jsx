@@ -1,6 +1,6 @@
 import React from "react";
 import './Styles.css'
-import Comments from "./components/Comment";
+import { Comments } from "./components";
 
 const Show = props => {
     return (

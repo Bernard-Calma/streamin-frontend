@@ -3,7 +3,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 
-class SeachBar extends React.Component {
+class SearchBar extends React.Component {
     constructor(props){
         super(props)
         this.state = {
@@ -36,4 +36,4 @@ class SeachBar extends React.Component {
         )
     }  
 }
-export default SeachBar
+export default SearchBar

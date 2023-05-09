@@ -54,8 +54,8 @@ section.showVideo {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    padding: 0 20px;
+    align-items: start;
+    padding: 20px 20px 0;
     color: white;
 }
 
@@ -95,7 +95,7 @@ section.showVideo {
 
 .right{
     width: 400px;
-    height: 70vh;
+    height: 700px;
     border: solid white;
     display: flex;
     flex-direction: column;
@@ -137,4 +137,22 @@ section.showVideo {
 
 .inputComment > i:hover {
     cursor: pointer;
+}
+
+/* COMMENT */
+.comment {
+    padding: 0 !important;
+}
+
+.comment > .user {
+    font-size: 20px;
+}
+
+.comment > .text {
+    font-size: 16px;
+}
+
+.comment > .date {
+    font-size: 12px;
+    margin: 0;
 }

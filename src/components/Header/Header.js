@@ -1,6 +1,6 @@
 import React from 'react'
 import './Styles.css'
-import SeachBar from './components/SearchBar';
+import { SearchBar } from './components';
 // Import the ICONIMAGE
 // import logoImage from '.'
 
@@ -15,7 +15,7 @@ const Header = props =>  {
             </nav>
 
             <div className='searchBar'>
-                <SeachBar />
+                <SearchBar />
             </div>
 
             <div className='user'>
