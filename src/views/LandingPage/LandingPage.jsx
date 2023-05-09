@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import './Styles.css'
-import Video from '../Show/components/Video'
+import Video from './components/Video'
 import Show from "../Show/Show";
 
 const LandingPage = props => {
