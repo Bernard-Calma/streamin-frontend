@@ -301,8 +301,10 @@ class App extends Component {
         />
         <LandingPage  
           handleChangeUser = {this.handleChangeUser}
+          handleToggleLoginPage={this.handleToggleLoginPage}
           showLanding = {this.state.showLanding}
           showLogin = {this.state.showLogin}
+          user = {this.state.user}
         />
         <Footer />
       </>

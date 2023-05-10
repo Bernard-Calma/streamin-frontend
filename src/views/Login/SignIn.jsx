@@ -2,7 +2,8 @@ import React from 'react'
 
 import './Styles.css'
 import {
-    Form
+    Form,
+    Signout
 } from './components';
 
 const SignIn = props => {
@@ -68,10 +69,20 @@ const SignIn = props => {
         // );
         return(
             <section className='login'>
-                <h1>Login</h1>
-                <Form 
-                    handleChangeUser = {props.handleChangeUser}
-                />
+                {
+                    props.user.username === "Guest"
+                    ? <>
+                        <h1>Login</h1>
+                        <Form 
+                            handleChangeUser = {props.handleChangeUser}
+                            handleToggleLoginPage={props.handleToggleLoginPage}
+                        /> 
+                    </>
+                    : < Signout 
+                        user = {props.user}
+                    />
+                }
+                
             </section>
         )
     }

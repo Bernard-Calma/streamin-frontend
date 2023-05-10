@@ -12,12 +12,11 @@ const Form = props => {
         e.preventDefault();
         console.log(user);
         props.handleChangeUser(user)
+        props.handleToggleLoginPage()
     }
 
     return(
-        <form    
-            onSubmit={handleSubmit}
-        >  
+        <form onSubmit={handleSubmit}>  
             <input
                 id="username"
                 type="text"

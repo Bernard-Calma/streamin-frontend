@@ -54,6 +54,8 @@ const LandingPage = props => {
                 toggleLogin && 
                 <SignIn 
                     handleChangeUser = {props.handleChangeUser}
+                    handleToggleLoginPage={props.handleToggleLoginPage}
+                    user = {props.user}
                 />
             }
             {show === "Landing Page"
