@@ -1,0 +1,43 @@
+section.login {
+    position: absolute;
+    background-color: white;
+    border: solid black;
+    border-radius: 5px;
+    color: white;
+    right: 0;
+    margin: 10px;
+    padding-top: 10px;
+    font-family: 'Darumadrop One', cursive;
+}
+
+section.login > h1 {
+    font-size: 24px;
+    text-align: center;
+    margin: 0;
+    color: black;
+    font-family: 'Sigmar', cursive;
+}
+
+/* Form */
+.login form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: rgb(92, 92, 97);
+}
+
+.login form > input {
+    font-size: 16px;
+    margin: 5px 0;
+    padding-left: 5px;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+    font-family: 'Lato', sans-serif;
+}
+
+.login button {
+    border-radius: 20px;
+    width: 50%;
+    margin: auto;
+}

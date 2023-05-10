@@ -1,6 +1,9 @@
 import React from 'react'
 
-import {Form} from './components/Form';
+import './Styles.css'
+import {
+    Form
+} from './components';
 
 const SignIn = props => {
         // return ( !this.props.register 
@@ -64,8 +67,9 @@ const SignIn = props => {
         //     </>
         // );
         return(
-            <section>
+            <section className='login'>
                 <h1>Login</h1>
+                <Form />
             </section>
         )
     }

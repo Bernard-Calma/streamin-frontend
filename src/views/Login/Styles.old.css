@@ -1,0 +1,147 @@
+/* SIGN IN & REGISTER FORM */
+.formContainer{
+    display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      /* margin:50px; */
+      width:100%;
+      height:100%;
+  
+      font-family: 'Poppins',sans-serif;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      outline: none;
+      border: none;
+  }
+  .holder{
+    background-color: #080710;
+    width:100%;
+  }
+  .formOuterSignIn{
+    border: solid 1px black;
+    padding:40px;
+    margin:50px;
+    /* height: 770px; */
+    /* width:100% */
+    box-shadow: 0 0 40px rgb(8 7 16 / 60%);
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.13);
+     border: 2px solid rgba(255,255,255,0.1);
+  }
+  .formOuterSignOut{
+    border: solid 1px black;
+    padding:40px;
+    margin:50px;
+    height: 750px;
+    width: 60%;
+    box-shadow: 0 0 40px rgb(8 7 16 / 60%);
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.13);
+    border: 2px solid rgba(255,255,255,0.1);
+  }
+  .signInTitle{
+    /* border-radius: 60px;
+    background-color: white; */
+    display:flex;
+    justify-content: center;
+    
+  }
+  .signIn{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+    font-size:30px;
+  }
+  
+  .labelStyle{
+    padding-bottom: 10px;
+      font-size: 20px;
+      font-weight: 600;
+  }
+  .input-field, .mb-3{
+    padding-top:24px;
+    padding-bottom: 24px;
+    width:100%;
+  }
+  #username, #password, #displayName, #passwordCheck,#textarea,#title, #url, #tags{
+    width:100%;
+    min-height: 60px;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.07);
+    padding: 12px 25px;
+    font-size: 14px; 
+    font-family: 'Poppins',sans-serif;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      outline: none;
+      border: none;
+  }
+  .form-label{
+      padding-bottom: 10px;
+      font-size: 20px;
+      font-weight: 600;
+  }
+  
+  .formSub{
+    width:100%;
+    height:60px;
+    border-radius: 5px;
+    background-color:white;
+    color: black;
+  }
+  .formSub:active{
+      transform: scale(0.98);
+      /* Scaling button to 0.98 to its original size */
+      box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  }
+  .formSubmit{
+    width:100%;
+    font-size:22px;
+    border-radius: 5px;
+    
+    
+  }
+  .registerLink{
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    font-size:20px;
+  
+  }
+  #registerPageLink:hover{
+  color:red;
+  cursor:pointer;
+  }
+  .nameUsernameHolder{
+    display: flex;
+      gap: 36px;
+  }
+  .registerTitle{
+    text-align: center;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+  }
+  .registerBtn{
+    padding-bottom: 62px;
+  }
+  .registerValue{
+    padding: 5px;
+    text-align: center;
+    background-color:white;
+    border-radius: 5px;
+    height: 60px;
+  }
+  .registerValue:active{
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  }
+  .message{
+    text-align:center;
+    font-size: 25px;
+  }
