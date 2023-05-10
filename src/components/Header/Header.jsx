@@ -20,7 +20,10 @@ const Header = props =>  {
 
             <div className='user'>
                 <p>{props.user.username ? props.user.username : "Guest" }</p>
-                <i class="fa-solid fa-user"></i>
+                <i 
+                    class="fa-solid fa-user"
+                    onClick={props.handleToggleLoginPage}
+                />
             </div>  
         </header>
     );

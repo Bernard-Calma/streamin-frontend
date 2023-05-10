@@ -13,7 +13,7 @@ import SignInHeader from './components/signInHeader'
 import About from './components/About';
 
 //Signin Component
-import SignIn from "./components/SignIn";
+import SignIn from "./views/Login/SignIn";
 
 // Import User Page Components
 import User from "./components/User/user";
@@ -54,7 +54,8 @@ class App extends Component {
       // modify video
       videoToModify: "",
       searchedVideos: [],
-      viewChange: true,
+      showLanding: true,
+      showLogin: true,
     }
   }
 
@@ -158,20 +159,6 @@ class App extends Component {
     })
   }
 
-  handleLogo = (e) => {
-    e.preventDefault();
-    this.setState({
-      showMain: true,
-      showVideoList: true,
-      createVideo: false,
-      modifyVideo: false,
-      videoToModify: "",
-      register: false,
-      searchVideos: false,
-      searchedVideos: [],
-    })
-    
-  }
 
   onClickVideo = (e) => {
     e.preventDefault();
@@ -239,7 +226,12 @@ class App extends Component {
 }
 
   handleShowLandingPage = () => {
-    this.setState({viewChange: !this.state.viewChange})
+    this.setState({showLanding: !this.state.showLanding})
+  }
+
+  handleToggleLoginPage = () => {
+      this.setState({showLogin: !this.state.showLogin
+    })
   }
 
   render() {
@@ -303,12 +295,13 @@ class App extends Component {
           showAbout = {this.showAbout}
           handleLogo={this.handleLogo}
           handleShowLandingPage={this.handleShowLandingPage}
+          handleToggleLoginPage={this.handleToggleLoginPage}
         />
         <LandingPage  
           user={this.state.user}
-          viewChange = {this.state.viewChange}
-          
-          />
+          showLanding = {this.state.showLanding}
+          showLogin = {this.state.showLogin}
+        />
         <Footer />
       </>
     )

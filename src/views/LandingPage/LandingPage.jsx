@@ -3,11 +3,13 @@ import React, { useEffect, useState } from "react";
 import './Styles.css'
 import { Video } from "./components";
 import Show from "../Show/Show";
+import SignIn from "../Login/SignIn";
 
 const LandingPage = props => {
     const [videoList, setVideoList] = useState([])
     const [show, setShow] = useState("Landing Page")
     const [videoToShow, setVideoToShow] = useState({})
+    const [toggleLogin, setToggleLogin] = useState(false)
 
     const handleShowVideo = video => {
         setShow("Show");
@@ -36,9 +38,22 @@ const LandingPage = props => {
         }
 
         handleShowLandingPage()
-    },[props.viewChange])
+    },[props.showLanding])
+
+    useEffect(() => {
+        // console.log("Toggle Login")
+        const handleToggleLogin = () => {
+            setToggleLogin(!toggleLogin)
+        }
+
+        handleToggleLogin()
+    },[props.showLogin])
     return (
         <main>
+            {
+                toggleLogin && 
+                <SignIn />
+            }
             {show === "Landing Page"
                 ? <>
                     {videoList.map(video => 
