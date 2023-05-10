@@ -9,9 +9,9 @@ import { SearchBar } from './components';
 const Header = props =>  {
     return(
         <header className="header container-fluid ">
-            <h1 className="logo" onClick={props.handleLogo}>Streamin</h1>
+            <h1 className="logo" onClick={props.handleShowLandingPage}>Streamin</h1>
             <nav className="navBar">
-                <p className='navBar item'>HOME</p>
+                <p className='navBar item' onClick={props.handleShowLandingPage}>HOME</p>
             </nav>
 
             <div className='searchBar'>

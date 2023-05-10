@@ -54,6 +54,7 @@ class App extends Component {
       // modify video
       videoToModify: "",
       searchedVideos: [],
+      viewChange: true,
     }
   }
 
@@ -237,6 +238,9 @@ class App extends Component {
     })
 }
 
+  handleShowLandingPage = () => {
+    this.setState({viewChange: !this.state.viewChange})
+  }
 
   render() {
     
@@ -298,8 +302,13 @@ class App extends Component {
           user = {this.state.user}
           showAbout = {this.showAbout}
           handleLogo={this.handleLogo}
+          handleShowLandingPage={this.handleShowLandingPage}
         />
-        <LandingPage  user={this.state.user}/>
+        <LandingPage  
+          user={this.state.user}
+          viewChange = {this.state.viewChange}
+          
+          />
         <Footer />
       </>
     )

@@ -29,6 +29,14 @@ const LandingPage = props => {
 
         handleGetVideoList()
     },[])
+
+    useEffect(() => {
+        const handleShowLandingPage = () => {
+            setShow("Landing Page")
+        }
+
+        handleShowLandingPage()
+    },[props.viewChange])
     return (
         <main>
             {show === "Landing Page"
@@ -42,7 +50,7 @@ const LandingPage = props => {
                     )}
                 </>
             :show === "Show"
-                ? <Show 
+                ? <Show s
                     video = {videoToShow}
                 />
             : <></>
