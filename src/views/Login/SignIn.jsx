@@ -72,7 +72,6 @@ const SignIn = props => {
                 {
                     props.user.username === "Guest"
                     ? <>
-                        <h1>Login</h1>
                         <Form 
                             handleChangeUser = {props.handleChangeUser}
                             handleToggleLoginPage={props.handleToggleLoginPage}

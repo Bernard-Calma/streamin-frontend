@@ -42,6 +42,11 @@ section.login > h1 {
     margin: auto;
 }
 
+#registerPageLink {
+    color: rgb(1, 255, 1);
+    cursor: pointer;
+}
+
 
 /* SignOut */
 .signout {
