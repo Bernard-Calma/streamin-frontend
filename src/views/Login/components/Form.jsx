@@ -1,38 +1,42 @@
 import React, { useState } from "react";
 
-const Form = () => {
+const Form = props => {
     const [user, setUser] = useState({
         username: "",
         password: ""
     })
 
-    const handleChange = () => {
-        
+    const handleChange = e => setUser({...user, [e.target.name]: e.target.value})
+    
+    const handleSubmit = e => {
+        e.preventDefault();
+        console.log(user);
+        props.handleChangeUser(user)
     }
 
     return(
         <form    
-        //     onSubmit={this.props.handleLogin}
+            onSubmit={handleSubmit}
         >  
             <input
                 id="username"
                 type="text"
                 name="username"
                 placeholder="username"
-                // onChange={this.props.handleChange}
                 value={user.username}
                 required
                 autoComplete="false"
+                onChange={handleChange}
             />
             <input
                 id="password"
                 type="password"
                 name="password"
                 placeholder="password"
-                // onChange={this.props.handleChange}
                 value={user.password}
                 required
                 autoComplete="false"
+                onChange={handleChange}
             />
 
             <button>Log in</button>

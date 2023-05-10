@@ -234,6 +234,8 @@ class App extends Component {
     })
   }
 
+  handleChangeUser = newUser => this.setState({user: newUser})
+
   render() {
     
     // if logged in is false
@@ -298,7 +300,7 @@ class App extends Component {
           handleToggleLoginPage={this.handleToggleLoginPage}
         />
         <LandingPage  
-          user={this.state.user}
+          handleChangeUser = {this.handleChangeUser}
           showLanding = {this.state.showLanding}
           showLogin = {this.state.showLogin}
         />

@@ -69,7 +69,9 @@ const SignIn = props => {
         return(
             <section className='login'>
                 <h1>Login</h1>
-                <Form />
+                <Form 
+                    handleChangeUser = {props.handleChangeUser}
+                />
             </section>
         )
     }
