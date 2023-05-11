@@ -13,6 +13,7 @@ import About from "./views/About/About";
 
 // Import bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AddVideo from "./views/AddVideo/AddVideo";
 
 const App = () => {
   const [user, setUser] = useState({
@@ -24,6 +25,7 @@ const App = () => {
   const [showLanding, setShowLanding] = useState(true)
   const [showLogin, setShowLogin] = useState(false)
   const [showAbout, setShowAbout] = useState(false)
+  const [showAddVideo, setShowAddVideo] = useState(false)
 
   const [videoList, setVideoList] =useState([])
 
@@ -226,15 +228,18 @@ const App = () => {
 
   // VIEWS
   const handleToggleLoginPage = () => setShowLogin(!showLogin)
-  
   const handleToggleAbout = () => setShowAbout(!showAbout)
-  
+  const handleToggleAddVideo = () => {
+    setShowAddVideo(true);
+    setShowLanding(false);
+    console.log("Toggle")
+  }
   const handleChangeUser = newUser => setUser({...user, ...newUser})
-
   const handleChangeVideoList = newVideoList => {
     setVideoList(newVideoList)
     setShowLanding(!showLanding)
   }
+  
 
   // USER
   const handleSignout = () => {
@@ -316,18 +321,22 @@ const App = () => {
         {
             !showAbout
             ? <>
-                <LandingPage  
+              {showAddVideo
+                ? <AddVideo />
+                : <LandingPage  
                   handleChangeUser = {handleChangeUser}
                   handleToggleLoginPage={handleToggleLoginPage}
+                  handleToggleAddVideo={handleToggleAddVideo}
                   handleSignout={handleSignout}
                   showLanding = {showLanding}
                   showLogin = {showLogin}
                   user = {user}
                   videoList = {videoList}
                 />
-                <Footer 
-                  handleToggleAbout = {handleToggleAbout}
-                />
+              }
+              <Footer 
+                handleToggleAbout = {handleToggleAbout}
+              />
             </>
             : <>
               <About/>

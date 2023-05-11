@@ -4,7 +4,7 @@ const Signout = props => {
     return(
         <div className="signout">
             <h1>Welcome <span>{props.user.username}</span>!</h1>
-            <p className="addVideoLink">{`> Add a video`}</p>
+            <p className="addVideoLink" onClick={props.handleToggleAddVideo}>{`> Add a video`}</p>
             <p className="signoutLink" onClick={props.handleSignout}>Signout</p>
         </div>
     )

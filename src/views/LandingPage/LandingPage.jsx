@@ -48,6 +48,7 @@ const LandingPage = props => {
                 <SignIn 
                     handleChangeUser = {props.handleChangeUser}
                     handleToggleLoginPage={props.handleToggleLoginPage}
+                    handleToggleAddVideo={props.handleToggleAddVideo}
                     handleSignout={props.handleSignout}
                     user = {props.user}
                 />
