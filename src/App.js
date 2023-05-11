@@ -55,7 +55,7 @@ class App extends Component {
       videoToModify: "",
       searchedVideos: [],
       showLanding: true,
-      showLogin: true,
+      showLogin: false,
     }
   }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import './Styles.css'
 import { SearchBar } from './components';
+import Logo from "../../assets/Logo2.png"
 // Import the ICONIMAGE
 // import logoImage from '.'
 
@@ -9,7 +10,7 @@ import { SearchBar } from './components';
 const Header = props =>  {
     return(
         <header className="header container-fluid ">
-            <h1 className="logo" onClick={props.handleShowLandingPage}>Streamin</h1>
+            <img className="logo" src={Logo} alt="logo" onClick={props.handleShowLandingPage}/>
             <nav className="navBar">
                 <p className='navBar item' onClick={props.handleShowLandingPage}>HOME</p>
             </nav>

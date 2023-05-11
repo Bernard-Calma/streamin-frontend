@@ -9,7 +9,7 @@ const LandingPage = props => {
     const [videoList, setVideoList] = useState([])
     const [show, setShow] = useState("Landing Page")
     const [videoToShow, setVideoToShow] = useState({})
-    const [toggleLogin, setToggleLogin] = useState(false)
+    const [toggleLogin, setToggleLogin] = useState(true)
 
     const handleShowVideo = video => {
         setShow("Show");
@@ -69,7 +69,7 @@ const LandingPage = props => {
                     )}
                 </>
             :show === "Show"
-                ? <Show s
+                ? <Show
                     video = {videoToShow}
                 />
             : <></>

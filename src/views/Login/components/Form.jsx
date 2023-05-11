@@ -48,8 +48,7 @@ const Form = props => {
                     onChange={handleChange}
                 />
                 {viewLogin
-                    ? <>
-                        <div>
+                    ? <div>
                             <p className="registerLink"> Want to join? Register 
                                 <span 
                                     id="registerPageLink" 
@@ -58,7 +57,6 @@ const Form = props => {
                                 </span>
                             </p>
                         </div>
-                    </>
                     : <>
                         <input 
                             type="passwordCheck" 
@@ -79,7 +77,7 @@ const Form = props => {
                         </div>
                     </>
                 }
-                <button>Log in</button>  
+                <button>{viewLogin? "Login" : "Register"}</button>  
             </form>
         </>
     )
