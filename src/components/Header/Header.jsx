@@ -2,11 +2,7 @@ import React from 'react'
 import './Styles.css'
 import { SearchBar } from './components';
 import Logo from "../../assets/Logo2.png"
-// Import the ICONIMAGE
-// import logoImage from '.'
 
-// // Import Sign Form
-// import SignInForm from './SignIn'
 const Header = props =>  {
     return(
         <header className="header container-fluid ">
@@ -16,7 +12,7 @@ const Header = props =>  {
             </nav>
 
             <div className='searchBar'>
-                <SearchBar />
+                <SearchBar handleChangeVideoList={props.handleChangeVideoList}/>
             </div>
 
             <div className='user'>

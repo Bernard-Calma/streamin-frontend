@@ -13,7 +13,6 @@ const Video = props => {
                     style={{pointerEvents: "none"}}
                 >
                 </iframe>
-                <img src={props.video.videoLink} alt="test" />
             </div>
             
             <div className="videoInfo">

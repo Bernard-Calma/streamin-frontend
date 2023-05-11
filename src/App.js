@@ -1,4 +1,4 @@
-import React , {Component, useState} from "react"
+import React , {Component, useEffect, useState} from "react"
 import './App.css';
 
 // Components
@@ -22,11 +22,9 @@ let baseURL = process.env.REACT_APP_SERVER_URL
 
 const App = () => {
   const [user, setUser] = useState({
-    user: {
-      id: "Guest",
-      username: "Guest",
-      name: "Guest"
-    },
+    id: "Guest",
+    username: "Guest",
+    name: "Guest"
   })
 
   const [showLanding, setShowLanding] = useState(true)
@@ -205,23 +203,18 @@ const App = () => {
   // // console.log(baseURL)
   // }
 
-//   const handleSearch = (e) => {
-//     e.preventDefault()
-//     fetch(`${baseURL}/videos/search/${search}`)
-//     .then(res => {
-//         if(res.status === 200) return res.json()
-//         return ""
-//     })
-//     .then(data => {
-//         setState({
-//           searchedVideos: data,
-//           searchVideos: true,
-//           showVideoList: true,
-//         })
-//     })
-// }
+  const getVideoList = async () => {
+    await axios({
+        method: "GET",
+        url: `${process.env.REACT_APP_SERVER_URL}/videos`,
+        withCredentials: true
+    })
+    .then(res =>  setVideoList(res.data))
+    .catch(err => console.log(err));
+  }
 
- const handleShowLandingPage = () => {
+ const handleShowLandingPage = async () => {
+    await getVideoList()
     setShowLanding(!showLanding)
     setShowAbout(false)
   }
@@ -232,17 +225,16 @@ const App = () => {
   
   const handleChangeUser = newUser => setUser(newUser)
 
-  const componentDidMount = async () => {
-        await axios({
-            method: "GET",
-            url: `${process.env.REACT_APP_SERVER_URL}/videos`
-        })
-        .then(res => {
-            // console.log(res.data)
-            setVideoList(res.data)
-        })
-        .catch(err => console.log(err));
-    }
+  const handleChangeVideoList = newVideoList => {
+    setVideoList(newVideoList)
+    setShowLanding(!showLanding)
+  }
+
+  useEffect(() => {
+    getVideoList();
+  },[])
+
+
 
     // if logged in is false
     // return( !loggedIn
@@ -302,6 +294,7 @@ const App = () => {
           showAbout = {showAbout}
           handleShowLandingPage={handleShowLandingPage}
           handleToggleLoginPage={handleToggleLoginPage}
+          handleChangeVideoList={handleChangeVideoList}
         />
         {
             !showAbout
