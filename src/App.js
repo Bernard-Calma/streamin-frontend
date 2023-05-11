@@ -56,7 +56,7 @@ class App extends Component {
       searchedVideos: [],
       showLanding: true,
       showLogin: false,
-      showAbout: true,
+      showAbout: false,
     }
   }
 
@@ -228,11 +228,17 @@ class App extends Component {
 
   handleShowLandingPage = () => {
     this.setState({showLanding: !this.state.showLanding})
+    this.setState({showAbout: false})
   }
 
   handleToggleLoginPage = () => {
       this.setState({showLogin: !this.state.showLogin
     })
+  }
+
+  handleToggleAbout = () => {
+    console.log("Toggle About")
+    this.setState({showAbout: !this.state.showAbout})
   }
 
   handleChangeUser = newUser => this.setState({user: newUser})
@@ -310,10 +316,12 @@ class App extends Component {
                   showLogin = {this.state.showLogin}
                   user = {this.state.user}
                 />
-                <Footer />
+                <Footer 
+                  handleToggleAbout = {this.handleToggleAbout}
+                />
             </>
             : <>
-              <About />
+              <About/>
             </>
         }
         

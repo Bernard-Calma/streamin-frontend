@@ -1,11 +1,11 @@
 import React from 'react';
 import './Styles.css'
 
-const Footer = () => {
+const Footer = props => {
     return(
         <footer className="footer container-fluid">
             <h3 className="footerHeader"> <span>©</span> Copyright {new Date().getFullYear()}</h3>
-        <p>{`>About Us<`}</p>
+        <p onClick={props.handleToggleAbout}>{`>About Us<`}</p>
         </footer>
     )
 }
