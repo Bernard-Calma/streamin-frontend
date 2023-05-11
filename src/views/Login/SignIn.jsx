@@ -79,6 +79,7 @@ const SignIn = props => {
                     </>
                     : < Signout 
                         user = {props.user}
+                        handleSignout={props.handleSignout}
                     />
                 }
                 

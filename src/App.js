@@ -13,7 +13,6 @@ import About from "./views/About/About";
 
 // Import bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
- 
 
 const App = () => {
   const [user, setUser] = useState({
@@ -27,7 +26,6 @@ const App = () => {
   const [showAbout, setShowAbout] = useState(false)
 
   const [videoList, setVideoList] =useState([])
-
 
   //   state = {      
   //     show: "Landing Page",
@@ -198,6 +196,7 @@ const App = () => {
   // // console.log(baseURL)
   // }
 
+  // VIDEOS
   const getVideoList = async () => {
     await axios({
         method: "GET",
@@ -214,6 +213,7 @@ const App = () => {
     setShowAbout(false)
   }
 
+  // VIEWS
   const handleToggleLoginPage = () => setShowLogin(!showLogin)
   
   const handleToggleAbout = () => setShowAbout(!showAbout)
@@ -225,6 +225,16 @@ const App = () => {
     setShowLanding(!showLanding)
   }
 
+  // USER
+  const handleSignout = () => {
+    setUser({
+      id: "Guest",
+      username: "Guest",
+      name: "Guest"
+    })
+  }
+
+  // LOAD EFECTS
   useEffect(() => {
     getVideoList();
   },[])
@@ -289,14 +299,14 @@ const App = () => {
           showAbout = {showAbout}
           handleShowLandingPage={handleShowLandingPage}
           handleToggleLoginPage={handleToggleLoginPage}
-          handleChangeVideoList={handleChangeVideoList}
-        />
+          handleChangeVideoList={handleChangeVideoList}        />
         {
             !showAbout
             ? <>
                 <LandingPage  
                   handleChangeUser = {handleChangeUser}
                   handleToggleLoginPage={handleToggleLoginPage}
+                  handleSignout={handleSignout}
                   showLanding = {showLanding}
                   showLogin = {showLogin}
                   user = {user}

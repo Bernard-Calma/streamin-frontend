@@ -24,7 +24,6 @@ header {
 .navBar {
     flex: 1;
     text-align: start;
-    padding-left: 20px;
     font-family: 'Sigmar', cursive;
     font-size: 30px;
 }
@@ -32,7 +31,7 @@ header {
 .navBar.item {
     cursor: pointer;
     display: inline;
-    margin: 0;
+    margin: 0 10px;
     padding: 0;
 }
 /* Nav Bar */

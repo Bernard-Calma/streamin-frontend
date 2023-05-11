@@ -50,5 +50,16 @@ section.login > h1 {
 
 /* SignOut */
 .signout {
-    color: black
+    color: black;
+    padding: 10px;
+    text-transform: capitalize;
+}
+
+.signoutLink {
+    color: red;
+    cursor: pointer;
+}
+
+.addVideoLink {
+    cursor: pointer;
 }
