@@ -6,7 +6,6 @@ import SignIn from "../Login/SignIn";
 import Loading from "../../components/Loading/Loading";
 
 const LandingPage = props => {
-    const [videoList, setVideoList] = useState([])
     const [show, setShow] = useState("Landing Page")
     const [videoToShow, setVideoToShow] = useState({})
     const [toggleLogin, setToggleLogin] = useState(true)
@@ -18,9 +17,10 @@ const LandingPage = props => {
     }
 
     useEffect(() => {
-    const load = setTimeout(() => {
-        setLoading(false)
-    }, 6000);
+        const load = setTimeout(() => {
+            setLoading(false)
+        }, 6000);
+        return () => clearTimeout(load)
     },[loading])
 
     useEffect(() => {

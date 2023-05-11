@@ -1,4 +1,5 @@
-import React , {Component, useEffect, useState} from "react"
+import React , {useEffect, useState} from "react"
+import axios from "axios";
 import './App.css';
 
 // Components
@@ -10,15 +11,9 @@ import {
 //Import About
 import About from "./views/About/About";
 
-// Import User Page Components
-import User from "./components/User/user";
-
 // Import bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from "axios";
-
-//URL
-let baseURL = process.env.REACT_APP_SERVER_URL
+ 
 
 const App = () => {
   const [user, setUser] = useState({
