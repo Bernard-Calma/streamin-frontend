@@ -1,0 +1,70 @@
+/* ABOUT */
+#aboutContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #080710;
+    color:white;
+  }
+  
+  #aboutStreamin{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .aboutInfo{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .projectDescription{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+    
+  
+  #projectMemberInfoDiv{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    gap: 10px;
+  }
+  
+  .aboutDiv{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+  
+  .teamMemberPic{
+    width: 300px;
+    border-radius: 60px;
+  }
+   .github ,.linkedin{
+    border-radius: 5px;
+      font-size: 20px;
+      padding: 5px 21px 8px;
+      border: white solid 2px;
+   }
+   .socials{
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+   }

@@ -1,13 +1,21 @@
 /* FOOTER STYLE */
 .footer{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    position:sticky;
     background-color: #080710;
     border-top: gray solid 1px;
+    color: white;
   }
   .footerHeader{
-    font-size:20px;
-    padding: 20px;
+    font-size:16px;
     color:white;
+    margin: 0;
+  }
+
+  .footer > P {
+    font-size: 12px;
+    margin: 0 0 10px;
+    cursor: pointer;
   }

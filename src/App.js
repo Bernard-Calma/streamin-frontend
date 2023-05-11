@@ -10,7 +10,7 @@ import {
 import SignInHeader from './components/signInHeader'
 
 //Import About
-import About from './components/About';
+import About from "./views/About/About";
 
 //Signin Component
 import SignIn from "./views/Login/SignIn";
@@ -56,6 +56,7 @@ class App extends Component {
       searchedVideos: [],
       showLanding: true,
       showLogin: false,
+      showAbout: true,
     }
   }
 
@@ -299,14 +300,23 @@ class App extends Component {
           handleShowLandingPage={this.handleShowLandingPage}
           handleToggleLoginPage={this.handleToggleLoginPage}
         />
-        <LandingPage  
-          handleChangeUser = {this.handleChangeUser}
-          handleToggleLoginPage={this.handleToggleLoginPage}
-          showLanding = {this.state.showLanding}
-          showLogin = {this.state.showLogin}
-          user = {this.state.user}
-        />
-        <Footer />
+        {
+            !this.state.showAbout
+            ? <>
+                <LandingPage  
+                  handleChangeUser = {this.handleChangeUser}
+                  handleToggleLoginPage={this.handleToggleLoginPage}
+                  showLanding = {this.state.showLanding}
+                  showLogin = {this.state.showLogin}
+                  user = {this.state.user}
+                />
+                <Footer />
+            </>
+            : <>
+              <About />
+            </>
+        }
+        
       </>
     )
   }
