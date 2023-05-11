@@ -16,7 +16,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   const [user, setUser] = useState({
-    id: "Guest",
+    id: "632bb2e2699c899a76193e86",
     username: "Guest",
     name: "Guest"
   })
@@ -207,6 +207,17 @@ const App = () => {
     .catch(err => console.log(err));
   }
 
+  const getUserVideos = async () => {
+    console.log("Get user videos")
+    await axios({
+      method: "GET",
+      url: `${process.env.REACT_APP_SERVER_URL}/videos/uservideos/${user.id}`,
+      withCredentials: true
+    })
+    .then(res => setVideoList(res.data))
+    .catch(err => setVideoList([]))
+  }
+
  const handleShowLandingPage = async () => {
     await getVideoList()
     setShowLanding(!showLanding)
@@ -218,7 +229,7 @@ const App = () => {
   
   const handleToggleAbout = () => setShowAbout(!showAbout)
   
-  const handleChangeUser = newUser => setUser(newUser)
+  const handleChangeUser = newUser => setUser({...user, ...newUser})
 
   const handleChangeVideoList = newVideoList => {
     setVideoList(newVideoList)
@@ -299,7 +310,9 @@ const App = () => {
           showAbout = {showAbout}
           handleShowLandingPage={handleShowLandingPage}
           handleToggleLoginPage={handleToggleLoginPage}
-          handleChangeVideoList={handleChangeVideoList}        />
+          handleChangeVideoList={handleChangeVideoList}    
+          getUserVideos={getUserVideos}
+        />
         {
             !showAbout
             ? <>

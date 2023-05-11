@@ -9,7 +9,7 @@ const Header = props =>  {
             <img className="logo" src={Logo} alt="logo" onClick={props.handleShowLandingPage}/>
             <nav className="navBar">
                 <p className='navBar item' onClick={props.handleShowLandingPage}>HOME</p>
-                {props.user.username !== "Guest" && <p className='navBar item' onClick={props.handleShowLandingPage}>MY VIDEOS</p>}
+                {props.user.username !== "Guest" && <p className='navBar item' onClick={props.getUserVideos}>MY VIDEOS</p>}
             </nav>
 
             <div className='searchBar'>
