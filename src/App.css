@@ -241,32 +241,6 @@ a:hover {
 .videoListContainer{
   background-color: #080710;
 }
-.videoList {
-  /* display: flex;
-  margin: 0 auto;
-  margin-top: 20px;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1500px;
-  border: 1px black solid; */
-  display: flex;
-  /* margin: 5px; */
-  /* margin-top: 20px; */
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 20px 27px;
-  border: 1px black solid;
-  background-color: #080710;
-  padding: 40px;
-  margin: 50px;
-  min-height: 770px;
-  /* width: 100%; */
-  box-shadow: 0 0 40px rgb(8 7 16 / 60%);
-  border-radius: 10px;
-  background-color: rgba(255,255,255,0.13);
-  border: 2px solid rgba(255,255,255,0.1);
-}
 
 .videos {
     width: 100%;

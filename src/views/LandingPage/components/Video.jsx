@@ -13,6 +13,7 @@ const Video = props => {
                     style={{pointerEvents: "none"}}
                 >
                 </iframe>
+                <img src={props.video.videoLink} alt="test" />
             </div>
             
             <div className="videoInfo">
@@ -20,11 +21,12 @@ const Video = props => {
                 <p className="videoDescription">{props.video.description}</p>
                 <div className="videoFooter">            
                     <i className="fa-regular fa-comment" style={{color: "white"}}> {props.video.comments.length} </i>
-                    <i class="fa-solid fa-heart" style={{color: "white"}}></i>
+                    <i className="fa-solid fa-heart" style={{color: "white"}}></i>
                 </div>
             </div>
         </div>
     )
 }
+
 
 export default Video;

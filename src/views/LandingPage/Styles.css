@@ -1,5 +1,17 @@
-main {
+main > .videoList {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     background-color: black;
+    margin: 0;
+}
+
+.opacity-0 {
+    opacity: 0;
+    height: 0;
+}
+
+.opacity-100 {
+    opacity: 100;
+    height: auto;
 }

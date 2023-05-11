@@ -7,13 +7,8 @@ import {
   Header, 
   Footer } from "./components";
 
-import SignInHeader from './components/signInHeader'
-
 //Import About
 import About from "./views/About/About";
-
-//Signin Component
-import SignIn from "./views/Login/SignIn";
 
 // Import User Page Components
 import User from "./components/User/user";
@@ -21,6 +16,7 @@ import User from "./components/User/user";
 // Import bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Show from "./views/Show/Show";
+import axios from "axios";
 
 //URL
 let baseURL = process.env.REACT_APP_SERVER_URL
@@ -35,12 +31,7 @@ class App extends Component {
         name: "Guest"
       },
       show: "Landing Page",
-      username: "",
-      password: "",
-      passwordCheck: "",
-      name: "",
       loginMessage: "",
-      showAbout: false,
       videoId: "",
       search: "",
       // view pages
@@ -54,9 +45,12 @@ class App extends Component {
       // modify video
       videoToModify: "",
       searchedVideos: [],
+      // Views
       showLanding: true,
       showLogin: false,
       showAbout: false,
+      // Videos
+      videoList: [],
     }
   }
 
@@ -231,17 +225,29 @@ class App extends Component {
     this.setState({showAbout: false})
   }
 
-  handleToggleLoginPage = () => {
-      this.setState({showLogin: !this.state.showLogin
-    })
-  }
-
-  handleToggleAbout = () => {
-    console.log("Toggle About")
-    this.setState({showAbout: !this.state.showAbout})
-  }
-
+  handleToggleLoginPage = () => this.setState({showLogin: !this.state.showLogin})
+  
+  handleToggleAbout = () => this.setState({showAbout: !this.state.showAbout})
+  
   handleChangeUser = newUser => this.setState({user: newUser})
+
+  componentDidMount = () => {
+      const handleGetVideoList = async () => {
+          await axios({
+              method: "GET",
+              url: `${process.env.REACT_APP_SERVER_URL}/videos`
+          })
+          .then(res => {
+              // console.log(res.data)
+              this.setState({videoList: res.data})
+          })
+          .catch(err => console.log(err))
+      }
+
+      handleGetVideoList()
+  }
+
+  componendid
 
   render() {
     
@@ -315,6 +321,7 @@ class App extends Component {
                   showLanding = {this.state.showLanding}
                   showLogin = {this.state.showLogin}
                   user = {this.state.user}
+                  videoList = {this.state.videoList}
                 />
                 <Footer 
                   handleToggleAbout = {this.handleToggleAbout}
