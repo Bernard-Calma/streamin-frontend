@@ -68,6 +68,8 @@ const LandingPage = props => {
             :show === "Show"
                 ? <Show
                     video = {videoToShow}
+                    user = {props.user}
+                    handleShowLandingPage = {props.handleShowLandingPage}
                 />
             : <></>
             }

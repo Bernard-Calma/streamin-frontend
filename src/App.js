@@ -333,6 +333,7 @@ const App = () => {
                   handleChangeUser = {handleChangeUser}
                   handleToggleLoginPage={handleToggleLoginPage}
                   handleToggleAddVideo={handleToggleAddVideo}
+                  handleShowLandingPage={handleShowLandingPage}
                   handleSignout={handleSignout}
                   showLanding = {showLanding}
                   showLogin = {showLogin}

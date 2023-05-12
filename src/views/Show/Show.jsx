@@ -1,6 +1,6 @@
 import React from "react";
 import './Styles.css'
-import { Comments } from "./components";
+import { Comments, VideoControl } from "./components";
 
 const Show = props => {
     return (
@@ -21,15 +21,18 @@ const Show = props => {
                     </div>
                     <h2 className="title"> {props.video.title} </h2>
                 </div>
-                <p className="description">{props.video.description}</p>    
+                <p className="description">{props.video.description}</p>  
+                {props.user.id === props.video.user &&
+                    <VideoControl 
+                        video={props.video}
+                        handleShowLandingPage = {props.handleShowLandingPage}
+                    />
+                }  
             </div>
 
             <div className="right">
                 <Comments video={props.video}/>
             </div>
-            
-
-
         </section>
     );
 };

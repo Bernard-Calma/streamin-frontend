@@ -93,6 +93,39 @@ section.showVideo {
     padding-left: 20px;
 }
 
+.videoControl {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.videoControl > button {
+    margin: 0 20px;
+    height: 30px;
+    width: 80px;
+}
+
+.videoControl > button:active {
+    margin-top: 5px;
+}
+
+.videoControl > .btnModify {
+    background-color: green;
+}
+
+.videoControl > .btnDelete {
+    background-color: red;
+}
+
+.alertBox {
+    background-color: rgb(155, 155, 155);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.alertBox > button {
+    margin: 0 5px;
+}
+
 .right{
     width: 400px;
     height: 700px;
@@ -105,6 +138,7 @@ section.showVideo {
 
 .right > h3, .right > input {
     margin: 0;
+
 }
 
 .right > .comments {
