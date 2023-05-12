@@ -216,7 +216,10 @@ const App = () => {
       url: `${process.env.REACT_APP_SERVER_URL}/videos/uservideos/${user.id}`,
       withCredentials: true
     })
-    .then(res => setVideoList(res.data))
+    .then(res => {
+      setVideoList(res.data);
+      setShowAddVideo(false);
+    })
     .catch(err => setVideoList([]))
   }
 
@@ -224,6 +227,7 @@ const App = () => {
     await getVideoList()
     setShowLanding(!showLanding)
     setShowAbout(false)
+    setShowAddVideo(false);
   }
 
   // VIEWS
@@ -232,12 +236,12 @@ const App = () => {
   const handleToggleAddVideo = () => {
     setShowAddVideo(true);
     setShowLanding(false);
-    console.log("Toggle")
+    // console.log("Toggle")
   }
   const handleChangeUser = newUser => setUser({...user, ...newUser})
   const handleChangeVideoList = newVideoList => {
-    setVideoList(newVideoList)
-    setShowLanding(!showLanding)
+    setVideoList(newVideoList);
+    setShowLanding(!showLanding);
   }
   
 
