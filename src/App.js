@@ -322,7 +322,9 @@ const App = () => {
             !showAbout
             ? <>
               {showAddVideo
-                ? <AddVideo />
+                ? <AddVideo 
+                  user={user}
+                />
                 : <LandingPage  
                   handleChangeUser = {handleChangeUser}
                   handleToggleLoginPage={handleToggleLoginPage}

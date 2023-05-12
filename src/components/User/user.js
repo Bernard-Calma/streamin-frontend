@@ -2,7 +2,7 @@ import React , {Component} from "react"
 import UserInfo from "./userInfo";
 import VideoList from "./VideoList";
 import VideoInfo from "../Video/VideoInfo";
-import CreateForm from "../CreateForm";
+import CreateForm from "../../views/AddVideo/components/CreateForm";
 import ModifyForm from "../ModifyForm";
 
 

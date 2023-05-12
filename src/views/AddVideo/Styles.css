@@ -1,0 +1,24 @@
+section.addVideo {
+    flex: 1;
+    text-align: center;
+}
+
+#createForm {
+    background-color: gray;
+    border-radius: 20px;
+    width: 50%;
+    margin: auto;
+    padding: 20px
+
+}
+
+#createForm label {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#createVideoBtn {
+    width: 50%;
+    padding: 0;
+}

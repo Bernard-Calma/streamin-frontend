@@ -1,9 +1,13 @@
 import React, {useState} from "react";
+import './Styles.css'
+import { CreateForm } from "./components";
 
-const AddVideo = () => {
+const AddVideo = props => {
     return(
         <section className="addVideo">
-            <h1>Add Video</h1>
+            <CreateForm 
+                user={props.user}
+            />
         </section>
     )
 }
