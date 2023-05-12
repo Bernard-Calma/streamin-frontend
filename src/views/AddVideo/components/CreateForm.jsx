@@ -1,11 +1,9 @@
-import React, {Component, useState} from 'react'
+import axios from 'axios';
+import React, {useState} from 'react'
 
 //Import Bootstrap styling for form
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
-//URL
-let baseURL = process.env.REACT_APP_SERVER_URL;
 
 const CreateForm = props => {
   const [newVideo, setNewVideo] = useState({
@@ -13,29 +11,30 @@ const CreateForm = props => {
       title: '',
       description: '',
       tags: '',
-      user: props.user,
+      user: props.user.id,
   })
  // Handle the change of each value
 const handleChange = e => setNewVideo({...newVideo, [e.target.name]: e.target.value})
 
-//  handleSubmit = (event) => {
-//     event.preventDefault()
-//     // added the route
-//     fetch(`${baseURL}/videos`, {
-//             method: 'POST',
-//             body: JSON.stringify(state),
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             }
-//         })
-//       props.handleCreateReturn();
-//     }
+const handleSubmit = e => {
+  e.preventDefault()
+  // added the route
+  axios({
+    method: "POST",
+    url: `${process.env.REACT_APP_SERVER_URL}/videos`,
+    withCredentials: true,
+    data: newVideo
+  })
+  .then(res => console.log(res.data))
+  .catch(err => console.log(err))
+  // console.log("Add Video")
+}
 
 
   return(
     <div className="createPageHolder">
       <h2 className="createFormHeader">Create Video</h2>
-      <Form id="createForm">
+      <Form id="createForm" onSubmit={handleSubmit}>
         {/* Title Input */}
         <Form.Group className="mb-3">
           <Form.Label htmlFor="title">Title <span>(Currently works for : Youtube, Facebook, Vimeo, Dailymotion Links)</span></Form.Label>
