@@ -31,8 +31,13 @@ const Show = props => {
         .catch(err => console.log(err))
     }
 
-    const handleLikeVideo = async () => {
+    const handleLikeVideo = () => {
         setVideo({...props.video, likes: props.video.likes.push(props.user.id) })
+        handleModifyVideo()
+    }
+
+    const handleAddComment = newComment => {
+        setVideo({...props.video, comments: props.video.comments.push(newComment) })
         handleModifyVideo()
     }
 
@@ -81,7 +86,10 @@ const Show = props => {
             </div>
 
             <div className="right">
-                <Comments video={props.video}/>
+                <Comments 
+                    video={props.video}
+                    user={props.user}
+                    handleAddComment={handleAddComment}/>
             </div>
         </section>
     );

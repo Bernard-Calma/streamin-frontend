@@ -6,6 +6,15 @@ main > .videoList {
     margin: 0;
 }
 
+.videoInfo .publishedDate {
+    color: white;
+    margin: 0;
+    flex: 1;
+    padding-left: 20px;
+    font-family: "Font Awesome 6 Free";
+    font-size: 12px;
+}
+
 .opacity-0 {
     opacity: 0;
     height: 0;

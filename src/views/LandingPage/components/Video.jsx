@@ -1,4 +1,5 @@
 import React from "react";
+import { format } from "timeago.js"
 import "../Styles.css"
 
 const Video = props => {
@@ -20,6 +21,7 @@ const Video = props => {
                 <p className="videoDescription">{props.video.description}</p>
                 <div className="videoFooter">            
                     <i className="fa-regular fa-comment" style={{color: "white"}}> {props.video.comments.length} </i>
+                    <p className="publishedDate">{format(props.video.publishedDate)}</p>
                     <i className="fa-solid fa-heart" style={{color: "white"}}></i>
                 </div>
             </div>
