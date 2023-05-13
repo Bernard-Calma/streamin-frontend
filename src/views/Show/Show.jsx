@@ -31,6 +31,11 @@ const Show = props => {
         .catch(err => console.log(err))
     }
 
+    const handleLikeVideo = async () => {
+        setVideo({...props.video, likes: props.video.likes.push(props.user.id) })
+        handleModifyVideo()
+    }
+
     return (
         <section className="showVideo">
             <div className="left">
@@ -44,7 +49,11 @@ const Show = props => {
 
                 <div className="divTitle">
                     <div className="buttons">
-                        <i class="fa-solid fa-heart"></i>
+                        {
+                            props.video.likes.includes(props.user.id)
+                            ? <i class="fa-solid fa-heart"></i>
+                            : <i class="fa-regular fa-heart" onClick={handleLikeVideo}></i>
+                        }
                         <p>{props.video.likes.length}</p>
                     </div>  
                     <input 

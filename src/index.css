@@ -19,3 +19,7 @@ code {
   justify-content: space-between;
   background-color: black;
 }
+
+i {
+  cursor: pointer;
+}

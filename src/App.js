@@ -177,19 +177,6 @@ const App = () => {
   //   })
   // }
 
-  // handleModifyVideo = (e) => {
-  //   e.preventDefault()
-  //   // console.log("Modify Video", e.target.parentNode.parentNode.firstChild.id)
-  //   let videoID = e.target.parentNode.parentNode.firstChild.id;
-  //   setState({
-  //           showMain: false,
-  //           modifyVideo: true,
-  //           videoToModify: videoID,
-  //       }
-        
-  //   )
-  // }
-
   // onClickRegister = (e) => {
   //   e.preventDefault();
   //   setState({
