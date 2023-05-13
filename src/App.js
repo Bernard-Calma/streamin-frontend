@@ -212,7 +212,7 @@ const App = () => {
 
  const handleShowLandingPage = async () => {
     await getVideoList()
-    setShowLanding(true)
+    setShowLanding(!showLanding)
     setShowAbout(false)
     setShowAddVideo(false);
   }

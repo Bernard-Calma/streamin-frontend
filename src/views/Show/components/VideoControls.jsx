@@ -14,7 +14,7 @@ const VideoControl = props => {
             url:`${process.env.REACT_APP_SERVER_URL}/videos/${props.video._id}`
         })
         .then(res => {
-            console.log(res.data)
+            // console.log(res.data)
             props.handleShowLandingPage()
             props.handleSetShow("Landing Page")
         })
