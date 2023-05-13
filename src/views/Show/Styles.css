@@ -83,14 +83,35 @@ section.showVideo {
     align-items: center;
 }
 
-.showVideo .divTitle  p {
-    margin: 0;
-    text-align: center;
+.showVideo input,.showVideo textarea {
+    background-color: black;
+    color: white;
+    border: none;
+    outline: none;
+    caret-color: transparent;
+    resize: none;
+}
+
+.showVideo .inputEnabled {
+    caret-color: black;
+    color: black;
+    background-color: white;
+    border-radius: 20px;
+    padding: 0;
+    margin-left: 20px;
 }
 
 .showVideo .title {
     font-size: 40px;
     padding-left: 20px;
+    width: 100%;
+    text-overflow: ellipsis;
+}
+
+.showVideo .description {
+    font-size: 20px;
+    margin-bottom: 20px;
+    height: 150px !important;
 }
 
 .videoControl {

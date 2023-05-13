@@ -22,7 +22,7 @@ const VideoControl = props => {
 
     return(
         <div className="videoControl">
-            <button className="btnModify">Edit</button>
+            <button className="btnModify" onClick={props.handleToggleEdit}>Edit</button>
             <button className="btnDelete" onClick={toggleAlertBox}>Delete</button>
             {
                 alertBox &&
