@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 const Form = props => {
@@ -7,13 +8,39 @@ const Form = props => {
         passwordCheck: "",
     })
     const [viewLogin, setViewLogin] = useState(true)
+    const [errMessage, setErrMessage] = useState('')
     const handleChange = e => setUser({...user, [e.target.name]: e.target.value})
     
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
-        console.log(user);
-        props.handleChangeUser(user)
-        props.handleToggleLoginPage()
+        // console.log(user);
+        if (viewLogin) {
+            await axios({
+                method: "POST",
+                url: `${process.env.REACT_APP_SERVER_URL}/users/login`,
+                data: user,
+                withCredentials: true
+            })
+            .then(res => {
+                props.handleChangeUser(user)
+                props.handleToggleLoginPage()
+            })
+            .catch(({response}) => setErrMessage(response.data.err))
+        } else {
+            await axios({
+                method: "POST",
+                url: `${process.env.REACT_APP_SERVER_URL}/users`,
+                data: user,
+                withCredentials: true
+            })
+            .then(res => {
+                console.log(res.data)
+                // props.handleChangeUser(user)
+                // props.handleToggleLoginPage()
+            })
+            .catch(err => console.log(err))
+        }
+        
     }
 
     const handleToggleRegister = () => {
@@ -49,6 +76,7 @@ const Form = props => {
                 />
                 {viewLogin
                     ? <div>
+                            <p className="errMessage">{errMessage}</p>
                             <p className="registerLink"> Want to join? Register 
                                 <span 
                                     id="registerPageLink" 

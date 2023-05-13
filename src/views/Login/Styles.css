@@ -8,6 +8,8 @@ section.login {
     margin: 10px;
     padding-top: 10px;
     font-family: 'Darumadrop One', cursive;
+    top: 80px;
+
 }
 
 section.login > h1 {
@@ -34,6 +36,10 @@ section.login > h1 {
     color: white;
     background-color: black;
     font-family: 'Lato', sans-serif;
+}
+
+.login .errMessage {
+    color: rgb(211, 1, 1);
 }
 
 .login button {
