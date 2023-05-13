@@ -170,6 +170,7 @@ section.showVideo {
     border: none;
     flex: 1;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     background-color: gray;
     border-radius: 0;
@@ -204,11 +205,13 @@ section.showVideo {
 }
 
 .comment > .user {
-    font-size: 20px;
+    font-size: 22px;
+    margin: 0;
 }
 
 .comment > .text {
     font-size: 16px;
+    padding-left: 20px;
 }
 
 .comment > .date {

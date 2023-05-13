@@ -1,4 +1,5 @@
 import React from "react"
+import { format } from "timeago.js"
 
 const Comments = props => {
     return(
@@ -8,8 +9,8 @@ const Comments = props => {
                 {props.video.comments.map(comment => 
                     <div className="comment">
                         <h3 className="user">{comment.user}</h3>
+                        <p className="date">{format(comment.date)}</p>
                         <p className="text">{comment.comment}</p>
-                        <p className="date">{comment.date}</p>
                     </div>
                 )}
             </div>
