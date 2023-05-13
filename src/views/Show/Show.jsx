@@ -38,12 +38,23 @@ const Show = props => {
         } else {
             props.handleToggleLoginPage()
         }
-        
     }
 
     const handleAddComment = newComment => {
         setVideo({...props.video, comments: props.video.comments.push(newComment) })
         handleModifyVideo()
+    }
+
+    const handleEditComment = editedComment => {
+        // Set video calling other keys
+        // Map through all comments
+        // If current comment is = editedComment return edited comment
+        // Assign new comment map to video
+        setVideo({
+            ...props.video, 
+            comments: props.video.comments.map(comment => 
+                comment._id === editedComment._id ? editedComment : comment) 
+        })
     }
 
     return (
@@ -95,7 +106,10 @@ const Show = props => {
                 <Comments 
                     video={props.video}
                     user={props.user}
-                    handleAddComment={handleAddComment}/>
+                    handleAddComment={handleAddComment}
+                    handleEditComment={handleEditComment}
+                />
+                    
             </div>
         </section>
     );

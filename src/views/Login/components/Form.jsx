@@ -34,11 +34,11 @@ const Form = props => {
                 withCredentials: true
             })
             .then(res => {
-                console.log(res.data)
-                // props.handleChangeUser(user)
-                // props.handleToggleLoginPage()
+                // console.log(res.data)
+                props.handleChangeUser(user)
+                props.handleToggleLoginPage()
             })
-            .catch(err => console.log(err))
+            .catch(({response}) => setErrMessage(response.data.err))
         }
         
     }
@@ -87,13 +87,14 @@ const Form = props => {
                         </div>
                     : <>
                         <input 
-                            type="passwordCheck" 
+                            type="password" 
                             name="passwordCheck"
                             value={user.passwordCheck}
                             placeholder="re-enter password"
                             required
                             onChange={handleChange}
                         />
+                        <p className="errMessage">{errMessage}</p>
                         <div>
                             <p className="registerLink"> Already registered? Login
                                 <span 
