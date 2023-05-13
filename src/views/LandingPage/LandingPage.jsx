@@ -73,6 +73,7 @@ const LandingPage = props => {
                     user = {props.user}
                     handleShowLandingPage = {props.handleShowLandingPage}
                     handleSetShow = {handleSetShow}
+                    handleToggleLoginPage = {props.handleToggleLoginPage}
                 />
             : <></>
             }

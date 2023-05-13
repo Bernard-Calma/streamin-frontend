@@ -85,6 +85,7 @@ section.showVideo {
 
 .divTitle p {
     text-align: center;
+    margin: 0;
 }
 
 .showVideo input,.showVideo textarea {

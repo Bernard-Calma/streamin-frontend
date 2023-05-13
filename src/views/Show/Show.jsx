@@ -32,8 +32,13 @@ const Show = props => {
     }
 
     const handleLikeVideo = () => {
-        setVideo({...props.video, likes: props.video.likes.push(props.user.id) })
-        handleModifyVideo()
+        if (props.user.username !== "Guest") {
+            setVideo({...props.video, likes: props.video.likes.push(props.user.id) })
+            handleModifyVideo()
+        } else {
+            props.handleToggleLoginPage()
+        }
+        
     }
 
     const handleAddComment = newComment => {
