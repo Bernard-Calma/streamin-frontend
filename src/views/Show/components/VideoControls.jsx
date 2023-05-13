@@ -8,14 +8,15 @@ const VideoControl = props => {
         setAlertBox(!alertBox)
     }
 
-    const handleDelete = () => {
-        axios({
+    const handleDelete = async () => {
+        await axios({
             method: "DELETE",
             url:`${process.env.REACT_APP_SERVER_URL}/videos/${props.video._id}`
         })
         .then(res => {
             console.log(res.data)
             props.handleShowLandingPage()
+            props.handleSetShow("Landing Page")
         })
         .catch(err => console.log(err))
     }

@@ -212,7 +212,7 @@ const App = () => {
 
  const handleShowLandingPage = async () => {
     await getVideoList()
-    setShowLanding(!showLanding)
+    setShowLanding(true)
     setShowAbout(false)
     setShowAddVideo(false);
   }
@@ -315,6 +315,7 @@ const App = () => {
               {showAddVideo
                 ? <AddVideo 
                   user={user}
+                  handleShowLandingPage={handleShowLandingPage}
                 />
                 : <LandingPage  
                   handleChangeUser = {handleChangeUser}

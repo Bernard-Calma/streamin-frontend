@@ -16,6 +16,8 @@ const LandingPage = props => {
         setVideoToShow(video);
     }
 
+    const handleSetShow = show => setShow(show)
+
     useEffect(() => {
         const load = setTimeout(() => {
             setLoading(false)
@@ -70,6 +72,7 @@ const LandingPage = props => {
                     video = {videoToShow}
                     user = {props.user}
                     handleShowLandingPage = {props.handleShowLandingPage}
+                    handleSetShow = {handleSetShow}
                 />
             : <></>
             }

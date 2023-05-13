@@ -7,6 +7,7 @@ const AddVideo = props => {
         <section className="addVideo">
             <CreateForm 
                 user={props.user}
+                handleShowLandingPage={props.handleShowLandingPage}
             />
         </section>
     )

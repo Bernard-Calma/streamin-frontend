@@ -80,6 +80,7 @@ const Show = props => {
                     <VideoControl 
                         video={props.video}
                         handleShowLandingPage = {props.handleShowLandingPage}
+                        handleSetShow = {props.handleSetShow}
                         handleToggleEdit = {handleToggleEdit}
                     />
                 }  

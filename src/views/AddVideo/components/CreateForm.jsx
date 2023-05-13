@@ -16,16 +16,16 @@ const CreateForm = props => {
  // Handle the change of each value
 const handleChange = e => setNewVideo({...newVideo, [e.target.name]: e.target.value})
 
-const handleSubmit = e => {
+const handleSubmit = async e => {
   e.preventDefault()
   // added the route
-  axios({
+  await axios({
     method: "POST",
     url: `${process.env.REACT_APP_SERVER_URL}/videos`,
     withCredentials: true,
     data: newVideo
   })
-  .then(res => console.log(res.data))
+  .then(res => props.handleShowLandingPage())
   .catch(err => console.log(err))
   // console.log("Add Video")
 }
@@ -37,7 +37,7 @@ const handleSubmit = e => {
       <Form id="createForm" onSubmit={handleSubmit}>
         {/* Title Input */}
         <Form.Group className="mb-3">
-          <Form.Label htmlFor="title">Title <span>(Currently works for : Youtube, Facebook, Vimeo, Dailymotion Links)</span></Form.Label>
+          <Form.Label htmlFor="title">Title</Form.Label>
           <Form.Control 
             type="text"
             id="title" 
@@ -49,7 +49,7 @@ const handleSubmit = e => {
 
         {/* videoLink input*/}
         <Form.Group className="mb-3">
-          <Form.Label htmlFor="videoLink">Video Link</Form.Label>
+          <Form.Label htmlFor="videoLink">Video Link <span>(Currently works for : Youtube, Facebook, Vimeo, Dailymotion Links)</span></Form.Label>
           <Form.Control 
             id="url"
             type="url" 
