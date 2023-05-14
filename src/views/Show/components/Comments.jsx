@@ -11,9 +11,13 @@ const Comments = props => {
     const handleChange = e => setAddComment({...addComment, comment: e.target.value})
 
     const handleLikeComment = comment => {
-        console.log(comment)
-        if (!comment.likes.includes(props.user.username) && props.user.username !== "Guest") props.handleEditComment(comment)
+        // console.log(comment)
+        if (!comment.likes.includes(props.user.username) && props.user.username !== "Guest") 
+            props.handleEditComment({...comment, likes: comment.likes.push(props.user.id)})
+            console.log(comment);
     }
+
+    console.log(props.video.comments[0].likes.includes(props.user.id))
     return(
         <>
             <h3>Comments</h3>
@@ -21,19 +25,22 @@ const Comments = props => {
                 {props.video.comments.map(comment => 
                     <div className="comment" key={comment._id}>
                         <h3 className="user">{comment.user}</h3>
-                        <p className="date">{format(comment.date)} <span className="commentLikes">
-                            {comment.likes.includes(props.user.id)
-                                ? <i className="fa-solid fa-heart"/>
-                                : <i className="fa-regular fa-heart" onClick={() => handleLikeComment(comment)}/>
-                            }
-                            {comment.likes.length}</span></p>
+                        <div className="date">
+                            <p className="daysAgo">{format(comment.date)}</p> 
+                                {comment.likes.includes(props.user.id)
+                                    ? <i className="fa-solid fa-heart"/>
+                                    : <i className="fa-regular fa-heart" onClick={() => handleLikeComment(comment)}/>
+                                }
+                            <p>{comment.likes.length}</p>
+                        </div>
+                       
                         <p className="text">{comment.comment}</p>
                     </div>
                 )}
             </div>
             <div className="inputComment">
                 <input type="text" placeholder="Write a comment" onChange={handleChange}/>
-                <i class="fa-solid fa-arrow-right" style={{color: "white"}} onClick={async e => {
+                <i className="fa-solid fa-arrow-right" style={{color: "white"}} onClick={async e => {
                     await props.handleAddComment(addComment)
                     e.target.previousElementSibling.value = ''
                     }}></i>

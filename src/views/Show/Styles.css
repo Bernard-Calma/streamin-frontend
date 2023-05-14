@@ -160,6 +160,7 @@ section.showVideo {
     flex-direction: column;
     justify-content: space-between;
     margin-left: 40px;
+    overflow-y: scroll;
 }
 
 .right > h3, .right > input {
@@ -187,7 +188,7 @@ section.showVideo {
 .right input {
     background-color: rgb(100, 104, 107);
     color: black;
-    width: 370px;
+    width: 350px;
 }
 
 .inputComment > i {
@@ -218,4 +219,20 @@ section.showVideo {
 .comment > .date {
     font-size: 12px;
     margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.comment > .date > p {
+    margin: 0 5px;
+
+}
+
+.comment > .date > .daysAgo {
+    margin: 0;
+    flex:1;
+}
+
+.comment > .date > span.commentLikes {
+    margin-left: auto !important;
 }

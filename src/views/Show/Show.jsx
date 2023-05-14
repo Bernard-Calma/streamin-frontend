@@ -26,7 +26,7 @@ const Show = props => {
             withCredentials: true
         })
         .then(res => {
-            console.log(res.data)
+            // console.log(res.data)
         })
         .catch(err => console.log(err))
     }
@@ -42,6 +42,7 @@ const Show = props => {
 
     const handleAddComment = newComment => {
         setVideo({...props.video, comments: props.video.comments.push(newComment) })
+        console.log(video)
         handleModifyVideo()
     }
 
@@ -55,6 +56,8 @@ const Show = props => {
             comments: props.video.comments.map(comment => 
                 comment._id === editedComment._id ? editedComment : comment) 
         })
+        console.log(video)
+        handleModifyVideo()
     }
 
     return (
@@ -72,8 +75,8 @@ const Show = props => {
                     <div className="buttons">
                         {
                             props.video.likes.includes(props.user.id)
-                            ? <i class="fa-solid fa-heart"></i>
-                            : <i class="fa-regular fa-heart" onClick={handleLikeVideo}></i>
+                            ? <i className="fa-solid fa-heart"></i>
+                            : <i className="fa-regular fa-heart" onClick={handleLikeVideo}></i>
                         }
                         <p>{props.video.likes.length}</p>
                     </div>  
