@@ -236,3 +236,7 @@ section.showVideo {
 .comment > .date > span.commentLikes {
     margin-left: auto !important;
 }
+
+.deleteComment {
+    padding-right: 10px;
+}

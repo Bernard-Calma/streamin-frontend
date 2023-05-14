@@ -25,7 +25,10 @@ const handleSubmit = async e => {
     withCredentials: true,
     data: newVideo
   })
-  .then(res => props.handleShowLandingPage())
+  .then(res => {
+    props.modifyVideoList.addVideo(res.data)
+    props.handleShowLandingPage()
+  })
   .catch(err => console.log(err))
   // console.log("Add Video")
 }
@@ -59,9 +62,6 @@ const handleSubmit = async e => {
             value={newVideo.videoLink}
             required
           />
-          {/* <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text> */}
         </Form.Group>
 
         {/* Description Textarea */}

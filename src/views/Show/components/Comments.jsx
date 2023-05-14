@@ -17,23 +17,27 @@ const Comments = props => {
             console.log(comment);
     }
 
-    console.log(props.video.comments[0].likes.includes(props.user.id))
+    // console.log(props.video.comments[0].likes.includes(props.user.id))
     return(
         <>
             <h3>Comments</h3>
             <div className="comments">
-                {props.video.comments.map(comment => 
+                {props.comments.map(comment => 
                     <div className="comment" key={comment._id}>
                         <h3 className="user">{comment.user}</h3>
                         <div className="date">
                             <p className="daysAgo">{format(comment.date)}</p> 
-                                {comment.likes.includes(props.user.id)
-                                    ? <i className="fa-solid fa-heart"/>
-                                    : <i className="fa-regular fa-heart" onClick={() => handleLikeComment(comment)}/>
+                                {comment.user === props.user.username
+                                ? <i className="fa-regular fa-trash-can deleteComment" onClick={() => props.handleDeleteComment(comment)}/>
+                                : <>
+                                    {comment.likes.includes(props.user.id)
+                                        ? <i className="fa-solid fa-heart"/>
+                                        : <i className="fa-regular fa-heart" onClick={() => handleLikeComment(comment)}/>
+                                    }
+                                    <p>{comment.likes.length}</p>
+                                </>
                                 }
-                            <p>{comment.likes.length}</p>
                         </div>
-                       
                         <p className="text">{comment.comment}</p>
                     </div>
                 )}

@@ -226,9 +226,16 @@ const App = () => {
     // console.log("Toggle")
   }
   const handleChangeUser = newUser => setUser({...user, ...newUser})
+
   const handleChangeVideoList = newVideoList => {
     setVideoList(newVideoList);
     setShowLanding(!showLanding);
+  }
+
+  const modifyVideoList = {
+    addVideo: newVideo => setVideoList([...videoList, newVideo]),
+    deleteVideo: videoToDelete => setVideoList(videoList.filter(video => video._id !== videoToDelete._id)),
+    modifyVideo: videToModify => setVideoList(videoList.map(video => video._id === videToModify._id ? videToModify : video))
   }
   
 
@@ -316,6 +323,7 @@ const App = () => {
                 ? <AddVideo 
                   user={user}
                   handleShowLandingPage={handleShowLandingPage}
+                  modifyVideoList={modifyVideoList}
                 />
                 : <LandingPage  
                   handleChangeUser = {handleChangeUser}
@@ -327,6 +335,7 @@ const App = () => {
                   showLogin = {showLogin}
                   user = {user}
                   videoList = {videoList}
+                  modifyVideoList={modifyVideoList}
                 />
               }
               <Footer 

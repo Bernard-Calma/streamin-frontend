@@ -6,6 +6,7 @@ import axios from "axios";
 const Show = props => {
     const [editEnable, setEditEnable] = useState(false)
     const [video, setVideo] = useState(props.video)
+    const [comments, setComments] = useState(props.video.comments)
 
     const handleToggleEdit = () => {
         if (editEnable) {
@@ -19,6 +20,7 @@ const Show = props => {
 
     
     const handleModifyVideo = async () => {
+        console.log("Handle Modify Video - Data: ", video)
         await axios({
             method: "PUT",
             url:`${process.env.REACT_APP_SERVER_URL}/videos/${props.video._id}`,
@@ -26,7 +28,9 @@ const Show = props => {
             withCredentials: true
         })
         .then(res => {
-            // console.log(res.data)
+            console.log("Res.Data", res.data)
+            props.modifyVideo(res.data)
+            setVideo(res.data)
         })
         .catch(err => console.log(err))
     }
@@ -42,7 +46,14 @@ const Show = props => {
 
     const handleAddComment = newComment => {
         setVideo({...props.video, comments: props.video.comments.push(newComment) })
-        console.log(video)
+        console.log("Add Comment:", video)
+        handleModifyVideo()
+    }
+
+    const handleDeleteComment = newComment => {
+        setComments(comments.filter(comment => comment._id !== newComment._id))
+        // console.log(comments)
+        setVideo({...video, comments: comments.filter(comment => comment._id !== newComment._id)})
         handleModifyVideo()
     }
 
@@ -56,7 +67,7 @@ const Show = props => {
             comments: props.video.comments.map(comment => 
                 comment._id === editedComment._id ? editedComment : comment) 
         })
-        console.log(video)
+        // console.log(video)
         handleModifyVideo()
     }
 
@@ -101,6 +112,7 @@ const Show = props => {
                         handleShowLandingPage = {props.handleShowLandingPage}
                         handleSetShow = {props.handleSetShow}
                         handleToggleEdit = {handleToggleEdit}
+                        deleteVideo={props.modifyVideoList}
                     />
                 }  
             </div>
@@ -108,9 +120,11 @@ const Show = props => {
             <div className="right">
                 <Comments 
                     video={props.video}
+                    comments={comments}
                     user={props.user}
                     handleAddComment={handleAddComment}
                     handleEditComment={handleEditComment}
+                    handleDeleteComment={handleDeleteComment}
                 />
                     
             </div>

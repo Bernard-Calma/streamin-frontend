@@ -74,6 +74,8 @@ const LandingPage = props => {
                     handleShowLandingPage = {props.handleShowLandingPage}
                     handleSetShow = {handleSetShow}
                     handleToggleLoginPage = {props.handleToggleLoginPage}
+                    modifyVideoList={() => props.modifyVideoList.deleteVideo(videoToShow)}
+                    modifyVideo = {() => props.modifyVideoList.modifyVideo(videoToShow)}
                 />
             : <></>
             }

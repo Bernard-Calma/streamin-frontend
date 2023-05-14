@@ -8,6 +8,7 @@ const AddVideo = props => {
             <CreateForm 
                 user={props.user}
                 handleShowLandingPage={props.handleShowLandingPage}
+                modifyVideoList={props.modifyVideoList}
             />
         </section>
     )
