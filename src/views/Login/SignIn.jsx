@@ -22,6 +22,7 @@ const SignIn = props => {
                     user = {props.user}
                     modifyUser={props.modifyUser}
                     modifyAppView={props.modifyAppView}
+                    toggleLogin={props.toggleLogin}
                 />
             }
         </section>

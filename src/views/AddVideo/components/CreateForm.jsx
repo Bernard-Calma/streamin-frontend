@@ -11,7 +11,7 @@ const CreateForm = props => {
       title: '',
       description: '',
       tags: '',
-      user: props.user.id,
+      user: props.user._id,
   })
  // Handle the change of each value
 const handleChange = e => setNewVideo({...newVideo, [e.target.name]: e.target.value})

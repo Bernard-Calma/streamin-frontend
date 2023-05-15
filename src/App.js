@@ -266,6 +266,7 @@ const App = () => {
           ? <AddVideo 
               user={user}
               modifyVideoList={modifyVideoList}
+              modifyAppView={modifyAppView}
             />
         : appView === "Show"
           ? <Show 
