@@ -6,9 +6,9 @@ import Logo from "../../assets/Logo2.png"
 const Header = props =>  {
     return(
         <header className="header container-fluid ">
-            <img className="logo" src={Logo} alt="logo" onClick={props.handleShowLandingPage}/>
+            <img className="logo" src={Logo} alt="logo" onClick={() => props.modifyAppView.landingPage()}/>
             <nav className="navBar">
-                <p className='navBar item' onClick={props.handleShowLandingPage}>HOME</p>
+                <p className='navBar item' onClick={() => props.modifyAppView.landingPage()}>HOME</p>
                 {props.user.username !== "Guest" && <p className='navBar item' onClick={props.getUserVideos}>MY VIDEOS</p>}
             </nav>
 

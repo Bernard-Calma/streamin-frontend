@@ -4,7 +4,7 @@ import "../Styles.css"
 
 const Video = props => {
     return( 
-        <div className="video" onClick={props.handleShowVideo}>
+        <div className="video" onClick={props.showVideo}>
             <div className="videoImage">
                 {/* Enclosed inside a div to provide diferent click events */}
                 <iframe 
