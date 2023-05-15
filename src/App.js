@@ -27,6 +27,7 @@ const App = () => {
   const [showAbout, setShowAbout] = useState(false)
   const [showAddVideo, setShowAddVideo] = useState(false)
 
+  const [appView, setAppView] = useState("Landing Page")
   const [videoList, setVideoList] =useState([])
 
   //   state = {      
@@ -237,6 +238,12 @@ const App = () => {
     deleteVideo: videoToDelete => setVideoList(videoList.filter(video => video._id !== videoToDelete._id)),
     modifyVideo: videToModify => setVideoList(videoList.map(video => video._id === videToModify._id ? videToModify : video))
   }
+
+  const modifyAppView = {
+    ladingPage: () => setAppView("Landing View"),
+    about: () => setAppView("About"),
+    addVideo: () => setAppView("Add Video")
+  }
   
 
   // USER
@@ -252,60 +259,6 @@ const App = () => {
   useEffect(() => {
     getVideoList();
   },[])
-
-
-
-    // if logged in is false
-    // return( !loggedIn
-    //   ? <>
-    //     
-    //     {showAbout === true
-    //       ? <>
-    //           <About/>
-    //         </>      
-    //       : <>
-    //         <SignIn
-    //           handleChange = {handleChange}
-    //           handleLogin = {handleLogin}
-    //           handleRegister = {handleRegister}
-    //           message = {loginMessage}
-    //           onClickRegister = {onClickRegister}
-    //           register = {register}
-    //         />
-    //       </>
-    //     }                 
-    //     <Footer />
-    //   </>
-    //   : <>
-    //     {/* If login successful change loggedIn to true */}
-    //     {/* // Pass in User Component  */}
-    //     <SignInHeader 
-    //       signOut={handleSignOut} 
-    //       handleLogo = {handleLogo}
-    //       handleChange = {handleChange}
-    //       search = {search}
-    //       handleSearch = {handleSearch}
-    //       />
-    //     <User 
-    //       key = {user._id} 
-    //       user = {user} 
-    //       showMain = {showMain} 
-    //       handleLogo = {handleLogo} 
-    //       onClickVideo = {onClickVideo}
-    //       showVideoList = {showVideoList}
-    //       videoId = {videoId}
-    //       handleCreateSubmit = {handleCreateSubmit}
-    //       createVideo = {createVideo}
-    //       videoToModify = {videoToModify}
-    //       handleCreateReturn = {handleCreateReturn}
-    //       handleModifyVideo = {handleModifyVideo}
-    //       modifyVideo = {modifyVideo}
-    //       searchVideos = {searchVideos}
-    //       searchedVideos = {searchedVideos}
-    //     />     
-    //     
-    //   </>                               
-    // )
     return(
       <>
         <Header
@@ -316,37 +269,30 @@ const App = () => {
           handleChangeVideoList={handleChangeVideoList}    
           getUserVideos={getUserVideos}
         />
-        {
-            !showAbout
-            ? <>
-              {showAddVideo
-                ? <AddVideo 
-                  user={user}
-                  handleShowLandingPage={handleShowLandingPage}
-                  modifyVideoList={modifyVideoList}
-                />
-                : <LandingPage  
-                  handleChangeUser = {handleChangeUser}
-                  handleToggleLoginPage={handleToggleLoginPage}
-                  handleToggleAddVideo={handleToggleAddVideo}
-                  handleShowLandingPage={handleShowLandingPage}
-                  handleSignout={handleSignout}
-                  showLanding = {showLanding}
-                  showLogin = {showLogin}
-                  user = {user}
-                  videoList = {videoList}
-                  modifyVideoList={modifyVideoList}
-                />
-              }
-              <Footer 
-                handleToggleAbout = {handleToggleAbout}
-              />
-            </>
-            : <>
-              <About/>
-            </>
+        { appView === "Landing Page"
+          ? <LandingPage  
+            handleChangeUser = {handleChangeUser}
+            handleToggleLoginPage={handleToggleLoginPage}
+            handleToggleAddVideo={handleToggleAddVideo}
+            handleShowLandingPage={handleShowLandingPage}
+            modifyAppView={modifyAppView}
+            handleSignout={handleSignout}
+            showLanding = {showLanding}
+            showLogin = {showLogin}
+            user = {user}
+            videoList = {videoList}
+            modifyVideoList={modifyVideoList}
+          />
+        : appView === "About"
+          ? <About/>
+        : appView === "Add Video"
+          ? <AddVideo 
+              user={user}
+              handleShowLandingPage={handleShowLandingPage}
+              modifyVideoList={modifyVideoList}
+            />
+        : <></>
         }
-        
       </>
     )
 }
