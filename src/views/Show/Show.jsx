@@ -20,7 +20,7 @@ const Show = props => {
 
     
     const handleModifyVideo = async () => {
-        console.log("Handle Modify Video - Data: ", video)
+        // console.log("Handle Modify Video - Data: ", video)
         await axios({
             method: "PUT",
             url:`${process.env.REACT_APP_SERVER_URL}/videos/${props.video._id}`,
@@ -29,7 +29,7 @@ const Show = props => {
         })
         .then(res => {
             console.log("Res.Data", res.data)
-            props.modifyVideo(res.data)
+            props.modifyVideoList.modifyVideo(res.data)
             setVideo(res.data)
         })
         .catch(err => console.log(err))
@@ -110,8 +110,8 @@ const Show = props => {
                     <VideoControl 
                         video={props.video}
                         handleToggleEdit = {handleToggleEdit}
-                        deleteVideo={props.deleteVideo}
-                        modifyAppView={props.modifyAppView}
+                        modifyVideoList = {props.modifyVideoList}
+                        modifyAppView = {props.modifyAppView}
                     />
                 }  
             </div>

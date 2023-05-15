@@ -27,7 +27,7 @@ const handleSubmit = async e => {
   })
   .then(res => {
     props.modifyVideoList.addVideo(res.data)
-    props.handleShowLandingPage()
+    props.modifyAppView.landingPage()
   })
   .catch(err => console.log(err))
   // console.log("Add Video")

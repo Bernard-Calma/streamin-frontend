@@ -15,6 +15,7 @@ import About from "./views/About/About";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddVideo from "./views/AddVideo/AddVideo";
 import Show from "./views/Show/Show";
+import SignIn from "./views/Login/SignIn";
 
 const App = () => {
   const [user, setUser] = useState({
@@ -23,11 +24,7 @@ const App = () => {
     name: "Guest"
   })
 
-  const [showLanding, setShowLanding] = useState(true)
   const [showLogin, setShowLogin] = useState(false)
-  const [showAbout, setShowAbout] = useState(false)
-  const [showAddVideo, setShowAddVideo] = useState(false)
-
   const [appView, setAppView] = useState("Landing Page")
   const [videoList, setVideoList] = useState([])
   const [videoToShow, setVideoToShow] = useState({})
@@ -208,16 +205,9 @@ const App = () => {
     })
     .then(res => {
       setVideoList(res.data);
-      setShowAddVideo(false);
+      modifyAppView.show();
     })
     .catch(err => setVideoList([]))
-  }
-
- const handleShowLandingPage = async () => {
-    await getVideoList()
-    setShowLanding(!showLanding)
-    setShowAbout(false)
-    setShowAddVideo(false);
   }
 
   // VIEWS
@@ -235,6 +225,15 @@ const App = () => {
     about: () => setAppView("About"),
     addVideo: () => setAppView("Add Video"),
     show: () => setAppView("Show")
+  }
+
+  const modifyUser = {
+    login: user => setUser(user),
+    logout: () => setUser({
+        id: "632bb2e2699c899a76193e86",
+        username: "Guest",
+        name: "Guest"
+      })
   }
   
 
@@ -255,6 +254,7 @@ const App = () => {
       <>
         <Header
           user = {user}
+          toggleLogin={() => setShowLogin(!showLogin)}
           modifyAppView={modifyAppView} 
           getUserVideos={getUserVideos}
         />
@@ -264,7 +264,6 @@ const App = () => {
             handleChangeUser = {handleChangeUser}
             handleToggleLoginPage={handleToggleLoginPage}
             handleSignout={handleSignout}
-            showLanding = {showLanding}
             showLogin = {showLogin}
             user = {user}
             modifyVideoList={modifyVideoList}
@@ -277,15 +276,14 @@ const App = () => {
         : appView === "Add Video"
           ? <AddVideo 
               user={user}
-              handleShowLandingPage={handleShowLandingPage}
+              modifyAppView={modifyAppView}
               modifyVideoList={modifyVideoList}
             />
         : appView === "Show"
           ? <Show 
               video = {videoToShow}
               user = {user}
-              deleteVideo={() => modifyVideoList.deleteVideo(videoToShow)}
-              modifyVideo = {() => modifyVideoList.modifyVideo(videoToShow)}
+              modifyVideoList = {modifyVideoList}
               modifyAppView={modifyAppView}
             />
         : <></>
@@ -293,6 +291,13 @@ const App = () => {
         <Footer
           modifyAppView={modifyAppView}
         />
+        {showLogin && 
+          <SignIn 
+              modifyAppView = {modifyAppView}
+              modifyUser = {modifyUser}
+              user = {user}
+          />
+        }
       </>
     )
 }
