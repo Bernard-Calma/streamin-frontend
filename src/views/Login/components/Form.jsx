@@ -22,8 +22,8 @@ const Form = props => {
                 withCredentials: true
             })
             .then(res => {
-                props.handleChangeUser(res.data)
-                props.handleToggleLoginPage()
+                props.modifyUser.login(res.data)
+                props.toggleLogin()
             })
             .catch(({response}) => setErrMessage(response.data.err))
         } else {
@@ -35,8 +35,8 @@ const Form = props => {
             })
             .then(res => {
                 // console.log(res.data)
-                props.handleChangeUser(user)
-                props.handleToggleLoginPage()
+                props.modifyUser.login(user)
+                props.toggleLogin()
             })
             .catch(({response}) => setErrMessage(response.data.err))
         }

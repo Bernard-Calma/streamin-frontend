@@ -296,6 +296,7 @@ const App = () => {
               modifyAppView = {modifyAppView}
               modifyUser = {modifyUser}
               user = {user}
+              toggleLogin = {() => setShowLogin(!showLogin)}
           />
         }
       </>

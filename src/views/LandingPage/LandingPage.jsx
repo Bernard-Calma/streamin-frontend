@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './Styles.css'
 import { Video } from "./components";
-import Show from "../Show/Show";
-import SignIn from "../Login/SignIn";
 import Loading from "../../components/Loading/Loading";
 
 const LandingPage = props => {
@@ -19,7 +17,7 @@ const LandingPage = props => {
         }, 6000);
         return () => clearTimeout(load)
     },[loading])
-    
+
     return (
         <main>
             <Loading loading = {loading}/>
