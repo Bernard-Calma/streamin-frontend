@@ -109,10 +109,9 @@ const Show = props => {
                 {props.user.id === props.video.user &&
                     <VideoControl 
                         video={props.video}
-                        handleShowLandingPage = {props.handleShowLandingPage}
-                        handleSetShow = {props.handleSetShow}
                         handleToggleEdit = {handleToggleEdit}
-                        deleteVideo={props.modifyVideoList}
+                        deleteVideo={props.deleteVideo}
+                        modifyAppView={props.modifyAppView}
                     />
                 }  
             </div>

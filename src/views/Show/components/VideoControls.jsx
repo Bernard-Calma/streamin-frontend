@@ -15,9 +15,8 @@ const VideoControl = props => {
         })
         .then(res => {
             // console.log(res.data)
-            props.deleteVideo()
-            props.handleShowLandingPage()
-            props.handleSetShow("Landing Page")
+            props.deleteVideo(res.data)
+            props.modifyAppView.landingPage()
         })
         .catch(err => console.log(err))
     }

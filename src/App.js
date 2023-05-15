@@ -222,18 +222,7 @@ const App = () => {
 
   // VIEWS
   const handleToggleLoginPage = () => setShowLogin(!showLogin)
-  const handleToggleAbout = () => setShowAbout(!showAbout)
-  const handleToggleAddVideo = () => {
-    setShowAddVideo(true);
-    setShowLanding(false);
-    // console.log("Toggle")
-  }
   const handleChangeUser = newUser => setUser({...user, ...newUser})
-
-  const handleChangeVideoList = newVideoList => {
-    setVideoList(newVideoList);
-    setShowLanding(!showLanding);
-  }
 
   const modifyVideoList = {
     addVideo: newVideo => setVideoList([...videoList, newVideo]),
@@ -293,11 +282,12 @@ const App = () => {
             />
         : appView === "Show"
           ? <Show 
-            video = {videoToShow}
-            user = {user}
-            modifyVideoList={() => modifyVideoList.deleteVideo(videoToShow)}
-            modifyVideo = {() => modifyVideoList.modifyVideo(videoToShow)}
-          />
+              video = {videoToShow}
+              user = {user}
+              deleteVideo={() => modifyVideoList.deleteVideo(videoToShow)}
+              modifyVideo = {() => modifyVideoList.modifyVideo(videoToShow)}
+              modifyAppView={modifyAppView}
+            />
         : <></>
         }
         <Footer
