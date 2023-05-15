@@ -235,16 +235,6 @@ const App = () => {
         name: "Guest"
       })
   }
-  
-
-  // USER
-  const handleSignout = () => {
-    setUser({
-      id: "Guest",
-      username: "Guest",
-      name: "Guest"
-    })
-  }
 
   // LOAD EFECTS
   useEffect(() => {
@@ -263,7 +253,6 @@ const App = () => {
             videoList = {videoList}
             handleChangeUser = {handleChangeUser}
             handleToggleLoginPage={handleToggleLoginPage}
-            handleSignout={handleSignout}
             showLogin = {showLogin}
             user = {user}
             modifyVideoList={modifyVideoList}
@@ -276,7 +265,6 @@ const App = () => {
         : appView === "Add Video"
           ? <AddVideo 
               user={user}
-              modifyAppView={modifyAppView}
               modifyVideoList={modifyVideoList}
             />
         : appView === "Show"
@@ -293,8 +281,8 @@ const App = () => {
         />
         {showLogin && 
           <SignIn 
-              modifyAppView = {modifyAppView}
               modifyUser = {modifyUser}
+              modifyAppView = {modifyAppView}
               user = {user}
               toggleLogin = {() => setShowLogin(!showLogin)}
           />

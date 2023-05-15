@@ -20,8 +20,8 @@ const SignIn = props => {
                 </>
                 : < Signout 
                     user = {props.user}
-                    handleSignout={props.handleSignout}
-                    handleToggleAddVideo={props.handleToggleAddVideo}
+                    modifyUser={props.modifyUser}
+                    modifyAppView={props.modifyAppView}
                 />
             }
         </section>
