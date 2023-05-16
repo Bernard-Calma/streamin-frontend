@@ -145,6 +145,7 @@ const App = () => {
               user = {user}
               modifyVideoList = {modifyVideoList}
               modifyAppView={modifyAppView}
+              handleToggleLoginPage={handleToggleLoginPage}
             />
         : <></>
         }

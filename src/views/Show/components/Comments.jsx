@@ -15,6 +15,15 @@ const Comments = props => {
         if (!comment.likes.includes(props.user.username) && props.user.username !== "Guest") 
             props.handleEditComment({...comment, likes: comment.likes.push(props.user.id)})
             // console.log(comment);
+        else props.handleToggleLoginPage();
+    }
+
+    const handleAddComment = async e => {
+        if (!props.user.username === "Guest") {
+            await props.modifyComment.add(addComment);
+            e.target.previousElementSibling.value = '';
+        } else props.handleToggleLoginPage();
+        
     }
 
     // console.log(props.video.comments[0].likes.includes(props.user.id))
@@ -44,10 +53,7 @@ const Comments = props => {
             </div>
             <div className="inputComment">
                 <input type="text" placeholder="Write a comment" onChange={handleChange}/>
-                <i className="fa-solid fa-arrow-right" style={{color: "white"}} onClick={async e => {
-                    await props.modifyComment.add(addComment)
-                    e.target.previousElementSibling.value = ''
-                    }}></i>
+                <i className="fa-solid fa-arrow-right" style={{color: "white"}} onClick={handleAddComment}></i>
             </div>
         </>
     )

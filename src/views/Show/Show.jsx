@@ -110,6 +110,7 @@ const Show = props => {
                     comments={props.video.comments}
                     user={props.user}
                     modifyComment={modifyComment}
+                    handleToggleLoginPage={props.handleToggleLoginPage}
                 />
                     
             </div>
