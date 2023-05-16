@@ -14,7 +14,7 @@ const Comments = props => {
         // console.log(comment)
         if (!comment.likes.includes(props.user.username) && props.user.username !== "Guest") 
             props.handleEditComment({...comment, likes: comment.likes.push(props.user.id)})
-            console.log(comment);
+            // console.log(comment);
     }
 
     // console.log(props.video.comments[0].likes.includes(props.user.id))
@@ -28,7 +28,7 @@ const Comments = props => {
                         <div className="date">
                             <p className="daysAgo">{format(comment.date)}</p> 
                                 {comment.user === props.user.username
-                                ? <i className="fa-regular fa-trash-can deleteComment" onClick={() => props.handleDeleteComment(comment)}/>
+                                ? <i className="fa-regular fa-trash-can deleteComment" onClick={() => props.modifyComment.delete(comment)}/>
                                 : <>
                                     {comment.likes.includes(props.user.id)
                                         ? <i className="fa-solid fa-heart"/>
@@ -45,7 +45,7 @@ const Comments = props => {
             <div className="inputComment">
                 <input type="text" placeholder="Write a comment" onChange={handleChange}/>
                 <i className="fa-solid fa-arrow-right" style={{color: "white"}} onClick={async e => {
-                    await props.handleAddComment(addComment)
+                    await props.modifyComment.add(addComment)
                     e.target.previousElementSibling.value = ''
                     }}></i>
             </div>

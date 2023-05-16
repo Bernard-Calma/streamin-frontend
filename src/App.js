@@ -60,7 +60,10 @@ const App = () => {
   const modifyVideoList = {
     addVideo: newVideo => setVideoList([...videoList, newVideo]),
     deleteVideo: videoToDelete => setVideoList(videoList.filter(video => video._id !== videoToDelete._id)),
-    modifyVideo: videToModify => setVideoList(videoList.map(video => video._id === videToModify._id ? videToModify : video))
+    modifyVideo: videoToModify => {
+      // console.log(videoToModify)
+      setVideoList(videoList.map(video => video._id === videoToModify._id ? videoToModify : video))
+    }
   }
 
   const modifyAppView = {
@@ -83,6 +86,14 @@ const App = () => {
   useEffect(() => {
     getVideoList();
   },[])
+
+  useEffect(() => {
+    const updateVideoToShow = () => {
+      if(videoToShow) setVideoToShow(videoList.find(video => video._id === videoToShow._id))
+    }
+
+    updateVideoToShow();
+  }, [videoList])
     return(
       <>
         <Header

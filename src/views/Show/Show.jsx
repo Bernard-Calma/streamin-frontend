@@ -44,31 +44,20 @@ const Show = props => {
         }
     }
 
-    const handleAddComment = newComment => {
-        setVideo({...props.video, comments: props.video.comments.push(newComment) })
-        console.log("Add Comment:", video)
-        handleModifyVideo()
-    }
-
-    const handleDeleteComment = newComment => {
-        setComments(comments.filter(comment => comment._id !== newComment._id))
-        // console.log(comments)
-        setVideo({...video, comments: comments.filter(comment => comment._id !== newComment._id)})
-        handleModifyVideo()
-    }
-
-    const handleEditComment = editedComment => {
-        // Set video calling other keys
-        // Map through all comments
-        // If current comment is = editedComment return edited comment
-        // Assign new comment map to video
-        setVideo({
-            ...props.video, 
-            comments: props.video.comments.map(comment => 
-                comment._id === editedComment._id ? editedComment : comment) 
-        })
-        // console.log(video)
-        handleModifyVideo()
+    const modifyComment = {
+        add: newComment => {
+            props.modifyVideoList.modifyVideo({...video, 
+                comments: [...props.video.comments, newComment]})
+            },
+        delete: deleteComment => {
+            props.modifyVideoList.modifyVideo({...video, 
+                comments: props.video.comments.filter(comment => comment._id !== deleteComment._id)})
+            },
+        modify: modifiedComment => {
+            props.modifyVideoList.modifyVideo({...video,
+                comments: props.video.comments.map(comment => comment._id === modifiedComment._id ? modifiedComment : comment)
+            })
+        }
     }
 
     return (
@@ -117,13 +106,11 @@ const Show = props => {
             </div>
 
             <div className="right">
-                <Comments 
+                <Comments
                     video={props.video}
-                    comments={comments}
+                    comments={props.video.comments}
                     user={props.user}
-                    handleAddComment={handleAddComment}
-                    handleEditComment={handleEditComment}
-                    handleDeleteComment={handleDeleteComment}
+                    modifyComment={modifyComment}
                 />
                     
             </div>
