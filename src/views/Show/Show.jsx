@@ -6,7 +6,6 @@ import axios from "axios";
 const Show = props => {
     const [editEnable, setEditEnable] = useState(false)
     const [video, setVideo] = useState(props.video)
-    const [comments, setComments] = useState(props.video.comments)
 
     const handleToggleEdit = () => {
         if (editEnable) {

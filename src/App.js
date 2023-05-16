@@ -88,17 +88,20 @@ const App = () => {
   },[])
 
   useEffect(() => {
-    const updateVideoToShow = () => {
+    const updateVideoToShow = async () => {
       setVideoToShow(videoList.find(video => video._id === videoToShow._id))
+      // console.log(videoList.find(video => video._id === videoToShow._id))
     }
 
     const updateVideoListDB = async () => {
+      // console.log(videoToShow)
       await axios({
         method: "PUT",
         url: `${process.env.REACT_APP_SERVER_URL}/videos/${videoToShow._id}`,
         withCredentials: true,
-        data: videoToShow
+        data: videoList.find(video => video._id === videoToShow._id)
       })
+      // .then(res => console.log(res.data))
       .catch(err => console.log(err))
     }
     
