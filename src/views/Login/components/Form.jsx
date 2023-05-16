@@ -25,7 +25,10 @@ const Form = props => {
                 props.modifyUser.login(res.data)
                 props.toggleLogin()
             })
-            .catch(({response}) => setErrMessage(response.data.err))
+            .catch(({response}) => {
+                // console.log(response)
+                setErrMessage(response.data.err)
+            })
         } else {
             await axios({
                 method: "POST",
@@ -40,7 +43,6 @@ const Form = props => {
             })
             .catch(({response}) => setErrMessage(response.data.err))
         }
-        
     }
 
     const handleToggleRegister = () => {

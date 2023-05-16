@@ -106,7 +106,7 @@ const Show = props => {
                     value={video.description} 
                     onChange={handleChange}
                     contentEditable={editEnable}/>       
-                {props.user.id === props.video.user &&
+                {props.user._id === props.video.user &&
                     <VideoControl 
                         video={props.video}
                         handleToggleEdit = {handleToggleEdit}
