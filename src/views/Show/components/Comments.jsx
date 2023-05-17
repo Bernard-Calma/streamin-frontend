@@ -22,9 +22,9 @@ const Comments = props => {
 
     const handleAddComment = e => {
         e.preventDefault();
-        console.log(props.user)
+        // console.log(props.user)
         if (props.user.username !== "Guest") {
-            console.log("Add Comment: ", addComment)
+            // console.log("Add Comment: ", addComment)
             props.modifyComment.add(addComment);
             e.target.previousElementSibling.value = '';
         } else {

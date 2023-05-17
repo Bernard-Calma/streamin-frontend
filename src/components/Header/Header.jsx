@@ -9,7 +9,7 @@ const Header = props =>  {
             <img className="logo" src={Logo} alt="logo" onClick={() => props.modifyAppView.landingPage()}/>
             <nav className="navBar">
                 <p className='navBar item' onClick={() => props.modifyAppView.landingPage()}>HOME</p>
-                {props.user.username !== "Guest" && <p className='navBar item' onClick={props.getUserVideos}>MY VIDEOS</p>}
+                {props.user.username !== "Guest" && <p className='navBar item' onClick={() => props.modifyAppView.myVideos()}>MY VIDEOS</p>}
             </nav>
 
             <div className='searchBar'>

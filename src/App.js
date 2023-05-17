@@ -24,10 +24,10 @@ const App = () => {
     name: "Guest"
   })
 
-  const [showLogin, setShowLogin] = useState(false)
-  const [appView, setAppView] = useState("Landing Page")
   const [videoList, setVideoList] = useState([])
   const [videoToShow, setVideoToShow] = useState({})
+  let [appView, setAppView] = useState("Landing Page")
+  let [showLogin, setShowLogin] = useState(false)
 
   // VIDEOS
   const getVideoList = async () => {
@@ -40,13 +40,14 @@ const App = () => {
   }
 
   const getUserVideos = async () => {
-    console.log("Get user videos")
+    // console.log("Get user videos")
     await axios({
       method: "GET",
       url: `${process.env.REACT_APP_SERVER_URL}/videos/uservideos/${user.id}`,
       withCredentials: true
     })
     .then(res => {
+      console.log(res.data)
       setVideoList(res.data);
       modifyAppView.show();
     })
@@ -70,7 +71,8 @@ const App = () => {
     landingPage: () => setAppView("Landing Page"),
     about: () => setAppView("About"),
     addVideo: () => setAppView("Add Video"),
-    show: () => setAppView("Show")
+    show: () => setAppView("Show"),
+    myVideos: () => setAppView("My Videos")
   }
 
   const modifyUser = {
@@ -119,7 +121,7 @@ const App = () => {
           modifyAppView={modifyAppView} 
           getUserVideos={getUserVideos}
         />
-        { appView === "Landing Page"
+        { appView === "Landing Page" || appView === "My Videos"
           ? <LandingPage  
             videoList = {videoList}
             handleChangeUser = {handleChangeUser}
