@@ -7,8 +7,8 @@ const Form = props => {
         password: "",
         passwordCheck: "",
     })
-    const [viewLogin, setViewLogin] = useState(true)
-    const [errMessage, setErrMessage] = useState('')
+    let [viewLogin, setViewLogin] = useState(true)
+    let [errMessage, setErrMessage] = useState('')
     const handleChange = e => setUser({...user, [e.target.name]: e.target.value})
     
     const handleSubmit = async e => {
@@ -30,6 +30,12 @@ const Form = props => {
                 setErrMessage(response.data.err)
             })
         } else {
+            const regex =  /^[A-Z]\w{6}$/;
+            if (user.password !== user.passwordCheck) {
+                return setErrMessage("Password does not match");
+            } else if (!regex.test(user.password)) {
+                return setErrMessage(`Invalid password. \nPassword must be at least 6 characters. \nPassword must at least have one uppercase letter`);
+            }
             await axios({
                 method: "POST",
                 url: `${process.env.REACT_APP_SERVER_URL}/users`,

@@ -38,6 +38,7 @@ section.login > h1 {
 
 .login .errMessage {
     color: rgb(211, 1, 1);
+    white-space:pre-wrap;
 }
 
 .login button {
