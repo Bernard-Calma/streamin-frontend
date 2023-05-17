@@ -19,7 +19,7 @@ import SignIn from "./views/Login/SignIn";
 
 const App = () => {
   const [user, setUser] = useState({
-    id: "632bb2e2699c899a76193e86",
+    _id: "632bb2e2699c899a76193e86",
     username: "Guest",
     name: "Guest"
   })
@@ -105,7 +105,7 @@ const App = () => {
       .catch(err => console.log(err))
     }
     
-    if(videoToShow._id) {
+    if(videoToShow !== undefined) {
       updateVideoToShow();
       updateVideoListDB();
     }
