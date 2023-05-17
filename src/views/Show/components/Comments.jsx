@@ -4,6 +4,7 @@ import { format } from "timeago.js"
 const Comments = props => {
     const [addComment, setAddComment] = useState({
         user: {...props.user},
+        likes: [],
         comment: "",
         date: new Date()
     });
