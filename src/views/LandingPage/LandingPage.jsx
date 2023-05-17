@@ -14,7 +14,7 @@ const LandingPage = props => {
     useEffect(() => {
         const load = setTimeout(() => {
             setLoading(false)
-        }, 6000);
+        }, 3000);
         return () => clearTimeout(load)
     },[loading])
 

@@ -18,6 +18,7 @@ main > .videoList {
 .opacity-0 {
     opacity: 0;
     height: 0;
+    display: none !important;
 }
 
 .opacity-100 {
