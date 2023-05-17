@@ -107,7 +107,6 @@ const Show = props => {
             <div className="right">
                 <Comments
                     video={props.video}
-                    comments={props.video.comments}
                     user={props.user}
                     modifyComment={modifyComment}
                     handleToggleLoginPage={props.handleToggleLoginPage}

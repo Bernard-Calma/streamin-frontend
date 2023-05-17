@@ -13,8 +13,7 @@ const Comments = props => {
     const handleLikeComment = comment => {
         // console.log(comment)
         if (!comment.likes.includes(props.user.username) && props.user.username !== "Guest") 
-           { props.modifyComment.modify({...comment, likes: comment.likes.push(props.user.username)})
-            console.log(comment); }
+           props.modifyComment.modify({...comment, likes: [...comment.likes, props.user.username]})
         else {
             props.handleToggleLoginPage();
         }
