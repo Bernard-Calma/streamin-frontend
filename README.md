@@ -57,3 +57,7 @@ Go to your package.json file and replace
         "start": "react-scripts start",
 with
         "start": "react-scripts --openssl-legacy-provider start",
+
+Issue: Failed to parse source map from "" error
+Fix: GENERATE_SOURCEMAP=false
+Notes:  CRA with Webpack 5.x issue
