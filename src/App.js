@@ -1,4 +1,4 @@
-import React , {useEffect, useState} from "react"
+import React , {useEffect, useRef, useState} from "react"
 import axios from "axios";
 import './App.css';
 
@@ -28,6 +28,9 @@ const App = () => {
   const [videoToShow, setVideoToShow] = useState({})
   let [appView, setAppView] = useState("Landing Page")
   let [showLogin, setShowLogin] = useState(false)
+
+  // Variable to hold first load check
+  const isFirstLoad = useRef(true)
 
   // VIDEOS
   const getVideoList = async () => {
@@ -90,28 +93,31 @@ const App = () => {
   },[])
 
   useEffect(() => {
-    const updateVideoToShow = async () => {
-      setVideoToShow(videoList.find(video => video._id === videoToShow._id))
-      // console.log(videoList.find(video => video._id === videoToShow._id))
-    }
-
-    const updateVideoListDB = async () => {
-      // console.log(videoToShow)
-      await axios({
-        method: "PUT",
-        url: `${process.env.REACT_APP_SERVER_URL}/videos/${videoToShow._id}`,
-        withCredentials: true,
-        data: videoList.find(video => video._id === videoToShow._id)
-      })
-      // .then(res => console.log(res.data))
-      .catch(err => console.log(err))
-    }
-    
-    if(videoToShow !== undefined) {
-      updateVideoToShow();
-      updateVideoListDB();
-    }
-  // eslint-disable-next-line
+    if (!isFirstLoad.current) {
+      const updateVideoToShow = async () => {
+        setVideoToShow(videoList.find(video => video._id === videoToShow._id))
+        // console.log(videoList.find(video => video._id === videoToShow._id))
+      }
+  
+      const updateVideoListDB = async () => {
+        // console.log(videoToShow)
+        await axios({
+          method: "PUT",
+          url: `${process.env.REACT_APP_SERVER_URL}/videos/${videoToShow._id}`,
+          withCredentials: true,
+          data: videoList.find(video => video._id === videoToShow._id)
+        })
+        // .then(res => console.log(res.data))
+        .catch(err => console.log(err))
+      }
+      
+      if(videoToShow !== undefined) {
+        updateVideoToShow();
+        updateVideoListDB();
+      }
+    // eslint-disable-next-line
+    } 
+    isFirstLoad.current = false
   }, [videoList])
     return(
       <>
