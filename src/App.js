@@ -111,7 +111,7 @@ const App = () => {
       updateVideoToShow();
       updateVideoListDB();
     }
-
+  // eslint-disable-next-line
   }, [videoList])
     return(
       <>
