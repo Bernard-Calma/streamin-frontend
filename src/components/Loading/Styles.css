@@ -1,8 +1,10 @@
 .loading {
     background-color: black;
-    text-align: center;
+    display: flex;
+    height: 80vh;
 }
 
 .loading > img {
-    margin-top: 10%;
+    align-self: center;
+    margin: auto;
 }
