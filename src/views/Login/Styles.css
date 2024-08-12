@@ -1,14 +1,14 @@
 section.login {
     position: absolute;
     width: 20rem;
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
     background-color: rgb(40, 40, 40);
-    border: solid black;
     border-radius: 5px;
     color: white;
     right: 0;
     margin: 10px;
     top: 80px;
+    box-shadow: rgb(156, 156, 156) 0px 1.5em 2em -1.25em;
 }
 
 section.login > h1 {
