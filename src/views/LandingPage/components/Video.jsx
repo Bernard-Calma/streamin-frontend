@@ -1,10 +1,19 @@
 import React from "react";
 import { format } from "timeago.js"
 import "../Styles.css"
+import { useDispatch } from "react-redux";
+import { setVideoToShow } from "../../../features/video/videoSlice";
 
 const Video = props => {
+    const dispatch = useDispatch();
+
+    const showVideo = () => {
+        dispatch(setVideoToShow(props.video))
+        props.showVideo();
+    }
+    
     return( 
-        <div className="video" onClick={props.showVideo}>
+        <div className="video" onClick={showVideo}>
             <div className="videoImage">
                 {/* Enclosed inside a div to provide diferent click events */}
                 <iframe 

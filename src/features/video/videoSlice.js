@@ -3,6 +3,7 @@ import axios from "axios";
 
 const initialState = {
     videoList: [],
+    videoToShow: {},
     isLoading: false
 }
 
@@ -23,7 +24,11 @@ export const videoSlice = createSlice({
     name: 'video',
     initialState,
     reducers: {
-
+        // Set video to show on show page
+        setVideoToShow: (state, {payload}) => {
+            console.log(payload)
+            state.videoToShow = {payload}
+        }
     },
     extraReducers: builder => {
         builder
@@ -43,7 +48,7 @@ export const videoSlice = createSlice({
 })
 
 export const {
-
+    setVideoToShow
 } = videoSlice.actions;
 
 export default videoSlice.reducer;
