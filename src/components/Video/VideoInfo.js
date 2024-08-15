@@ -73,18 +73,19 @@ class VideoInfo extends Component {
 
     handleLike = (e) => {
       e.preventDefault();
+      console.log("Liked" , this.props.user._id)
       if(!this.state.video.likes.includes(this.props.user._id)){
-        this.state.video.likes = [...this.state.video.likes, this.props.user._id]
+        // this.state.video.likes = [...this.state.video.likes, this.props.user._id]
         // fetch edit video here
-        fetch(`${baseURL}/videos/${this.state.video._id}`, {
-          method: 'PUT',
-          body: JSON.stringify({
-            likes: this.state.video.likes,
-          }),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
+        // fetch(`${baseURL}/videos/${this.state.video._id}`, {
+        //   method: 'PUT',
+        //   body: JSON.stringify({
+        //     likes: this.state.video.likes,
+        //   }),
+        //   headers: {
+        //     'Content-Type': 'application/json'
+        //   }
+        // })
         this.props.handleModifyVideo(e)
       } 
       e.target.setAttribute("hidden", true)

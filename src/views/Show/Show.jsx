@@ -35,8 +35,9 @@ const Show = props => {
     }
 
     const handleLikeVideo = () => {
+        console.log("Show Liked: ", props.user._id)
         if (props.user.username !== "Guest") {
-            setVideo({...props.video, likes: props.video.likes.push(props.user.id) })
+            setVideo({...props.video, likes: props.video.likes.push(props.user._id) })
             handleModifyVideo()
         } else {
             props.handleToggleLoginPage()
@@ -73,7 +74,7 @@ const Show = props => {
                 <div className="divTitle">
                     <div className="buttons">
                         {
-                            props.video.likes.includes(props.user.id)
+                            props.video.likes.includes(props.user._id)
                             ? <i className="fa-solid fa-heart"></i>
                             : <i className="fa-regular fa-heart" onClick={handleLikeVideo}></i>
                         }
