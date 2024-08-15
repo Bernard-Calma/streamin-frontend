@@ -20,25 +20,29 @@ const LandingPage = props => {
 
     return (
         <main>
-            <Loading loading = {loading}/>
-            <div className={`videoList ${!loading? 'opcaity-100' : 'opacity-0'}`}>
-                { props.appView === "Landing Page" 
-                    ? props.videoList.map(video => 
-                        <Video 
-                            key={video._id}
-                            video={video} 
-                            showVideo={() => handleShowVideo(video)}
-                        />
-                    )
-                    : props.videoList.map(video => video.user === props.user._id
-                        ?<Video 
-                            key={video._id}
-                            video={video} 
-                            showVideo={() => handleShowVideo(video)}
-                        />
-                        : <></>)
-                }
-            </div>
+            {
+                loading ? <Loading loading = {loading}/>
+                : <div className={`videoList ${!loading? 'opcaity-100' : 'opacity-0'}`}>
+                    { props.appView === "Landing Page" 
+                        ? props.videoList.map(video => 
+                            <Video 
+                                key={video._id}
+                                video={video} 
+                                showVideo={() => handleShowVideo(video)}
+                            />
+                        )
+                        : props.videoList.map(video => video.user === props.user._id
+                            ?<Video 
+                                key={video._id}
+                                video={video} 
+                                showVideo={() => handleShowVideo(video)}
+                            />
+                            : <></>)
+                    }
+                </div>
+            }
+            
+            
 
             
         </main>
