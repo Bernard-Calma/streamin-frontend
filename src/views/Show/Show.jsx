@@ -27,7 +27,7 @@ const Show = props => {
             withCredentials: true
         })
         .then(res => {
-            console.log("Res.Data", res.data)
+            // console.log("Res.Data", res.data)
             props.modifyVideoList.modifyVideo(res.data)
             setVideo(res.data)
         })
@@ -35,7 +35,6 @@ const Show = props => {
     }
 
     const handleLikeVideo = () => {
-        console.log("Show Liked: ", props.user._id)
         if (props.user.username !== "Guest") {
             setVideo({...props.video, likes: props.video.likes.push(props.user._id) })
             handleModifyVideo()
