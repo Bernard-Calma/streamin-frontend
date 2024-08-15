@@ -70,11 +70,7 @@ a:hover {
   }
 
 /* CREATE FORM STYLE */
-.createPageHolder{
-  background-color: #080710;
-    display: flex;
-    flex-direction: column;
-}
+
 .returnBtnHolder{
   margin-top: 28px;
   margin-left: 48px;
@@ -114,7 +110,6 @@ a:hover {
   font-size:30px;
 }
 #createForm{
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -132,19 +127,7 @@ a:hover {
   min-height: 60px;
   border-radius: 3px;
 }
-#createVideoBtn{
-  width:100%;
-  background-color: white;
-  color: black;
-  height: 70px;
-   border-radius: 5px;
-   font-size: 22px;
-}
-#createVideoBtn:active{
-  transform: scale(0.98);
-  /* Scaling button to 0.98 to its original size */
-  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
-}
+
 
 /* SEARCH INPUT STYLE */
 #header-search{
@@ -156,7 +139,7 @@ a:hover {
     margin-left: 9px;
     outline: none;
     background-color: rgba(255, 255, 255, 0.07);
-    font-family: 'Poppins',sans-serif;
+    font-family: "Kanit", sans-serif;
     color: #ffffff;
     letter-spacing: 0.5px;
     outline: none;

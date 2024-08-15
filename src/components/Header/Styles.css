@@ -8,6 +8,7 @@ header {
     background-color: #080710;
     color:white;
     border-bottom: gray solid 1px;
+    font-family: "Kanit", sans-serif;
 }
 
 /* Logo */
@@ -22,9 +23,8 @@ header {
 .navBar {
     flex: 1;
     text-align: start;
-    font-family: sans-serif;
-    font-weight: bold;
-    font-size: 30px;
+    font-weight: 400;
+    font-size: 1.5em;
 }
 
 .navBar.item {
@@ -32,6 +32,7 @@ header {
     display: inline;
     margin: 0 10px;
     padding: 0;
+    
 }
 /* Nav Bar */
 
@@ -40,6 +41,11 @@ header {
     flex: 1;
     text-align: end;
     padding-right: 20px;
+}
+
+.searchBar > form > input {
+    
+    font-family: "Kanit", sans-serif;
 }
 /* Search Bar */
 

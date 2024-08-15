@@ -1,10 +1,18 @@
 section.addVideo {
+    display: flex;
     flex: 1;
     text-align: center;
+    font-family: "Kanit", sans-serif;
 }
 
+.createPageHolder{
+    flex: 1;
+    flex-direction: column;
+  }
+
 #createForm {
-    background-color: gray;
+    background-color: rgb(40, 40, 40);
+    box-shadow: rgb(156, 156, 156) 0px 1.5em 2em -1.25em;
     border-radius: 20px;
     width: 50%;
     margin: auto;
@@ -13,7 +21,7 @@ section.addVideo {
 }
 
 #createForm label {
-    color: black;
+    color: white;
     font-size: 18px;
     font-weight: bold;
 }
@@ -22,3 +30,16 @@ section.addVideo {
     width: 50%;
     padding: 0;
 }
+
+#createVideoBtn{
+    background-color: white;
+    color: black;
+    height: 70px;
+     border-radius: 5px;
+     font-size: 22px;
+  }
+  #createVideoBtn:active{
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  }
