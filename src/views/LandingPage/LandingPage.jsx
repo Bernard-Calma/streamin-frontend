@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import './Styles.css'
 import { Video } from "./components";
 import Loading from "../../components/Loading/Loading";
+import { useSelector } from "react-redux";
 
 const LandingPage = props => {
     const [loading, setLoading] = useState(true)
@@ -10,6 +11,10 @@ const LandingPage = props => {
         props.setVideoToShow(video);
         props.modifyAppView.show();
     }
+
+    const {
+        videoList
+    } = useSelector(store => store.videoList)
 
     useEffect(() => {
         const load = setTimeout(() => {
@@ -24,14 +29,14 @@ const LandingPage = props => {
                 loading ? <Loading loading = {loading}/>
                 : <div className={`videoList ${!loading? 'opcaity-100' : 'opacity-0'}`}>
                     { props.appView === "Landing Page" 
-                        ? props.videoList.map(video => 
+                        ? videoList.map(video => 
                             <Video 
                                 key={video._id}
                                 video={video} 
                                 showVideo={() => handleShowVideo(video)}
                             />
                         )
-                        : props.videoList.map(video => video.user === props.user._id
+                        : videoList.map(video => video.user === props.user._id
                             ?<Video 
                                 key={video._id}
                                 video={video} 

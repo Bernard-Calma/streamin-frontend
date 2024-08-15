@@ -16,6 +16,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AddVideo from "./views/AddVideo/AddVideo";
 import Show from "./views/Show/Show";
 import SignIn from "./views/Login/SignIn";
+import { useDispatch } from "react-redux";
+import { getVideoListRedux } from "./features/video/videoSlice";
 
 const App = () => {
   const [user, setUser] = useState({
@@ -87,9 +89,15 @@ const App = () => {
       })
   }
 
+  // Redux initialization
+  const dispatch = useDispatch();
+
+  // Video List
+
   // LOAD EFECTS
   useEffect(() => {
     getVideoList();
+    dispatch(getVideoListRedux())
   },[])
 
   useEffect(() => {
@@ -129,7 +137,6 @@ const App = () => {
         />
         { appView === "Landing Page" || appView === "My Videos"
           ? <LandingPage  
-            videoList = {videoList}
             handleChangeUser = {handleChangeUser}
             handleToggleLoginPage={handleToggleLoginPage}
             showLogin = {showLogin}
