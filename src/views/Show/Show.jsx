@@ -2,14 +2,28 @@ import React, { useState } from "react";
 import './Styles.css'
 import { Comments, VideoControl } from "./components";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { modifyVideo } from "../../features/video/videoSlice";
 
 const Show = props => {
+    const dispatch = useDispatch();
     const [editEnable, setEditEnable] = useState(false)
-    const [video, setVideo] = useState(props.video)
+
+    const {
+        videoToShow
+    } = useSelector(store => store.videoList)
+
+    const {
+        videoLink,
+        user,
+        likes
+    } = videoToShow;
+
+    const [video, setVideo] = useState({...videoToShow})
 
     const handleToggleEdit = () => {
         if (editEnable) {
-            handleModifyVideo()
+            dispatch(modifyVideo(video))
         }
         setEditEnable(!editEnable)
     }
@@ -17,27 +31,9 @@ const Show = props => {
         if (editEnable) setVideo({...video, [e.target.name]: e.target.value})
     }
 
-    
-    const handleModifyVideo = async () => {
-        // console.log("Handle Modify Video - Data: ", video)
-        await axios({
-            method: "PUT",
-            url:`${process.env.REACT_APP_SERVER_URL}/videos/${props.video._id}`,
-            data: video,
-            withCredentials: true
-        })
-        .then(res => {
-            // console.log("Res.Data", res.data)
-            props.modifyVideoList.modifyVideo(res.data)
-            setVideo(res.data)
-        })
-        .catch(err => console.log(err))
-    }
-
     const handleLikeVideo = () => {
         if (props.user.username !== "Guest") {
-            setVideo({...props.video, likes: props.video.likes.push(props.user._id) })
-            handleModifyVideo()
+            dispatch(modifyVideo({...video, likes: video.likes.push(props.user._id)}))
         } else {
             props.handleToggleLoginPage()
         }
@@ -45,39 +41,38 @@ const Show = props => {
 
     const modifyComment = {
         add: newComment => {
-            props.modifyVideoList.modifyVideo({...video, 
-                comments: [...props.video.comments, newComment]})
+            dispatch(modifyVideo({...video, 
+                comments: [...props.video.comments, newComment]}))
             },
         delete: deleteComment => {
-            props.modifyVideoList.modifyVideo({...video, 
-                comments: props.video.comments.filter(comment => comment._id !== deleteComment._id)})
+            dispatch(modifyVideo({...video, 
+                comments: video.comments.filter(comment => comment._id !== deleteComment._id)}))
             },
         modify: modifiedComment => {
-            props.modifyVideoList.modifyVideo({...video,
-                comments: props.video.comments.map(comment => comment._id === modifiedComment._id ? modifiedComment : comment)
-            })
+            dispatch(modifyVideo({...video,
+                comments: video.comments.map(comment => comment._id === modifiedComment._id ? modifiedComment : comment)
+            }))
         }
     }
 
     return (
         <section className="showVideo">
             <div className="left">
-                <div className="showVideo videoPlayer">
+                <div className="videoPlayer">
                     <iframe 
-                        title={props.video._id}
-                        name={props.title}
-                        src={props.video.videoLink}
+                        title={video.title}
+                        src={videoLink}
                     />
                 </div>
 
                 <div className="divTitle">
                     <div className="buttons">
                         {
-                            props.video.likes.includes(props.user._id)
+                            videoToShow.likes.includes(props.user._id)
                             ? <i className="fa-solid fa-heart"></i>
                             : <i className="fa-regular fa-heart" onClick={handleLikeVideo}></i>
                         }
-                        <p>{props.video.likes.length}</p>
+                        <p>{likes.length}</p>
                     </div>  
                     <input 
                         type="text" 
@@ -94,9 +89,9 @@ const Show = props => {
                     value={video.description} 
                     onChange={handleChange}
                     contentEditable={editEnable}/>       
-                {props.user._id === props.video.user &&
+                {props.user._id === user &&
                     <VideoControl 
-                        video={props.video}
+                        video={video}
                         handleToggleEdit = {handleToggleEdit}
                         modifyVideoList = {props.modifyVideoList}
                         modifyAppView = {props.modifyAppView}
@@ -106,7 +101,7 @@ const Show = props => {
 
             <div className="right">
                 <Comments
-                    video={props.video}
+                    video={video}
                     user={props.user}
                     modifyComment={modifyComment}
                     handleToggleLoginPage={props.handleToggleLoginPage}

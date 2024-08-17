@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { useSelector } from "react-redux";
 import { format } from "timeago.js"
 
 const Comments = props => {
@@ -8,6 +9,10 @@ const Comments = props => {
         comment: "",
         date: new Date()
     });
+
+    const {
+        comments
+    } = useSelector(store => store.videoList.videoToShow)
 
     const handleChange = e => setAddComment({...addComment, comment: e.target.value})
 
@@ -42,7 +47,7 @@ const Comments = props => {
         <>
             <h3>Comments</h3>
             <div className="comments">
-                {props.video.comments.map(comment => 
+                {comments.map(comment => 
                     <div className="comment" key={comment._id || new Date(comment.date).getMilliseconds()}>
                         <h3 className="user">{comment.user}</h3>
                         <div className="date">
