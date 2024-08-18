@@ -2,12 +2,19 @@ import React from 'react'
 import './Styles.css'
 import { SearchBar } from './components';
 import Logo from "../../assets/Logo2.png"
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleShowLogin } from '../../features/view/viewSlice';
 
 const Header = props =>  {
+    const dispatch = useDispatch();
+    
     const {
         username
     } = useSelector(store => store.user.user)
+
+    const {
+        showLogin
+    } = useSelector(store => store.view)
 
     return(
         <header className="header container-fluid ">
@@ -25,7 +32,7 @@ const Header = props =>  {
                 <p>{username ? username: "Guest" }</p>
                 <i 
                     className="fa-solid fa-user"
-                    onClick={props.toggleLogin}
+                    onClick={() => dispatch(toggleShowLogin())}
                 />
             </div>  
         </header>

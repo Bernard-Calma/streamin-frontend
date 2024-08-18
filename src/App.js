@@ -15,17 +15,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AddVideo from "./views/AddVideo/AddVideo";
 import Show from "./views/Show/Show";
 import SignIn from "./views/Login/SignIn";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getVideoListRedux } from "./features/video/videoSlice";
 
 const App = () => {
-
+  const {
+    view,
+    showLogin
+  } = useSelector(store => store.view)
   let [appView, setAppView] = useState("Landing Page")
-  let [showLogin, setShowLogin] = useState(false)
 
   // VIEWS
-  const handleToggleLoginPage = () => setShowLogin(!showLogin)
-
   const modifyAppView = {
     landingPage: () => setAppView("Landing Page"),
     about: () => setAppView("About"),
@@ -47,23 +47,21 @@ const App = () => {
     return(
       <>
         <Header
-          toggleLogin={() => setShowLogin(!showLogin)}
           modifyAppView={modifyAppView} 
         />
-        { appView === "Landing Page" || appView === "My Videos"
+        { view === "Landing Page" || view === "My Videos"
           ? <LandingPage  
-            handleToggleLoginPage={handleToggleLoginPage}
             showLogin = {showLogin}
             appView={appView}
             modifyAppView={modifyAppView}
           />
-        : appView === "About"
+        : view === "About"
           ? <About/>
-        : appView === "Add Video"
+        : view === "Add Video"
           ? <AddVideo 
               modifyAppView={modifyAppView}
             />
-        : appView === "Show"
+        : view === "Show"
           ? <Show 
               modifyAppView={modifyAppView}
             />
@@ -75,7 +73,6 @@ const App = () => {
         {showLogin && 
           <SignIn 
               modifyAppView = {modifyAppView}
-              handleToggleLoginPage = {handleToggleLoginPage}
           />
         }
       </>
