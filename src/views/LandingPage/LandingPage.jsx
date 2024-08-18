@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import './Styles.css'
 import { Video } from "./components";
 import Loading from "../../components/Loading/Loading";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setVideoToShow } from "../../features/video/videoSlice";
 
 const LandingPage = props => {
+    const dispatch = useDispatch();
     const [loading, setLoading] = useState(true)
 
     const handleShowVideo = video => {
-        props.setVideoToShow(video);
+        dispatch(setVideoToShow(video));
         props.modifyAppView.show();
     }
 

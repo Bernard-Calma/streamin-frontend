@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import './Styles.css'
 import { Comments, VideoControl } from "./components";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { modifyVideo } from "../../features/video/videoSlice";
 

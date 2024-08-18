@@ -1,24 +1,21 @@
-import axios from "axios";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteVideo } from "../../../features/video/videoSlice";
 
 const VideoControl = props => {
+    const dispatch = useDispatch();
+    const {
+        _id
+    } = useSelector(store => store.videoList.videoToShow)
     const [alertBox, setAlertBox] = useState(false)
 
     const toggleAlertBox = () => {
         setAlertBox(!alertBox)
     }
 
-    const handleDelete = async () => {
-        await axios({
-            method: "DELETE",
-            url:`${process.env.REACT_APP_SERVER_URL}/videos/${props.video._id}`
-        })
-        .then(res => {
-            // console.log(res.data)
-            props.modifyVideoList.deleteVideo(res.data)
-            props.modifyAppView.landingPage()
-        })
-        .catch(err => console.log(err))
+    const handleDeleteVideo = () => {
+        dispatch(deleteVideo(_id))
+        props.modifyAppView.landingPage();
     }
 
     return(
@@ -30,7 +27,7 @@ const VideoControl = props => {
                 <div className="alertBox">
                     <h1>Delete</h1>
                     <p>Are you sure you want to delete?</p>
-                    <button onClick={handleDelete}>Yes</button>
+                    <button onClick={handleDeleteVideo}>Yes</button>
                     <button onClick={toggleAlertBox}>No</button>
                 </div>
             }

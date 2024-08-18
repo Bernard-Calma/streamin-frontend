@@ -20,8 +20,7 @@ export const getVideoListRedux = createAsyncThunk("video/getVideoList", async (p
     }
 })
 
-export const modifyVideo = createAsyncThunk("vide/modifyVideo", async (payload, thunkAPI) => {
-    // console.log(payload)
+export const modifyVideo = createAsyncThunk("video/modifyVideo", async (payload, thunkAPI) => {
     try {
         const res =  await axios({
             method: "PUT",
@@ -36,8 +35,7 @@ export const modifyVideo = createAsyncThunk("vide/modifyVideo", async (payload, 
     }
 })
 
-export const addVideo = createAsyncThunk("vide/addVideo", async (payload, thunkAPI) => {
-    // console.log(payload)
+export const addVideo = createAsyncThunk("video/addVideo", async (payload, thunkAPI) => {
     try {
         const res =  await axios({
             method: "POST",
@@ -49,6 +47,19 @@ export const addVideo = createAsyncThunk("vide/addVideo", async (payload, thunkA
     } catch(err) {
         console.log(err)
         return thunkAPI.rejectWithValue("Error adding video.")       
+    }
+})
+
+export const deleteVideo = createAsyncThunk("video/deleteVideo", async (payload, thunkAPI) => {
+    try {
+        const res =  await axios({
+            method: "DELETE",
+            url:`${process.env.REACT_APP_SERVER_URL}/videos/${payload}`
+        })
+        return res.data
+    } catch(err) {
+        console.log(err)
+        return thunkAPI.rejectWithValue("Error deleting video.")       
     }
 })
 
@@ -97,6 +108,17 @@ export const videoSlice = createSlice({
             state.videoList = [...state.videoList, payload]
         })
         .addCase(addVideo.rejected, state => {
+            state.isLoading = false;
+        })
+        // Delete Video
+        .addCase(deleteVideo.pending, state => {
+            state.isLoading = true;
+        })
+        .addCase(deleteVideo.fulfilled, (state , {payload}) => {
+            state.isLoading = false;
+            state.videoList = state.videoList.filter(video => video._id !== payload._id)
+        })
+        .addCase(deleteVideo.rejected, state => {
             state.isLoading = false;
         })
     }
