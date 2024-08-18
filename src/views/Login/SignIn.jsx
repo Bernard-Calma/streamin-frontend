@@ -19,12 +19,11 @@ const SignIn = props => {
                 ? <>
                     <Form 
                         modifyUser = {props.modifyUser}
-                        toggleLogin={props.toggleLogin}
                     /> 
                 </>
                 : < Signout 
+                    handleToggleLoginPage = {props.handleToggleLoginPage}
                     modifyAppView={props.modifyAppView}
-                    toggleLogin={props.toggleLogin}
                 />
             }
         </section>

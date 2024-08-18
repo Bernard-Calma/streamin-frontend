@@ -13,7 +13,7 @@ export const login = createAsyncThunk("user/login", async (payload, thunkAPI) =>
     try {
         const res = await axios({
             method: "POST",
-            url: `${process.env.REACT_APP_SERVER_URL}/user/login`,
+            url: `${process.env.REACT_APP_SERVER_URL}/users/login`,
             withCredentials: true,
             data: payload
         })
@@ -30,6 +30,7 @@ export const userSlice = createSlice({
     reducers: {
         // Logout
         logout: (state) => {
+            console.log("Logout")
             state.user = {_id: "632bb2e2699c899a76193e86",
                 username: "Guest",
                 name: "Guest"};

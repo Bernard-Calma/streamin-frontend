@@ -11,13 +11,9 @@ const Signout = props => {
 
     const handleAddVideo = () => {
         props.modifyAppView.addVideo()
-        props.toggleLogin()
+        props.handleToggleLoginPage()
     }
 
-    const handleSignOut = () => {
-        dispatch(logout);
-        props.toggleLogin()
-    }
     return(
         <div className="signout">
             <h1>Welcome <span>{username}</span>!</h1>
@@ -27,7 +23,7 @@ const Signout = props => {
                 />
                 {` Add video`}
             </p>
-            <p className="signoutLink" onClick={handleSignOut}>Signout</p>
+            <p className="signoutLink" onClick={() => dispatch(logout())}>Signout</p>
         </div>
     )
 }

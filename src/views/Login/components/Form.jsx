@@ -1,7 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../../../features/user/userSlice";
 
 const Form = props => {
+    const dispatch = useDispatch();
+
     const [user, setUser] = useState({
         username: "",
         password: "",
@@ -15,20 +19,7 @@ const Form = props => {
         e.preventDefault();
         // console.log(user);
         if (viewLogin) {
-            await axios({
-                method: "POST",
-                url: `${process.env.REACT_APP_SERVER_URL}/users/login`,
-                data: user,
-                withCredentials: true
-            })
-            .then(res => {
-                props.modifyUser.login(res.data)
-                props.toggleLogin()
-            })
-            .catch(({response}) => {
-                // console.log(response)
-                setErrMessage(response.data.err)
-            })
+            dispatch(login(user))
         } else {
             const regex =  /^[A-Z]\w{6}$/;
             if (user.password !== user.passwordCheck) {
