@@ -6,11 +6,16 @@ import {
 } from './components';
 
 import './Styles.css'
+import { useSelector } from 'react-redux';
 
 const SignIn = props => {
+    const {
+        username
+    } = useSelector(store => store.user.user)
+
     return(
         <section className='login'>
-            {props.user.username === "Guest"
+            {username === "Guest"
                 ? <>
                     <Form 
                         user = {props.user}

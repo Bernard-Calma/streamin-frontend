@@ -3,18 +3,24 @@ import React, {useState} from 'react'
 //Import Bootstrap styling for form
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addVideo } from '../../../features/video/videoSlice';
 
-const CreateForm = props => {
+const CreateForm = () => {
   const dispatch = useDispatch();
+
+  const {
+    _id
+  } = useSelector(store => store.user.user)
+
   const [newVideo, setNewVideo] = useState({
     videoLink: '',
       title: '',
       description: '',
       tags: '',
-      user: props.user._id,
+      user: _id
   })
+
  // Handle the change of each value
 const handleChange = e => setNewVideo({...newVideo, [e.target.name]: e.target.value})
 

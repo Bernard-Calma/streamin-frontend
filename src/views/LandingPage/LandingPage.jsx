@@ -18,6 +18,10 @@ const LandingPage = props => {
         videoList
     } = useSelector(store => store.videoList)
 
+    const {
+        _id
+    } = useSelector(store => store.user.user)
+
     useEffect(() => {
         const load = setTimeout(() => {
             setLoading(false)
@@ -38,7 +42,7 @@ const LandingPage = props => {
                                 showVideo={() => handleShowVideo(video)}
                             />
                         )
-                        : videoList.map(video => video.user === props.user._id
+                        : videoList.map(video => video.user === _id
                             ?<Video 
                                 key={video._id}
                                 video={video} 

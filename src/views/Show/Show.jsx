@@ -18,6 +18,11 @@ const Show = props => {
         likes
     } = videoToShow;
 
+    const {
+        username,
+        _id
+    } = useSelector(store => store.user.user)
+
     const [video, setVideo] = useState({...videoToShow})
 
     const handleToggleEdit = () => {
@@ -31,8 +36,8 @@ const Show = props => {
     }
 
     const handleLikeVideo = () => {
-        if (props.user.username !== "Guest") {
-            dispatch(modifyVideo({...video, likes: video.likes.push(props.user._id)}))
+        if (username !== "Guest") {
+            dispatch(modifyVideo({...video, likes: video.likes.push(_id)}))
         } else {
             props.handleToggleLoginPage()
         }
@@ -67,7 +72,7 @@ const Show = props => {
                 <div className="divTitle">
                     <div className="buttons">
                         {
-                            videoToShow.likes.includes(props.user._id)
+                            videoToShow.likes.includes(_id)
                             ? <i className="fa-solid fa-heart"></i>
                             : <i className="fa-regular fa-heart" onClick={handleLikeVideo}></i>
                         }
@@ -88,7 +93,7 @@ const Show = props => {
                     value={video.description} 
                     onChange={handleChange}
                     contentEditable={editEnable}/>       
-                {props.user._id === user &&
+                {_id === user &&
                     <VideoControl 
                         video={video}
                         handleToggleEdit = {handleToggleEdit}
@@ -101,7 +106,6 @@ const Show = props => {
             <div className="right">
                 <Comments
                     video={video}
-                    user={props.user}
                     modifyComment={modifyComment}
                     handleToggleLoginPage={props.handleToggleLoginPage}
                 />

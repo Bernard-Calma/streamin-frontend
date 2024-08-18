@@ -54,14 +54,14 @@ const App = () => {
 
   // LOAD EFECTS
   useEffect(() => {
-    // eslint-disable-next-line
+    
     dispatch(getVideoListRedux())
+    // eslint-disable-next-line
   },[])
 
     return(
       <>
         <Header
-          user = {user}
           toggleLogin={() => setShowLogin(!showLogin)}
           modifyAppView={modifyAppView} 
         />
@@ -70,7 +70,6 @@ const App = () => {
             handleChangeUser = {handleChangeUser}
             handleToggleLoginPage={handleToggleLoginPage}
             showLogin = {showLogin}
-            user = {user}
             appView={appView}
             modifyAppView={modifyAppView}
           />
@@ -78,12 +77,10 @@ const App = () => {
           ? <About/>
         : appView === "Add Video"
           ? <AddVideo 
-              user={user}
               modifyAppView={modifyAppView}
             />
         : appView === "Show"
           ? <Show 
-              user = {user}
               modifyAppView={modifyAppView}
               handleToggleLoginPage={handleToggleLoginPage}
             />
