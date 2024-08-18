@@ -28,10 +28,12 @@ export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        // Set video to show on show page
-        setVideoToShow: (state, {payload}) => {
-            // console.log(payload)
-            state.videoToShow = payload
+        // Logout
+        logout: (state) => {
+            state.user = {_id: "632bb2e2699c899a76193e86",
+                username: "Guest",
+                name: "Guest"};
+            state.loggedIn = false;
         }
     },
     extraReducers: builder => {
@@ -53,7 +55,7 @@ export const userSlice = createSlice({
 })
 
 export const {
-    setVideoToShow
+    logout
 } = userSlice.actions;
 
 export default userSlice.reducer;

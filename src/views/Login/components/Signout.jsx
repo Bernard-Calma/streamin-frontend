@@ -1,6 +1,13 @@
 import React from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { logout } from "../../../features/user/userSlice"
 
 const Signout = props => {
+    const dispatch = useDispatch()
+
+    const {
+        username
+    } = useSelector(store => store.user.user)
 
     const handleAddVideo = () => {
         props.modifyAppView.addVideo()
@@ -8,12 +15,12 @@ const Signout = props => {
     }
 
     const handleSignOut = () => {
-        props.modifyUser.logout();
+        dispatch(logout);
         props.toggleLogin()
     }
     return(
         <div className="signout">
-            <h1>Welcome <span>{props.user.username}</span>!</h1>
+            <h1>Welcome <span>{username}</span>!</h1>
             <p className="addVideoLink" onClick={handleAddVideo}>
                 <i 
                         className="fa-solid fa-square-plus"

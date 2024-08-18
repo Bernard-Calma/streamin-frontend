@@ -18,14 +18,11 @@ const SignIn = props => {
             {username === "Guest"
                 ? <>
                     <Form 
-                        user = {props.user}
                         modifyUser = {props.modifyUser}
                         toggleLogin={props.toggleLogin}
                     /> 
                 </>
                 : < Signout 
-                    user = {props.user}
-                    modifyUser={props.modifyUser}
                     modifyAppView={props.modifyAppView}
                     toggleLogin={props.toggleLogin}
                 />

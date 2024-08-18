@@ -41,12 +41,7 @@ const App = () => {
   }
 
   const modifyUser = {
-    login: user => setUser(user),
-    logout: () => setUser({
-        id: "632bb2e2699c899a76193e86",
-        username: "Guest",
-        name: "Guest"
-      })
+    login: user => setUser(user)
   }
 
   // Redux initialization
