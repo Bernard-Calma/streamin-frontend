@@ -36,6 +36,23 @@ export const modifyVideo = createAsyncThunk("vide/modifyVideo", async (payload, 
     }
 })
 
+export const addVideo = createAsyncThunk("vide/addVideo", async (payload, thunkAPI) => {
+    // console.log(payload)
+    try {
+        const res =  await axios({
+            method: "POST",
+            url:`${process.env.REACT_APP_SERVER_URL}/videos`,
+            data: payload,
+            withCredentials: true
+        })
+        return res.data
+    } catch(err) {
+        console.log(err)
+        return thunkAPI.rejectWithValue("Error adding video.")       
+    }
+})
+
+
 export const videoSlice = createSlice({
     name: 'video',
     initialState,
@@ -69,6 +86,17 @@ export const videoSlice = createSlice({
             state.videoList = state.videoList.map(video => video._id === payload._id ? payload : video)
         })
         .addCase(modifyVideo.rejected, state => {
+            state.isLoading = false;
+        })
+        // Add video
+        .addCase(addVideo.pending, state => {
+            state.isLoading = true;
+        })
+        .addCase(addVideo.fulfilled, (state , {payload}) => {
+            state.isLoading = false;
+            state.videoList = [...state.videoList, payload]
+        })
+        .addCase(addVideo.rejected, state => {
             state.isLoading = false;
         })
     }
