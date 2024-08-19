@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../../features/user/userSlice";
+import { toggleShowLogin } from "../../../features/view/viewSlice";
 
 const Form = () => {
     const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const Form = () => {
         // console.log(user);
         if (viewLogin) {
             dispatch(login(user))
+            dispatch(toggleShowLogin())
         } else {
             const regex =  /^[A-Z]\w{6}$/;
             if (user.password !== user.passwordCheck) {
