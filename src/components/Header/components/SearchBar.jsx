@@ -6,12 +6,12 @@ import { useDispatch } from 'react-redux';
 import { videoSearch } from '../../../features/video/videoSlice';
 import { setView } from '../../../features/view/viewSlice';
 
-const SearchBar = props => {
+const SearchBar = () => {
     const dispatch = useDispatch();
     const [search, setSearch] = useState("")
 
     const handleChange = e => setSearch(e.target.value)
-    const handleSearch = (e) => {
+    const handleSearch = e => {
         e.preventDefault()
         dispatch(videoSearch(search));
         dispatch(setView("Search"));

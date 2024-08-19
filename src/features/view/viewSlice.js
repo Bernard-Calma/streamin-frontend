@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     view: "Landing Page",
+    navSelected: "Landing Page",
     showLogin: false,
     isLoading: false
 }
@@ -19,6 +20,7 @@ export const viewSlice = createSlice({
         },
         setView: (state, {payload}) => {
             state.view = payload;
+            state.navSelected = payload;
         }
     }
 })
