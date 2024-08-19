@@ -1,7 +1,11 @@
-import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../../../features/user/userSlice";
+import { toggleShowLogin } from "../../../features/view/viewSlice";
 
-const Form = props => {
+const Form = () => {
+    const dispatch = useDispatch();
+
     const [user, setUser] = useState({
         username: "",
         password: "",
@@ -15,39 +19,17 @@ const Form = props => {
         e.preventDefault();
         // console.log(user);
         if (viewLogin) {
-            await axios({
-                method: "POST",
-                url: `${process.env.REACT_APP_SERVER_URL}/users/login`,
-                data: user,
-                withCredentials: true
-            })
-            .then(res => {
-                props.modifyUser.login(res.data)
-                props.toggleLogin()
-            })
-            .catch(({response}) => {
-                // console.log(response)
-                setErrMessage(response.data.err)
-            })
+            dispatch(login(user))
+            dispatch(toggleShowLogin())
         } else {
             const regex =  /^[A-Z]\w{6}$/;
             if (user.password !== user.passwordCheck) {
                 return setErrMessage("Password does not match");
             } else if (!regex.test(user.password)) {
                 return setErrMessage(`Invalid password. \nPassword must be at least 6 characters. \nPassword must at least have one uppercase letter`);
+            } else {
+                dispatch(login(user))
             }
-            await axios({
-                method: "POST",
-                url: `${process.env.REACT_APP_SERVER_URL}/users`,
-                data: user,
-                withCredentials: true
-            })
-            .then(res => {
-                // console.log(res.data)
-                props.modifyUser.login(user)
-                props.toggleLogin()
-            })
-            .catch(({response}) => setErrMessage(response.data.err))
         }
     }
 

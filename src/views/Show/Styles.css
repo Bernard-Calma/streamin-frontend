@@ -70,12 +70,12 @@ section.showVideo {
     flex-direction: column;
 }
 
-.showVideo.videoPlayer {
+.showVideo .videoPlayer {
     width: 800px;
     height: 550px;
 }
 
-.showVideo.videoPlayer > iframe {
+.showVideo .videoPlayer > iframe {
     height: 500px !important;
 }
 

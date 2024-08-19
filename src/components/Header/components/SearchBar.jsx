@@ -2,21 +2,19 @@ import React, { useState } from 'react';
 // Import FontAwesome icon for the search bar
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { videoSearch } from '../../../features/video/videoSlice';
+import { setView } from '../../../features/view/viewSlice';
 
-const SearchBar = props => {
+const SearchBar = () => {
+    const dispatch = useDispatch();
     const [search, setSearch] = useState("")
 
     const handleChange = e => setSearch(e.target.value)
-    const handleSearch = (e) => {
+    const handleSearch = e => {
         e.preventDefault()
-        axios({
-            method: "GET",
-            url: `${process.env.REACT_APP_SERVER_URL}/videos/search/${search}`,
-            withCredentials: true
-        })
-        .then(res => props.handleChangeVideoList(res.data))
-        .catch(err => console.log(err))
+        dispatch(videoSearch(search));
+        dispatch(setView("Search"));
     }
     
     return(

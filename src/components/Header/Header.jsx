@@ -2,25 +2,41 @@ import React from 'react'
 import './Styles.css'
 import { SearchBar } from './components';
 import Logo from "../../assets/Logo2.png"
+import { useDispatch, useSelector } from 'react-redux';
+import { setView, toggleShowLogin } from '../../features/view/viewSlice';
 
-const Header = props =>  {
+const Header = () =>  {
+    const dispatch = useDispatch();
+    
+    const {
+        username
+    } = useSelector(store => store.user.user)
+
+    const {
+        navSelected
+    } = useSelector(store => store.view)
+
+    const setSelected = (title) => {
+        return title === navSelected && "selected";
+    }
+
     return(
         <header className="header container-fluid ">
-            <img className="logo" src={Logo} alt="logo" onClick={() => props.modifyAppView.landingPage()}/>
+            <img className="logo" src={Logo} alt="logo" onClick={() => dispatch(setView("Landing Page"))}/>
             <nav className="navBar">
-                <p className='navBar item' onClick={() => props.modifyAppView.landingPage()}>HOME</p>
-                {props.user.username !== "Guest" && <p className='navBar item' onClick={() => props.modifyAppView.myVideos()}>MY VIDEOS</p>}
+                <p className={`navBar item ${setSelected("Landing Page")}`} onClick={() => dispatch(setView("Landing Page"))}>HOME</p>
+                {username !== "Guest" && <p className={`navBar item ${setSelected("My Videos")}`} onClick={() => dispatch(setView("My Videos"))}>MY VIDEOS</p>}
             </nav>
 
             <div className='searchBar'>
-                <SearchBar handleChangeVideoList={props.handleChangeVideoList}/>
+                <SearchBar/>
             </div>
 
             <div className='user'>
-                <p>{props.user.username ? props.user.username : "Guest" }</p>
+                <p>{username ? username: "Guest" }</p>
                 <i 
                     className="fa-solid fa-user"
-                    onClick={props.toggleLogin}
+                    onClick={() => dispatch(toggleShowLogin())}
                 />
             </div>  
         </header>

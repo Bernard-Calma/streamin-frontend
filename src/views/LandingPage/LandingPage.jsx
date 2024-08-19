@@ -2,42 +2,57 @@ import React, { useEffect, useState } from "react";
 import './Styles.css'
 import { Video } from "./components";
 import Loading from "../../components/Loading/Loading";
+import { useSelector } from "react-redux";
 
-const LandingPage = props => {
+const LandingPage = () => {
     const [loading, setLoading] = useState(true)
 
-    const handleShowVideo = video => {
-        props.setVideoToShow(video);
-        props.modifyAppView.show();
-    }
+    const {
+        videoList,
+        searchedVideoList,
+        isLoading
+    } = useSelector(store => store.videoList)
+
+    const {
+        _id
+    } = useSelector(store => store.user.user)
+
+    const {
+        view
+    } = useSelector(store => store.view)
 
     useEffect(() => {
-        const load = setTimeout(() => {
-            setLoading(false)
-        }, 3000);
-        return () => clearTimeout(load)
-    },[loading])
+        setLoading(false)
+    },[isLoading])
 
     return (
         <main>
             {
-                loading ? <Loading loading = {loading}/>
+                isLoading ? <Loading loading = {loading}/>
                 : <div className={`videoList ${!loading? 'opcaity-100' : 'opacity-0'}`}>
-                    { props.appView === "Landing Page" 
-                        ? props.videoList.map(video => 
+                    { view === "Landing Page" 
+                        ? videoList?.map(video => 
                             <Video 
                                 key={video._id}
-                                video={video} 
-                                showVideo={() => handleShowVideo(video)}
+                                video = {video}
                             />
                         )
-                        : props.videoList.map(video => video.user === props.user._id
+                    : view === "My Videos"
+                        // Only show video for current logged in user
+                        ? videoList?.map(video => video.user === _id
                             ?<Video 
                                 key={video._id}
-                                video={video} 
-                                showVideo={() => handleShowVideo(video)}
+                                video = {video}
                             />
                             : <></>)
+                    : view === "Search"
+                        ? searchedVideoList?.map(video =>
+                            <Video 
+                                key={video._id}
+                                video={video}
+                            />
+                        )
+                    : <></>
                     }
                 </div>
             }

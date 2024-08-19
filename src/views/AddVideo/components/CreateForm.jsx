@@ -1,43 +1,33 @@
-import axios from 'axios';
 import React, {useState} from 'react'
 
 //Import Bootstrap styling for form
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useDispatch, useSelector } from 'react-redux';
+import { addVideo } from '../../../features/video/videoSlice';
 
-const CreateForm = props => {
+const CreateForm = () => {
+  const dispatch = useDispatch();
+
+  const {
+    _id
+  } = useSelector(store => store.user.user)
+
   const [newVideo, setNewVideo] = useState({
     videoLink: '',
       title: '',
       description: '',
       tags: '',
-      user: props.user._id,
+      user: _id
   })
+
  // Handle the change of each value
 const handleChange = e => setNewVideo({...newVideo, [e.target.name]: e.target.value})
-
-const handleSubmit = async e => {
-  e.preventDefault()
-  // added the route
-  await axios({
-    method: "POST",
-    url: `${process.env.REACT_APP_SERVER_URL}/videos`,
-    withCredentials: true,
-    data: newVideo
-  })
-  .then(res => {
-    props.modifyVideoList.addVideo(res.data)
-    props.modifyAppView.landingPage()
-  })
-  .catch(err => console.log(err))
-  // console.log("Add Video")
-}
-
 
   return(
     <div className="createPageHolder">
       <h2 className="createFormHeader">Create Video</h2>
-      <Form id="createForm" onSubmit={handleSubmit}>
+      <Form id="createForm" onSubmit={() => dispatch(addVideo(newVideo))}>
         {/* Title Input */}
         <Form.Group className="mb-3">
           <Form.Label htmlFor="title">Title</Form.Label>

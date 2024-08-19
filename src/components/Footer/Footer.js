@@ -1,11 +1,13 @@
-import React from 'react';
 import './Styles.css'
+import { useDispatch } from 'react-redux';
+import { setView } from '../../features/view/viewSlice';
 
-const Footer = props => {
+const Footer = () => {
+    const dispatch = useDispatch();
     return(
         <footer className="footer container-fluid">
             <h3 className="footerHeader"> <span>©</span> Copyright {new Date().getFullYear()}</h3>
-        <p onClick={() => props.modifyAppView.about()}>{`>About Us<`}</p>
+        <p onClick={() => dispatch(setView("About"))}>{`>About Us<`}</p>
         </footer>
     )
 }

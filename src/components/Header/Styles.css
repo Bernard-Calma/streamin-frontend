@@ -6,7 +6,7 @@ header {
     align-items: center;
     position:sticky;
     background-color: #080710;
-    color:white;
+    color:rgb(200, 200, 200);
     border-bottom: gray solid 1px;
     font-family: "Kanit", sans-serif;
 }
@@ -23,8 +23,8 @@ header {
 .navBar {
     flex: 1;
     text-align: start;
-    font-weight: 400;
-    font-size: 1.5em;
+    font-weight: 300;
+    font-size: 2.5rem;
 }
 
 .navBar.item {
@@ -32,7 +32,6 @@ header {
     display: inline;
     margin: 0 10px;
     padding: 0;
-    
 }
 /* Nav Bar */
 
@@ -44,8 +43,7 @@ header {
 }
 
 .searchBar > form > input {
-    
-    font-family: "Kanit", sans-serif;
+    font-weight: 200;
 }
 /* Search Bar */
 
@@ -68,6 +66,16 @@ header > .user > i {
 
 header > .user > p {
     margin: 0;
-    font-size: 20px;
+    font-size: 1.5rem;
 }
 /* User */
+.navBar.item:hover, header > .user > i:hover, .selected {
+    color: white;
+}
+
+.selected {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 0.1rem;
+}
+/* Common */
