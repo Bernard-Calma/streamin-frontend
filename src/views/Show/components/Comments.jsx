@@ -20,7 +20,6 @@ const Comments = () => {
     } = useSelector(store => store.user.user)
 
     const [newComment, setNewComment] = useState({
-        user: username,
         likes: [],
         comment: "",
         date: new Date()
@@ -41,9 +40,9 @@ const Comments = () => {
         add: newComment => {
             console.log("Add comment")
             if (username !== "Guest") {
-                console.log("Add Comment: ", newComment)
-                dispatch(modifyVideo({...videoToShow, comments: [...comments, newComment]}))
-                setNewComment({user: username,
+                // console.log("Add Comment: ", newComment)
+                dispatch(modifyVideo({...videoToShow, comments: [...comments, {...newComment, user: username}]}))
+                setNewComment({
                     likes: [],
                     comment: "",
                     date: new Date()})
