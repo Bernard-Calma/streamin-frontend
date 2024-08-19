@@ -3,8 +3,9 @@ import './Styles.css'
 import { Comments, VideoControl } from "./components";
 import { useDispatch, useSelector } from "react-redux";
 import { modifyVideo } from "../../features/video/videoSlice";
+import { showLogin } from "../../features/view/viewSlice";
 
-const Show = props => {
+const Show = () => {
     const dispatch = useDispatch();
     const [editEnable, setEditEnable] = useState(false)
 
@@ -39,7 +40,7 @@ const Show = props => {
         if (username !== "Guest") {
             dispatch(modifyVideo({...video, likes: video.likes.push(_id)}))
         } else {
-            props.handleToggleLoginPage()
+            dispatch(showLogin());
         }
     }
 
@@ -77,12 +78,7 @@ const Show = props => {
                     value={video.description} 
                     onChange={handleChange}
                     contentEditable={editEnable}/>       
-                {_id === user &&
-                    <VideoControl 
-                        video={video}
-                        handleToggleEdit = {handleToggleEdit}
-                    />
-                }  
+                {_id === user && <VideoControl handleToggleEdit = {handleToggleEdit}/>}  
             </div>
 
             <div className="right">
