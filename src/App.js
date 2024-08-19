@@ -37,7 +37,7 @@ const App = () => {
     return(
       <>
         <Header/>
-        { view === "Landing Page" || view === "My Videos"
+        { view === "Landing Page" || view === "My Videos" || view === "Search"
           ? <LandingPage/>
         : view === "About"
           ? <About/>

@@ -3,6 +3,7 @@ import axios from "axios";
 
 const initialState = {
     videoList: [],
+    searchedVideoList: [],
     videoToShow: {},
     isLoading: false
 }
@@ -73,6 +74,9 @@ export const videoSlice = createSlice({
             // console.log(payload)
             state.videoToShow = payload
         },
+        videoSearch: (state, {payload}) => {
+            state.searchedVideoList = state.videoList.filter(video => video.title.toLowerCase().includes(payload.toLowerCase()));
+        }
     },
     extraReducers: builder => {
         builder
@@ -126,7 +130,8 @@ export const videoSlice = createSlice({
 })
 
 export const {
-    setVideoToShow
+    setVideoToShow,
+    videoSearch
 } = videoSlice.actions;
 
 export default videoSlice.reducer;

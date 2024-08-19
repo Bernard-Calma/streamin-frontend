@@ -22,8 +22,8 @@ section.addVideo {
 
 #createForm label {
     color: white;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 1.25em;
+    font-weight: 400;
 }
 
 #createVideoBtn {

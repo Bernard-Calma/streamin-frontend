@@ -6,16 +6,20 @@
     justify-content: center;
     background-color: #080710;
     border-top: gray solid 1px;
-    color: white;
+    color: rgb(212, 212, 212);
   }
   .footerHeader{
-    font-size:16px;
+    font-size: 1rem;
     color:white;
     margin: 0;
   }
 
   .footer > P {
-    font-size: 12px;
+    font-size: 0.75rem;
     margin: 0 0 10px;
     cursor: pointer;
+  }
+
+  .footer > p:hover {
+    color: white;
   }

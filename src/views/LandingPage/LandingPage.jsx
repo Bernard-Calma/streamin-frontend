@@ -9,6 +9,7 @@ const LandingPage = () => {
 
     const {
         videoList,
+        searchedVideoList,
         isLoading
     } = useSelector(store => store.videoList)
 
@@ -36,13 +37,22 @@ const LandingPage = () => {
                                 video = {video}
                             />
                         )
+                    : view === "My Videos"
                         // Only show video for current logged in user
-                        : videoList?.map(video => video.user === _id
+                        ? videoList?.map(video => video.user === _id
                             ?<Video 
                                 key={video._id}
                                 video = {video}
                             />
                             : <></>)
+                    : view === "Search"
+                        ? searchedVideoList?.map(video =>
+                            <Video 
+                                key={video._id}
+                                video={video}
+                            />
+                        )
+                    : <></>
                     }
                 </div>
             }
