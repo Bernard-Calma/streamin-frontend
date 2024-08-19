@@ -1,6 +1,7 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { logout } from "../../../features/user/userSlice"
+import { setView, toggleShowLogin } from "../../../features/view/viewSlice"
 
 const Signout = props => {
     const dispatch = useDispatch()
@@ -10,8 +11,8 @@ const Signout = props => {
     } = useSelector(store => store.user.user)
 
     const handleAddVideo = () => {
-        props.modifyAppView.addVideo()
-        props.handleToggleLoginPage()
+        dispatch(setView("Add Video"))
+        dispatch(toggleShowLogin())
     }
 
     return(

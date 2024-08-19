@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteVideo } from "../../../features/video/videoSlice";
+import { setView } from "../../../features/view/viewSlice";
 
 const VideoControl = props => {
     const dispatch = useDispatch();
@@ -14,8 +15,8 @@ const VideoControl = props => {
     }
 
     const handleDeleteVideo = () => {
-        dispatch(deleteVideo(_id))
-        props.modifyAppView.landingPage();
+        dispatch(deleteVideo(_id));
+        dispatch(setView("Landing Page"));
     }
 
     return(

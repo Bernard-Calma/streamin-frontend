@@ -1,9 +1,8 @@
-import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../../features/user/userSlice";
 
-const Form = props => {
+const Form = () => {
     const dispatch = useDispatch();
 
     const [user, setUser] = useState({
@@ -26,19 +25,9 @@ const Form = props => {
                 return setErrMessage("Password does not match");
             } else if (!regex.test(user.password)) {
                 return setErrMessage(`Invalid password. \nPassword must be at least 6 characters. \nPassword must at least have one uppercase letter`);
+            } else {
+                dispatch(login(user))
             }
-            await axios({
-                method: "POST",
-                url: `${process.env.REACT_APP_SERVER_URL}/users`,
-                data: user,
-                withCredentials: true
-            })
-            .then(res => {
-                // console.log(res.data)
-                props.modifyUser.login(user)
-                props.toggleLogin()
-            })
-            .catch(({response}) => setErrMessage(response.data.err))
         }
     }
 

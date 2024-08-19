@@ -97,8 +97,6 @@ const Show = props => {
                     <VideoControl 
                         video={video}
                         handleToggleEdit = {handleToggleEdit}
-                        modifyVideoList = {props.modifyVideoList}
-                        modifyAppView = {props.modifyAppView}
                     />
                 }  
             </div>

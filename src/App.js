@@ -1,4 +1,4 @@
-import React , {useEffect, useState} from "react"
+import React , {useEffect} from "react"
 import './App.css';
 
 // Components
@@ -23,16 +23,6 @@ const App = () => {
     view,
     showLogin
   } = useSelector(store => store.view)
-  let [appView, setAppView] = useState("Landing Page")
-
-  // VIEWS
-  const modifyAppView = {
-    landingPage: () => setAppView("Landing Page"),
-    about: () => setAppView("About"),
-    addVideo: () => setAppView("Add Video"),
-    show: () => setAppView("Show"),
-    myVideos: () => setAppView("My Videos")
-  }
 
   // Redux initialization
   const dispatch = useDispatch();
@@ -46,35 +36,19 @@ const App = () => {
 
     return(
       <>
-        <Header
-          modifyAppView={modifyAppView} 
-        />
+        <Header/>
         { view === "Landing Page" || view === "My Videos"
-          ? <LandingPage  
-            showLogin = {showLogin}
-            appView={appView}
-            modifyAppView={modifyAppView}
-          />
+          ? <LandingPage/>
         : view === "About"
           ? <About/>
         : view === "Add Video"
-          ? <AddVideo 
-              modifyAppView={modifyAppView}
-            />
+          ? <AddVideo/>
         : view === "Show"
-          ? <Show 
-              modifyAppView={modifyAppView}
-            />
+          ? <Show/>
         : <></>
         }
-        <Footer
-          modifyAppView={modifyAppView}
-        />
-        {showLogin && 
-          <SignIn 
-              modifyAppView = {modifyAppView}
-          />
-        }
+        <Footer/>
+        {showLogin && <SignIn/>}
       </>
     )
 }

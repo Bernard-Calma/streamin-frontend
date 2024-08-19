@@ -16,13 +16,17 @@ export const viewSlice = createSlice({
         },
         showLogin: (state) => {
             state.showLogin = true;
+        },
+        setView: (state, {payload}) => {
+            state.view = payload;
         }
     }
 })
 
 export const {
     toggleShowLogin,
-    showLogin
+    showLogin,
+    setView
 } = viewSlice.actions;
 
 export default viewSlice.reducer;

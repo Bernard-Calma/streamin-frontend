@@ -2,14 +2,11 @@ import React from "react";
 import './Styles.css'
 import { CreateForm } from "./components";
 
-const AddVideo = props => {
+const AddVideo = () => {
 
     return(
         <section className="addVideo">
-            <CreateForm 
-                modifyAppView={props.modifyAppView}
-                modifyVideoList={props.modifyVideoList}
-            />
+            <CreateForm/>
         </section>
     )
 }

@@ -8,7 +8,7 @@ import {
 import './Styles.css'
 import { useSelector } from 'react-redux';
 
-const SignIn = props => {
+const SignIn = () => {
     const {
         username
     } = useSelector(store => store.user.user)
@@ -17,14 +17,9 @@ const SignIn = props => {
         <section className='login'>
             {username === "Guest"
                 ? <>
-                    <Form 
-                        modifyUser = {props.modifyUser}
-                    /> 
+                    <Form/> 
                 </>
-                : < Signout 
-                    handleToggleLoginPage = {props.handleToggleLoginPage}
-                    modifyAppView={props.modifyAppView}
-                />
+                : < Signout/>
             }
         </section>
     )
