@@ -72,7 +72,7 @@ export const videoSlice = createSlice({
         setVideoToShow: (state, {payload}) => {
             // console.log(payload)
             state.videoToShow = payload
-        }
+        },
     },
     extraReducers: builder => {
         builder
@@ -94,6 +94,7 @@ export const videoSlice = createSlice({
         })
         .addCase(modifyVideo.fulfilled, (state , {payload}) => {
             state.isLoading = false;
+            state.videoToShow = payload;
             state.videoList = state.videoList.map(video => video._id === payload._id ? payload : video)
         })
         .addCase(modifyVideo.rejected, state => {

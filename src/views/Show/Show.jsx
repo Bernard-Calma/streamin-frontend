@@ -43,22 +43,6 @@ const Show = props => {
         }
     }
 
-    const modifyComment = {
-        add: newComment => {
-            dispatch(modifyVideo({...video, 
-                comments: [...props.video.comments, newComment]}))
-            },
-        delete: deleteComment => {
-            dispatch(modifyVideo({...video, 
-                comments: video.comments.filter(comment => comment._id !== deleteComment._id)}))
-            },
-        modify: modifiedComment => {
-            dispatch(modifyVideo({...video,
-                comments: video.comments.map(comment => comment._id === modifiedComment._id ? modifiedComment : comment)
-            }))
-        }
-    }
-
     return (
         <section className="showVideo">
             <div className="left">
@@ -102,12 +86,7 @@ const Show = props => {
             </div>
 
             <div className="right">
-                <Comments
-                    video={video}
-                    modifyComment={modifyComment}
-                    handleToggleLoginPage={props.handleToggleLoginPage}
-                />
-                    
+                <Comments/>
             </div>
         </section>
     );
