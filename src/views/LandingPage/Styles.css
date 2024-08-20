@@ -16,6 +16,41 @@ main > .videoList {
     display: flex;
 }
 
+.videoImage > iframe {
+    width: 100%;
+}
+
+.videoTitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.videoInfo {
+    height: 110px;
+    border-radius: 0 0 5px 5px;
+    text-align: start;
+    padding: 0 0 0 10px;
+    border-top: solid rgb(209, 206, 206);
+}
+
+.videoDescription {
+    color:white;
+    width: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.videoInfo > p {
+    color: white;
+}
+
+.videoFooter {
+    display: flex;
+    justify-content: space-between;
+}
+
 .videoInfo .publishedDate {
     color: white;
     margin: 0;

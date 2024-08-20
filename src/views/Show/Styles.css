@@ -1,40 +1,3 @@
-iframe {
-    width: 100% !important;
-    height: 200px !important;
-    border-radius: 5px 5px 0 0;
-}
-
-.videoInfo {
-    height: 110px;
-    border-radius: 0 0 5px 5px;
-    text-align: start;
-    padding: 0 0 0 10px;
-    border-top: solid rgb(209, 206, 206);
-}
-
-.videoTitle {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.videoDescription {
-    color:white;
-    width: inherit;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.videoInfo > p {
-    color: white;
-}
-
-.videoFooter {
-    display: flex;
-    justify-content: space-between;
-}
-
 /* Show Video */
 section.showVideo {
     width: 100%;
@@ -45,6 +8,7 @@ section.showVideo {
     align-items: flex-start;
     padding: 20px 20px 0;
     color: white;
+    font-family: "Kanit", sans-serif;
 }
 
 .showVideo > .left  {
@@ -58,17 +22,18 @@ section.showVideo {
 }
 
 .showVideo .videoPlayer {
-    width: 800px;
-    height: 550px;
+    width: 55rem;
 }
 
 .showVideo .videoPlayer > iframe {
-    height: 500px !important;
+    width: 55rem;
+    height: 30rem
 }
 
 .showVideo .divTitle {
     display: flex;
     align-items: center;
+    padding-left: 0.75em;
 }
 
 .divTitle p {
@@ -77,6 +42,7 @@ section.showVideo {
 }
 
 .showVideo input,.showVideo textarea {
+    margin: 0;
     background-color: black;
     color: white;
     border: none;
@@ -102,9 +68,10 @@ section.showVideo {
 }
 
 .showVideo .description {
-    font-size: 20px;
-    margin-bottom: 20px;
-    height: 150px !important;
+    padding-left: 0.75em;
+    font-size: 1.5em;
+    font-weight: 200;
+    height: 5rem;
 }
 
 .videoControl {
@@ -141,8 +108,8 @@ section.showVideo {
 }
 
 .right{
-    width: 400px;
-    height: 700px;
+    width: 25rem;
+    height: 35rem;
     border: solid white;
     display: flex;
     flex-direction: column;
@@ -169,14 +136,16 @@ section.showVideo {
 }
 
 .inputComment {
-    display: inline;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.75em;
     background-color: rgb(100, 104, 107);
 }
 
 .right input {
+    flex: 1;
     background-color: rgb(100, 104, 107);
     color: black;
-    width: 350px;
 }
 
 .inputComment > i {
@@ -227,4 +196,52 @@ section.showVideo {
 
 .deleteComment {
     padding-right: 10px;
+}
+
+/* Responsive */
+/* Mid Screen */
+@media screen and (max-height: 900px) {
+    section.showVideo {
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-height: 900px) {
+    section.showVideo {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .showVideo .videoPlayer > iframe, .showVideo > .left, .showVideo .videoPlayer, .showVideo > .right {
+        width: 100%;
+        margin: 0;
+    }
+
+    .showVideo .videoPlayer > iframe {
+        height: 45rem;
+    }
+
+    .showVideo > .right {
+        height: 20rem;
+    }
+}
+
+@media screen and (max-width: 1250px)  {
+    section.showVideo {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .showVideo .videoPlayer > iframe, .showVideo > .left, .showVideo .videoPlayer, .showVideo > .right {
+        width: 100%;
+        margin: 0;
+    }
+
+    .showVideo .videoPlayer > iframe {
+        height: 15rem;
+    }
+
+    .showVideo > .right {
+        height: 10rem;
+    }
 }
