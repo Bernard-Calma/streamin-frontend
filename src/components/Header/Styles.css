@@ -98,6 +98,12 @@ header > .user > p {
 
 /* Phone */
 @media only screen and (max-width: 900px) {
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
     header > .user, .searchBar button {
         display: none;
     }
@@ -126,5 +132,4 @@ header > .user > p {
         display: inline;
         cursor: pointer;
     }
-
 }

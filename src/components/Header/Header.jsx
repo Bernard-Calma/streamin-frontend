@@ -3,7 +3,7 @@ import './Styles.css'
 import { SearchBar } from './components';
 import Logo from "../../assets/Logo2.png"
 import { useDispatch, useSelector } from 'react-redux';
-import { setView, toggleShowLogin } from '../../features/view/viewSlice';
+import { setView, showLogin, toggleShowLogin } from '../../features/view/viewSlice';
 
 const Header = () =>  {
     const dispatch = useDispatch();
@@ -29,6 +29,7 @@ const Header = () =>  {
             <nav className={`navBar ${menuOpen && "open"}`}>
                 <p className={`navBar item ${setSelected("Landing Page")}`} onClick={() => dispatch(setView("Landing Page"))}>HOME</p>
                 {username !== "Guest" && <p className={`navBar item ${setSelected("My Videos")}`} onClick={() => dispatch(setView("My Videos"))}>MY VIDEOS</p>}
+                {username === "Guest" && <p className={`navBar item login`} onClick={() => dispatch(showLogin())}>LOGIN</p>}
             </nav>
 
             <div className='searchBar'>

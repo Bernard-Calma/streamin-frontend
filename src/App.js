@@ -37,6 +37,7 @@ const App = () => {
     return(
       <>
         <Header/>
+        {showLogin && <SignIn/>}
         { view === "Landing Page" || view === "My Videos" || view === "Search"
           ? <LandingPage/>
         : view === "About"
@@ -48,7 +49,7 @@ const App = () => {
         : <></>
         }
         <Footer/>
-        {showLogin && <SignIn/>}
+        
       </>
     )
 }

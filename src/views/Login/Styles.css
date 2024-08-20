@@ -19,6 +19,10 @@ section.login > h1 {
     color: white;
 }
 
+.login .fa-circle-xmark {
+    display: none;
+}
+
 /* Form */
 .login form {
     width: 16em;
@@ -98,4 +102,22 @@ section.login > h1 {
 
 .addVideoLink:hover, .signoutLink:hover, #registerPageLink:hover {
     font-weight: 400;
+}
+
+/* Responsive */
+/* Phone */
+@media only screen and (max-width: 900px) {
+    section.login {
+        position: relative;
+        width: 100%;
+        margin: auto;
+        margin-bottom: 2rem;
+        top: 0.25rem;
+    }
+
+    .login .fa-circle-xmark {
+        display: inline;
+        position: fixed;
+        right: 0.25em;
+    }
 }

@@ -6,15 +6,18 @@ import {
 } from './components';
 
 import './Styles.css'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleShowLogin } from '../../features/view/viewSlice';
 
 const SignIn = () => {
+    const dispatch = useDispatch();
     const {
         username
     } = useSelector(store => store.user.user)
 
     return(
         <section className='login'>
+            <i class="fa-regular fa-circle-xmark" onClick={() => dispatch(toggleShowLogin())}></i>
             {username === "Guest"
                 ? <>
                     <Form/> 
