@@ -33,6 +33,12 @@ header {
     margin: 0 10px;
     padding: 0;
 }
+
+.fa-bars {
+    font-size: 2rem;
+    display: none;
+    position: fixed;
+}
 /* Nav Bar */
 
 /* Search Bar */
@@ -69,7 +75,7 @@ header > .user > p {
     font-size: 1.5rem;
 }
 /* User */
-.navBar.item:hover, header > .user > i:hover, .selected {
+.navBar.item:hover, .fa-solid:hover ,header > .user > i:hover, .selected {
     color: white;
 }
 
@@ -79,3 +85,46 @@ header > .user > p {
     text-decoration-thickness: 0.1rem;
 }
 /* Common */
+
+
+/* Responsive */
+
+/* Mid Screen */
+@media only screen and (max-width: 1250px) {
+    .logo {
+        display: none;
+    };
+}
+
+/* Phone */
+@media only screen and (max-width: 900px) {
+    header > .user, .searchBar button {
+        display: none;
+    }
+
+    .searchBar {
+        padding: 0;
+    }
+
+    .navBar {
+        display: none;
+        flex-direction: column;
+        font-size: 1rem;
+    }
+
+    .navBar.open {
+        display: flex;
+    }
+
+    .navBar.item {
+        width: 100%;
+        text-align: center;
+        margin: 0.25em 0.5em;
+    }
+
+    .fa-solid {
+        display: inline;
+        cursor: pointer;
+    }
+
+}
