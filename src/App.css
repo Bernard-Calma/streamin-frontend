@@ -238,16 +238,6 @@ a:hover {
     align-items: center;
     
 }
-.video {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  margin: 25px;
-  border: 1px white solid;
-  padding: 30px;
-  border-radius: 5px;
-  max-width: 400px;
-}
 
 .video iframe {
   width: 250px;
@@ -398,12 +388,7 @@ right:0px;
     font-size: 25px;
     
   }
-  .videoList {
-    display:block; 
-    margin: 5px;
-    margin-top: 20px;
-    flex-direction: column;
-  }
+  
   .userPage{
     max-width: 1214px;
   }

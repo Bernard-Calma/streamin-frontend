@@ -6,6 +6,16 @@ main > .videoList {
     margin: 0;
 }
 
+.videoList > .video {
+    display:  flex;
+    flex-direction: column;
+    width: 20rem;
+    margin: 25px;
+    padding: 0;
+    border: none;
+    display: flex;
+}
+
 .videoInfo .publishedDate {
     color: white;
     margin: 0;
@@ -24,4 +34,25 @@ main > .videoList {
 .opacity-100 {
     opacity: 100;
     height: auto;
+}
+
+/* Responsive */
+/* Phone */
+@media only screen and (max-width: 900px) {
+    .videoList .opacity-100{
+        gap: 0;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+    }
+    .videoList .video {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        margin-bottom: 0.75rem;
+    }
+
+    .video > iframe, .videoImage {
+        width: 100% !important;
+    }
+    
 }

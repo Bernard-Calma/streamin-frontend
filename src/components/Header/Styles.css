@@ -34,6 +34,10 @@ header {
     padding: 0;
 }
 
+.navBar.item.login {
+    display: none;
+}
+
 .fa-bars {
     font-size: 2rem;
     display: none;
@@ -126,6 +130,10 @@ header > .user > p {
         width: 100%;
         text-align: center;
         margin: 0.25em 0.5em;
+    }
+
+    .navBar.item.login {
+        display: inline;
     }
 
     .fa-solid {
