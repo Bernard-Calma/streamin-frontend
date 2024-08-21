@@ -21,7 +21,7 @@ const SignIn = () => {
 
     return(
         <section className='login'>
-            {  navSelected === "Landing Page" && <i class="fa-regular fa-circle-xmark" onClick={() => dispatch(toggleShowLogin())}/> }
+            {  navSelected === "Landing Page" && <i className="fa-regular fa-circle-xmark" onClick={() => dispatch(toggleShowLogin())}/> }
             {username === "Guest"
                 ? <>
                     <Form/> 

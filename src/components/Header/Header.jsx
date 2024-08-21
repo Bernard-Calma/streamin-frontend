@@ -25,7 +25,7 @@ const Header = () =>  {
     return(
         <header className="header container-fluid ">
             <img className="logo" src={Logo} alt="logo" onClick={() => dispatch(setView("Landing Page"))}/>
-            <i class="fa-solid fa-bars" onClick={() => setMenuOpen(!menuOpen)}></i>
+            <i className="fa-solid fa-bars" onClick={() => setMenuOpen(!menuOpen)}></i>
             <nav className={`navBar ${menuOpen && "open"}`}>
                 <p className={`navBar item ${setSelected("Landing Page")}`} onClick={() => dispatch(setView("Landing Page"))}>HOME</p>
                 {username !== "Guest" && <p className={`navBar item ${setSelected("My Videos")}`} onClick={() => dispatch(setView("My Videos"))}>MY VIDEOS</p>}
