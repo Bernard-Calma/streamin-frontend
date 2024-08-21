@@ -25,6 +25,21 @@ export const login = createAsyncThunk("user/login", async (payload, thunkAPI) =>
     }
 })
 
+export const register = createAsyncThunk("user/register", async (payload, thunkAPI) => {
+    try {
+        const res = await axios({
+            method: "POST",
+            url: `${process.env.REACT_APP_SERVER_URL}/users`,
+            withCredentials: true,
+            data: payload
+        })
+        return res.data
+    } catch(err) {
+        // console.log("Error: ", err.response.data.err)
+        return thunkAPI.rejectWithValue(err.response.data.err)
+    }
+})
+
 export const userSlice = createSlice({
     name: 'user',
     initialState,
@@ -51,6 +66,21 @@ export const userSlice = createSlice({
             state.loggedIn = true;
         })
         .addCase(login.rejected, (state, {payload}) => {
+            // console.log("Error logging in: ", payload)
+            state.errorMessage = payload;
+            state.isLoading = false;
+        })
+        // URegister
+        .addCase(register.pending, state => {
+            state.isLoading = true;
+        })
+        .addCase(register.fulfilled, (state , {payload}) => {
+            state.isLoading = false;
+            // console.log(payload);
+            state.user = payload;
+            state.loggedIn = true;
+        })
+        .addCase(register.rejected, (state, {payload}) => {
             // console.log("Error logging in: ", payload)
             state.errorMessage = payload;
             state.isLoading = false;

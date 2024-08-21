@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../../features/user/userSlice";
+import { login, register } from "../../../features/user/userSlice";
 import { toggleShowLogin } from "../../../features/view/viewSlice";
 
 const Form = () => {
@@ -28,13 +28,16 @@ const Form = () => {
             if (loggedIn) dispatch(toggleShowLogin());
             else setErrMessage(errorMessage);
         } else {
-            const regex =  /^[A-Z]\w{6}$/;
+            const regex =  /^[a-zA-Z0-9]\w{6}/;
             if (user.password !== user.passwordCheck) {
-                return setErrMessage("Password does not match");
+                setErrMessage("Password does not match");
             } else if (!regex.test(user.password)) {
-                return setErrMessage(`Invalid password. \nPassword must be at least 6 characters. \nPassword must at least have one uppercase letter`);
+                setErrMessage(`Invalid password. \nPassword must be at least 6 characters. \nPassword must at least have one uppercase letter`);
             } else {
-                dispatch(login(user))
+                // console.log("Register request sent.")
+                dispatch(register(user))
+                if (loggedIn) dispatch(toggleShowLogin());
+                else setErrMessage(errorMessage);
             }
         }
     }
@@ -95,7 +98,7 @@ const Form = () => {
                             required
                             onChange={handleChange}
                         />
-                        <p className="errMessage">{errorMessage}</p>
+                        <p className="errMessage">{errMessage}</p>
                         <div>
                             <p className="registerLink"> Already registered? Login
                                 <span 
