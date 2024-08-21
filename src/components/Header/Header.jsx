@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Styles.css'
 import { SearchBar } from './components';
 import Logo from "../../assets/Logo2.png"
 import { useDispatch, useSelector } from 'react-redux';
-import { setView, toggleShowLogin } from '../../features/view/viewSlice';
+import { setView, showLogin, toggleShowLogin } from '../../features/view/viewSlice';
 
 const Header = () =>  {
     const dispatch = useDispatch();
+
+    const [menuOpen, setMenuOpen] = useState(false)
     
     const {
         username
@@ -23,9 +25,11 @@ const Header = () =>  {
     return(
         <header className="header container-fluid ">
             <img className="logo" src={Logo} alt="logo" onClick={() => dispatch(setView("Landing Page"))}/>
-            <nav className="navBar">
+            <i class="fa-solid fa-bars" onClick={() => setMenuOpen(!menuOpen)}></i>
+            <nav className={`navBar ${menuOpen && "open"}`}>
                 <p className={`navBar item ${setSelected("Landing Page")}`} onClick={() => dispatch(setView("Landing Page"))}>HOME</p>
                 {username !== "Guest" && <p className={`navBar item ${setSelected("My Videos")}`} onClick={() => dispatch(setView("My Videos"))}>MY VIDEOS</p>}
+                {username === "Guest" && <p className={`navBar item login`} onClick={() => dispatch(showLogin())}>LOGIN</p>}
             </nav>
 
             <div className='searchBar'>
