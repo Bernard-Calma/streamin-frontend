@@ -21,6 +21,7 @@ export const viewSlice = createSlice({
         setView: (state, {payload}) => {
             state.view = payload;
             state.navSelected = payload;
+            if(state.navSelected === "Landing Page") state.showLogin = false;
         }
     }
 })

@@ -15,9 +15,13 @@ const SignIn = () => {
         username
     } = useSelector(store => store.user.user)
 
+    const {
+        navSelected
+    } = useSelector(store => store.view)
+
     return(
         <section className='login'>
-            <i class="fa-regular fa-circle-xmark" onClick={() => dispatch(toggleShowLogin())}></i>
+            {  navSelected === "Landing Page" && <i class="fa-regular fa-circle-xmark" onClick={() => dispatch(toggleShowLogin())}/> }
             {username === "Guest"
                 ? <>
                     <Form/> 

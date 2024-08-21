@@ -24,6 +24,10 @@ const App = () => {
     showLogin
   } = useSelector(store => store.view)
 
+  const {
+    navSelected
+} = useSelector(store => store.view)
+
   // Redux initialization
   const dispatch = useDispatch();
 
@@ -37,7 +41,7 @@ const App = () => {
     return(
       <>
         <Header/>
-        {showLogin && <SignIn/>}
+        {(showLogin || navSelected === "My Videos") && <SignIn/>}
         { view === "Landing Page" || view === "My Videos" || view === "Search"
           ? <LandingPage/>
         : view === "About"
