@@ -6,6 +6,7 @@ const initialState = {
         username: "Guest",
         name: "Guest"},
     loggedIn: false,
+    errorMessage: null,
     isLoading: false
 }
 
@@ -19,8 +20,8 @@ export const login = createAsyncThunk("user/login", async (payload, thunkAPI) =>
         })
         return res.data
     } catch(err) {
-        console.log(err)
-        return thunkAPI.rejectWithValue("Error logging in.")
+        // console.log("Error: ", err.response.data.err)
+        return thunkAPI.rejectWithValue(err.response.data.err)
     }
 })
 
@@ -49,7 +50,9 @@ export const userSlice = createSlice({
             state.user = payload;
             state.loggedIn = true;
         })
-        .addCase(login.rejected, state => {
+        .addCase(login.rejected, (state, {payload}) => {
+            // console.log("Error logging in: ", payload)
+            state.errorMessage = payload;
             state.isLoading = false;
         })
     }

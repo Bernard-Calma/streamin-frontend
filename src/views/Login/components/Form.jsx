@@ -1,10 +1,15 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../../features/user/userSlice";
 import { toggleShowLogin } from "../../../features/view/viewSlice";
 
 const Form = () => {
     const dispatch = useDispatch();
+
+    const {
+        loggedIn,
+        errorMessage
+    } = useSelector(store => store.user)
 
     const [user, setUser] = useState({
         username: "",
@@ -19,8 +24,9 @@ const Form = () => {
         e.preventDefault();
         // console.log(user);
         if (viewLogin) {
-            dispatch(login(user))
-            dispatch(toggleShowLogin())
+            dispatch(login(user));
+            if (loggedIn) dispatch(toggleShowLogin());
+            else setErrMessage(errorMessage);
         } else {
             const regex =  /^[A-Z]\w{6}$/;
             if (user.password !== user.passwordCheck) {
@@ -36,6 +42,11 @@ const Form = () => {
     const handleToggleRegister = () => {
         setViewLogin(!viewLogin)
     }
+
+    useEffect( () => {
+        setErrMessage(errorMessage)
+        // eslint-disable-next-line
+    }, [errorMessage])
 
     return(
         <>
@@ -84,7 +95,7 @@ const Form = () => {
                             required
                             onChange={handleChange}
                         />
-                        <p className="errMessage">{errMessage}</p>
+                        <p className="errMessage">{errorMessage}</p>
                         <div>
                             <p className="registerLink"> Already registered? Login
                                 <span 
