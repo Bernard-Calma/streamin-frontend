@@ -36,9 +36,7 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest",
-      "@babel/plugin-transform-private-property-in-object", 
-      "next/core-web-vitals"
+      "react-app/jest"
     ]
   },
   "browserslist": {
