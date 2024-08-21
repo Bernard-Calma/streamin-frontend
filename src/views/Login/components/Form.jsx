@@ -1,10 +1,15 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { login } from "../../../features/user/userSlice";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { login, register } from "../../../features/user/userSlice";
 import { toggleShowLogin } from "../../../features/view/viewSlice";
 
 const Form = () => {
     const dispatch = useDispatch();
+
+    const {
+        loggedIn,
+        errorMessage
+    } = useSelector(store => store.user)
 
     const [user, setUser] = useState({
         username: "",
@@ -19,16 +24,20 @@ const Form = () => {
         e.preventDefault();
         // console.log(user);
         if (viewLogin) {
-            dispatch(login(user))
-            dispatch(toggleShowLogin())
+            dispatch(login(user));
+            if (loggedIn) dispatch(toggleShowLogin());
+            else setErrMessage(errorMessage);
         } else {
-            const regex =  /^[A-Z]\w{6}$/;
+            const regex =  /^[a-zA-Z0-9]\w{6}/;
             if (user.password !== user.passwordCheck) {
-                return setErrMessage("Password does not match");
+                setErrMessage("Password does not match");
             } else if (!regex.test(user.password)) {
-                return setErrMessage(`Invalid password. \nPassword must be at least 6 characters. \nPassword must at least have one uppercase letter`);
+                setErrMessage(`Invalid password. \nPassword must be at least 6 characters. \nPassword must at least have one uppercase letter`);
             } else {
-                dispatch(login(user))
+                // console.log("Register request sent.")
+                dispatch(register(user))
+                if (loggedIn) dispatch(toggleShowLogin());
+                else setErrMessage(errorMessage);
             }
         }
     }
@@ -36,6 +45,11 @@ const Form = () => {
     const handleToggleRegister = () => {
         setViewLogin(!viewLogin)
     }
+
+    useEffect( () => {
+        setErrMessage(errorMessage)
+        // eslint-disable-next-line
+    }, [errorMessage])
 
     return(
         <>
