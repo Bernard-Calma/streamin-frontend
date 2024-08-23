@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-// Import FontAwesome icon for the search bar
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 import { useDispatch } from 'react-redux';
 import { videoSearch } from '../../../features/video/videoSlice';
 import { setView } from '../../../features/view/viewSlice';
@@ -30,7 +27,7 @@ const SearchBar = () => {
                 />
                 <button type="submit"className="fontIcon">
                 {/* Search */}
-                    <FontAwesomeIcon icon={solid( "magnifying-glass")}/>
+                <i className="fa-solid fa-magnifying-glass"/>
                 </button>
         </form>
     </div>
